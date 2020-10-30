@@ -4,6 +4,17 @@ body {
     align-content: center;
     margin: fill;
 }
+
+.header {
+    font-style: italic;
+    text-align: center;
+    background: #81a2ac;
+    color: white;
+    font-size: 30px;
+
+}
+
+
 h1 {
     color: white;
 }
@@ -16,7 +27,7 @@ p {
     color: white;
 }
 div.wrapper {
-    padding: 200px;
+    padding: 100px;
     align-content: center;
     width: 40em;
     margin: auto;
@@ -24,6 +35,7 @@ div.wrapper {
 }
 
 div.container {
+    padding: 20px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
