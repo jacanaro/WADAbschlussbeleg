@@ -2,208 +2,196 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Log in</title>
+    <title>AdViz</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
 
-    <style>
-        body {
-            background-color: lightblue;
-        }
-        h1 {
-            color: white;
-        }
-        label {
-            color: white;
-            display: inline-block
-
-        }
-        p {
-            color: white;
-        }
-
-    </style>
 </head>
 
 
 <body>
 
-<!-- Start Log In -->
 
-<div>
-    <h1> Log in</h1>
+<div class="wrapper">
 
-    <div>
+
+    <!-- Start Log In -->
+
+    <div class="container">
+
+        <h1> Log in</h1>
+
         <div>
-            <label for="username">User Name:</label>
-            <input type="text" id="username" name="username" required><br><br>
+            <div>
+                <label for="username">User Name:</label>
+                <input type="text" id="username" name="username" required><br><br>
+            </div>
+
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+            </div>
+
+            <br>
+
+            <button>Login</button>
+            <br><br>
         </div>
-
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" required>
-        </div>
-
-        <br>
-
-        <button>Login</button>
-        <br><br>
     </div>
+
+    <!-- End Log In -->
+
+
+    <!-- Start Add Address -->
+
+    <div class="container">
+        <h1>Add New Address</h1>
+
+        <div>
+            <div>
+                <label for="titel">Titel:</label>
+                <input type="text" id="titel" name="titel"><br><br>
+            </div>
+
+            <div>
+                <label for="geschlecht">Geschlecht:</label>
+                <input type="text" id="geschlecht" name="geschlecht"><br><br>
+            </div>
+
+            <div>
+                <label for="vorname">Vorname*:</label>
+                <input type="text" id="vorname" name="vorname" required><br><br>
+            </div>
+
+            <div>
+                <label for="nachname">Nachname*:</label>
+                <input type="text" id="nachname" name="nachname" required><br><br>
+            </div>
+
+            <div>
+                <label for="strassehnr">Strasse + Hausnr*:</label>
+                <input type="text" id="strassehnr" name="strassehnr" required><br><br>
+            </div>
+
+            <div>
+                <label for="plz">Postleitzahl*:</label>
+                <input type="number" id="plz" name="plz" required><br><br>
+            </div>
+
+            <div>
+                <label for="stadt">Stadt*:</label>
+                <input type="text" id="stadt" name="stadt" required><br><br>
+            </div>
+
+            <div>
+                <label for="land">Land*:</label>
+                <input type="text" id="land" name="land" required><br><br>
+            </div>
+
+            <div>
+                <label for="email">Mail:</label>
+                <input type="text" id="email" name="email"><br><br>
+            </div>
+
+            <div>
+                <label for="sonstiges">Sonstiges:</label>
+                <input type="text" id="sonstiges" name="sonstiges"><br><br>
+            </div>
+
+            <div>
+                <label for="privat">Privater Kontakt:</label>
+                <input type="checkbox" id="privat">
+            </div>
+
+            <br>
+
+            <button name="save" type="submit"> Save</button>
+
+            <br>
+            <p>*Required</p>
+        </div>
+    </div>
+
+
+    <!-- End Add Address -->
+
+
+    <!-- Start Update Address -->
+
+
+    <div class="container">
+        <h1>Update Address</h1>
+
+        <div>
+            <div>
+                <label for="titelupdated">Titel:</label>
+                <input type="text" id="titelupdated" name="titel" ><br><br>
+            </div>
+
+            <div>
+                <label for="geschlechtupdated">Geschlecht:</label>
+                <input type="text" id="geschlechtupdated" name="geschlecht"><br><br>
+            </div>
+
+            <div>
+                <label for="vornameupdated">Vorname*:</label>
+                <input type="text" id="vornameupdated" name="vorname"><br><br>
+            </div>
+
+            <div>
+                <label for="nachnameupdated">Nachname*:</label>
+                <input type="text" id="nachnameupdated" name="nachname"><br><br>
+            </div>
+
+            <div>
+                <label for="strassehnrupdated">Strasse + Hausnr*:</label>
+                <input type="text" id="strassehnrupdated" name="strassehnr"><br><br>
+            </div>
+
+            <div>
+                <label for="plzupdated">Postleitzahl*:</label>
+                <input type="number" id="plzupdated" name="plz"><br><br>
+            </div>
+
+            <div>
+                <label for="stadtupdated">Stadt*:</label>
+                <input type="text" id="stadtupdated" name="stadt"><br><br>
+            </div>
+
+            <div>
+                <label for="landupdated">Land*:</label>
+                <input type="text" id="landupdated" name="land"><br><br>
+            </div>
+
+            <div>
+                <label for="emailupdated">Mail:</label>
+                <input type="text" id="emailupdated" name="email"><br><br>
+            </div>
+
+            <div>
+                <label for="sonstigesupdated">Sonstiges:</label>
+                <input type="text" id="sonstigesupdated" name="sonstiges"><br><br>
+            </div>
+
+            <div>
+                <label for="privatupdated">Privater Kontakt:</label>
+                <input type="checkbox" id="privatupdated">
+            </div>
+
+            <br>
+
+            <button name= "save" type="submit" > Save </button>
+
+            <br>
+            <p>*Required</p>
+        </div>
+
+    </div>
+
+    <!-- End Update Address -->
+
+
 </div>
 
-<!-- End Log In -->
-
-
-<!-- Start Main Frame -->
-
-
-
-<!-- End Main Frame -->
-
-
-<!-- Start Add New Address -->
-
-<div>
-    <h1>Add New Address</h1>
-
-    <div>
-        <div>
-            <label for="titel">Titel:</label>
-            <input type="text" id="titel" name="titel"><br><br>
-        </div>
-
-        <div>
-            <label for="geschlecht">Geschlecht:</label>
-            <input type="text" id="geschlecht" name="geschlecht"><br><br>
-        </div>
-
-        <div>
-            <label for="vorname">Vorname*:</label>
-            <input type="text" id="vorname" name="vorname" required><br><br>
-        </div>
-
-        <div>
-            <label for="nachname">Nachname*:</label>
-            <input type="text" id="nachname" name="nachname" required><br><br>
-        </div>
-
-        <div>
-            <label for="strassehnr">Strasse + Hausnr*:</label>
-            <input type="text" id="strassehnr" name="strassehnr" required><br><br>
-        </div>
-
-        <div>
-        <label for="plz">Postleitzahl*:</label>
-        <input type="number" id="plz" name="plz" required><br><br>
-        </div>
-
-        <div>
-            <label for="stadt">Stadt*:</label>
-            <input type="text" id="stadt" name="stadt" required><br><br>
-        </div>
-
-        <div>
-            <label for="land">Land*:</label>
-            <input type="text" id="land" name="land" required><br><br>
-        </div>
-
-        <div>
-            <label for="email">Mail:</label>
-            <input type="text" id="email" name="email"><br><br>
-        </div>
-
-        <div>
-            <label for="sonstiges">Sonstiges:</label>
-            <input type="text" id="sonstiges" name="sonstiges"><br><br>
-        </div>
-
-        <div>
-            <label for="privat">Privater Kontakt:</label>
-            <input type="checkbox" id="privat">
-        </div>
-
-        <br>
-
-        <button name= "save" type="submit" > Save </button>
-
-        <br>
-        <p>*Required</p>
-    </div>
-</div>
-
-<!-- End Add New Address -->
-
-
-<!-- Start Update Address -->
-
-<div>
-    <h1>Update Address</h1>
-
-    <div>
-        <div>
-            <label for="titelupdated">Titel:</label>
-            <input type="text" id="titelupdated" name="titel" ><br><br>
-        </div>
-
-        <div>
-            <label for="geschlechtupdated">Geschlecht:</label>
-            <input type="text" id="geschlechtupdated" name="geschlecht"><br><br>
-        </div>
-
-        <div>
-            <label for="vornameupdated">Vorname*:</label>
-            <input type="text" id="vornameupdated" name="vorname"><br><br>
-        </div>
-
-        <div>
-            <label for="nachnameupdated">Nachname*:</label>
-            <input type="text" id="nachnameupdated" name="nachname"><br><br>
-        </div>
-
-        <div>
-            <label for="strassehnrupdated">Strasse + Hausnr*:</label>
-            <input type="text" id="strassehnrupdated" name="strassehnr"><br><br>
-        </div>
-
-        <div>
-            <label for="plzupdated">Postleitzahl*:</label>
-            <input type="number" id="plzupdated" name="plz"><br><br>
-        </div>
-
-        <div>
-            <label for="stadtupdated">Stadt*:</label>
-            <input type="text" id="stadtupdated" name="stadt"><br><br>
-        </div>
-
-        <div>
-            <label for="landupdated">Land*:</label>
-            <input type="text" id="landupdated" name="land"><br><br>
-        </div>
-
-        <div>
-            <label for="emailupdated">Mail:</label>
-            <input type="text" id="emailupdated" name="email"><br><br>
-        </div>
-
-        <div>
-            <label for="sonstigesupdated">Sonstiges:</label>
-            <input type="text" id="sonstigesupdated" name="sonstiges"><br><br>
-        </div>
-
-        <div>
-            <label for="privatupdated">Privater Kontakt:</label>
-            <input type="checkbox" id="privatupdated">
-        </div>
-
-        <br>
-
-        <button name= "save" type="submit" > Save </button>
-
-        <br>
-        <p>*Required</p>
-    </div>
-</div>
-
-
-<!-- End Update Address -->
 
 
 
