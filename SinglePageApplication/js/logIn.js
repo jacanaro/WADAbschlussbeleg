@@ -21,6 +21,7 @@ function getInfo() {
             document.getElementById("loggedIn").style.display = 'block';
             document.getElementById("addNewContact").style.display = 'none';
 
+
             document.getElementById("loginData").innerHTML = "Hello, " + username + "!";
             return
         }

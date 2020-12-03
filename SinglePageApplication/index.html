@@ -52,18 +52,17 @@
     <!-- HEADER -->
     <div class="header">
         <h1>AdViz</h1>
-        <p id="loginData"></p>        
+        <p id="loginData"></p>
+        <button type="button" onclick="logOut()">Log out</button>
+        <br><br>
+
     </div>
 
-    <button type="button" onclick="logOut()">Log out</button>
 
 
 
         <!-- Start Main Frame -->
 
-        <div class="container">
-            <h1>All Contacts</h1>
-        </div>
 
         <div class="grid-container">
 
@@ -74,18 +73,90 @@
                 <!-- ToDo: die Kontakte auf der Map markieren -->
                 <!--ToDo: nur die privaten Kontakte der Rolle anzeigen (jede Rolle hat 1 privaten und 1 öffentlichen Kontakt) -->
                 <details>
-                    <summary>Agnetha Agnethovic</summary>
-                        <p>Titel: Frau</p>
-                        <p>Geschlecht: weiblich</p>
-                        <p>Vorname: Agnetha</p>
-                        <p>Nachname: Agnethovic</p>
-                        <p>Straße und Hausnummer: Firlstraße 12</p>
-                        <p>Postleitzahl: 12459</p>
-                        <p>Stadt: Berlin</p>
-                        <p>Land: Deutschland</p>
-                        <p>Mailadresse: wkjnefwef@gmail.com</p>
-                        <p>Sonstiges: Toll</p>
-                        <p>Privater Kontakt: ja</p>
+                    <summary id="adminaprivateform">Agnetha Agnethovic</summary>
+                    <div>
+                        <form action=”/survey" method="POST">
+
+                            <div>
+                                <br>
+                                <input type="text" id="adminaprivtitle" name="titel"
+                                       placeholder="Titel" value="Frau"><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <label for="geschlecht">Geschlecht:</label> <select
+                                    name="geschlecht" id="adminaprivgeschlecht">
+                                <option value="keineAngabe">keine Angabe</option>
+                                <option value="weiblich">weiblich</option>
+                                <option value="maennlich">männlich</option>
+                                <option value="divers">divers</option>
+                            </select> <br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <input type="text" id="adminaprivvorname" name="vorname"
+                                       placeholder="Vorname" value="Agnetha" required><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <input type="text" id="adminaprivnachname" name="nachname"
+                                       placeholder="Nachname" value="Agnethovic" required><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <input type="text" id="adminaprivstrassehnr" name="strassehnr"
+                                       placeholder="Straße und Hausnummer" value="Firlstraße 2" required><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <input type="number" id="adminaprivplz" name="plz"
+                                       placeholder="Postleitzahl" value="12459" required><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <input type="text" id="adminaprivstadt" name="stadt"
+                                       placeholder="Stadt" value="Berlin" required><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <input type="text" id="adminaprivland" name="land" placeholder="Land"
+                                       value="Deutschland" required><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <input type="text" id="adminaprivemail" name="email"
+                                       placeholder="Mail-Adresse"><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <input type="text" id="adminaprivsonstiges" name="sonstiges"
+                                       placeholder="Sonstiges"><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <label for="adminaprivprivat">Privater Kontakt:</label> <input
+                                    type="checkbox" id="adminaprivprivat" checked>
+                            </div>
+
+                            <p>*Required Fields</p>
+
+
+                            <button name="save" type="button">Save to Admina</button>
+                            <button name="saveToNormalo" type="button">Save to Normalo</button>
+                            <button name="close" type="button">Close</button>
+                            <br><br>
+                        </form>
+                    </div>
                 </details>
                 <details>
                     <summary>Jacob Jacobson</summary>
@@ -243,13 +314,6 @@
         <!-- End Main Frame -->
 
 
-        <!-- Start Add Address -->
-        <!-- ToDo: Kontakfeld -->
-        <p id="test2"></p>
-
-
-
-        <!-- End Add Address -->
 
         <hr>
 
