@@ -1,441 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>AdViz</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="shortcut icon" type="image/x-icon" href="icons/icon_map.ico">
+<meta charset="UTF-8">
+<title>AdViz</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="shortcut icon" type="image/x-icon" href="icons/icon_map.ico">
 
 </head>
 
 
 <body>
 
-<!-- Start Log In -->
+	<!-- Start Log In -->
 
 
-<div class="container" id="logIn">
+	<div class="container" id="logIn">
 
-    <h1>Log in</h1>
+		<h1>Log in</h1>
 
-    <div>
-        <form action=”/survey" method="POST" id="form">
-            <div>
-                <input type="text" id="username" name="username"
-                       placeholder="Username"><br>
-                <br>
-            </div>
+		<div>
+			<form action=”/survey " method="POST" id="form">
+				<div>
+					<input type="text" id="username" name="username"
+						placeholder="Username"><br> <br>
+				</div>
 
-            <div>
-                <input type="password" id="password" name="password"
-                       placeholder="Password"><br>
-                <br>
-            </div>
+				<div>
+					<input type="password" id="password" name="password"
+						placeholder="Password"><br> <br>
+				</div>
 
-            <br>
-
-            <button type="button" onclick="getInfo()">Login</button>
-            <br>
-            <br>
-        </form>
-        <p id="loginFail"></p>
-    </div>
-</div>
-
-
-<!-- End Log In -->
-
-
-<!-- Logged in -->
-<div id="loggedIn">
-
-    <!-- HEADER -->
-    <div class="header">
-        <h1>AdViz</h1>
-        <p id="loginData"></p>
-        <button type="button" onclick="logOut()">Log out</button>
-        <br><br>
-
-    </div>
-
-
-
-
-        <!-- Start Main Frame -->
-
-
-        <div class="grid-container">
-
-            <div class="grid-item-links">
-                <h1>Contacts</h1>
-
-                <!-- fest kodierte Kontaktliste, vier Kontakte -->
-                <!-- ToDo: die Kontakte auf der Map markieren -->
-                <!--ToDo: nur die privaten Kontakte der Rolle anzeigen (jede Rolle hat 1 privaten und 1 öffentlichen Kontakt) -->
-                <details>
-                    <summary id="adminaprivateform">Agnetha Agnethovic</summary>
-                    <div>
-                        <form action=”/survey" method="POST">
-
-                            <div>
-                                <br>
-                                <input type="text" id="adminaprivtitle" name="titel"
-                                       placeholder="Titel" value="Frau"><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <label for="geschlecht">Geschlecht:</label> <select
-                                    name="geschlecht" id="adminaprivgeschlecht">
-                                <option value="keineAngabe">keine Angabe</option>
-                                <option value="weiblich">weiblich</option>
-                                <option value="maennlich">männlich</option>
-                                <option value="divers">divers</option>
-                            </select> <br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <input type="text" id="adminaprivvorname" name="vorname"
-                                       placeholder="Vorname" value="Agnetha" required><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <input type="text" id="adminaprivnachname" name="nachname"
-                                       placeholder="Nachname" value="Agnethovic" required><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <input type="text" id="adminaprivstrassehnr" name="strassehnr"
-                                       placeholder="Straße und Hausnummer" value="Firlstraße 2" required><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <input type="number" id="adminaprivplz" name="plz"
-                                       placeholder="Postleitzahl" value="12459" required><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <input type="text" id="adminaprivstadt" name="stadt"
-                                       placeholder="Stadt" value="Berlin" required><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <input type="text" id="adminaprivland" name="land" placeholder="Land"
-                                       value="Deutschland" required><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <input type="text" id="adminaprivemail" name="email"
-                                       placeholder="Mail-Adresse"><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <input type="text" id="adminaprivsonstiges" name="sonstiges"
-                                       placeholder="Sonstiges"><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <label for="adminaprivprivat">Privater Kontakt:</label> <input
-                                    type="checkbox" id="adminaprivprivat" checked>
-                            </div>
-
-                            <p>*Required Fields</p>
-
-
-                            <button name="save" type="button">Save to Admina</button>
-                            <button name="saveToNormalo" type="button">Save to Normalo</button>
-                            <button name="close" type="button">Close</button>
-                            <br><br>
-                        </form>
-                    </div>
-                </details>
-                <details>
-                    <summary>Jacob Jacobson</summary>
-                    <p>Titel: Herr</p>
-                    <p>Geschlecht: männlich</p>
-                    <p>Vorname: Jacob</p>
-                    <p>Nachname: Jacobson</p>
-                    <p>Straße und Hausnummer: Seelenbinderstraße 12</p>
-                    <p>Postleitzahl: 12555</p>
-                    <p>Stadt: Berlin</p>
-                    <p>Land: Deutschland</p>
-                    <p>Mailadresse: jj@gmail.com</p>
-                    <p>Sonstiges: Ganz ok</p>
-                    <p>Privater Kontakt: ja</p>
-                </details>
-                <details>
-                    <summary>HTW Berlin</summary>
-                    <p>Titel: Institution</p>
-                    <p>Geschlecht: keine Angabe</p>
-                    <p>Vorname: HTW</p>
-                    <p>Nachname: Berlin</p>
-                    <p>Straße und Hausnummer: Wilhelminenhofstraße 75A</p>
-                    <p>Postleitzahl: 12459</p>
-                    <p>Stadt: Berlin</p>
-                    <p>Land: Deutschland</p>
-                    <p>Mailadresse: htw@berlin.cde</p>
-                    <p>Sonstiges: Hochschule für Technik und Wirtschaft</p>
-                    <p>Privater Kontakt: nein</p>
-                </details>
-                <details>
-                    <summary>Gemüse Kebap</summary>
-                    <p>Titel: Imbiss</p>
-                    <p>Geschlecht: keine Angabe</p>
-                    <p>Vorname: Gemüse</p>
-                    <p>Nachname: Kebap</p>
-                    <p>Straße und Hausnummer: Rathenaustraße 1</p>
-                    <p>Postleitzahl: 12459</p>
-                    <p>Stadt: Berlin</p>
-                    <p>Land: Deutschland</p>
-                    <p>Mailadresse: </p>
-                    <p>Sonstiges: Immer für dich da</p>
-                    <p>Privater Kontakt: nein</p>
-                </details>
-
-            </div>
-
-            <div class="grid-item">
-
-                <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.6329504891805!2d13.411117315599794!3d52.52198137981453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e1edb11286f%3A0x30fc01c366e4166e!2sAlexanderplatz!5e0!3m2!1sde!2sde!4v1604077435368!5m2!1sde!2sde"
-                        width="600" height="450" frameborder="0" style="border: 0;"
-                        allowfullscreen="" aria-hidden="false" tabindex="0">
-
-                </iframe>
-
-            </div>
-            <div class="grid-item">
-
-                <button type="button">Show all contacts</button> <br><br>
-                <button type="button">Show my contacts</button> <br><br>
-                <button onclick="addNewContact()">Add new contact</button>
-
-
-
-                <div id="addNewContact">
-                    <h1>Add New Contact</h1>
-
-                    <div>
-                        <form action=”/survey" method="POST">
-                            <div>
-                                <input type="text" id="titel" name="titel" placeholder="Titel"><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <label for="geschlecht">Geschlecht:</label> <select
-                                    name="geschlecht" id="geschlecht">
-                                <option value="keineAngabe">keine Angabe</option>
-                                <option value="weiblich">weiblich</option>
-                                <option value="maennlich">männlich</option>
-                                <option value="divers">divers</option>
-
-                            </select> <br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <input type="text" id="vorname" name="vorname"
-                                       placeholder="Vorname*" required><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <input type="text" id="nachname" name="nachname"
-                                       placeholder="Nachname*" required><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <input type="text" id="strassehnr" name="strassehnr"
-                                       placeholder="Straße und Hausnummer*" required><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <input type="number" id="plz" name="plz"
-                                       placeholder="Postleitzahl*" required><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <input type="text" id="stadt" name="stadt" placeholder="Stadt*"
-                                       required><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <input type="text" id="land" name="land" placeholder="Land*"
-                                       required><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <input type="text" id="email" name="email"
-                                       placeholder="Mail-Adresse"><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <input type="text" id="sonstiges" name="sonstiges"
-                                       placeholder="Sonstiges"><br>
-                                <br>
-                            </div>
-
-                            <div>
-                                <label for="privat">Privater Kontakt:</label> <input
-                                    type="checkbox" id="privat" checked>
-                            </div>
-
-                            <p>*Required Fields</p>
-
-                            <button name="save" type="button" onclick="saveNewAddr()">Save</button>
-                            <button name="close" type="button" onclick="closeAddAddr()">Close</button>
-
-
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <!-- End Main Frame -->
-
-
-
-        <hr>
-
-        <!-- Start Update Address -->
-
-
-        <div class="container">
-            <h1>Update Contact</h1>
-
-            <div>
-                <form action=”/survey" method="POST">
-
-                    <div>
-                        <input type="text" id="titelupdated" name="titel"
-                               placeholder="Titel" value="Frau"><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <label for="geschlecht">Geschlecht:</label> <select
-                            name="geschlecht" id="geschlechtupdated">
-                        <option value="weiblich">weiblich</option>
-                        <option value="maennlich">männlich</option>
-                        <option value="divers">divers</option>
-                    </select> <br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="text" id="vornameupdated" name="vorname"
-                               placeholder="Vorname" value="Agnetha" required><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="text" id="nachnameupdated" name="nachname"
-                               placeholder="Nachname" value="A." required><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="text" id="strassehnrupdated" name="strassehnr"
-                               placeholder="Straße und Hausnummer" value="Firlstraße 2" required><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="number" id="plzupdated" name="plz"
-                               placeholder="Postleitzahl" value="12459" required><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="text" id="stadtupdated" name="stadt"
-                               placeholder="Stadt" value="Berlin" required><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="text" id="landupdated" name="land" placeholder="Land"
-                               value="Deutschland" required><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="text" id="emailupdated" name="email"
-                               placeholder="Mail-Adresse"><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="text" id="sonstigesupdated" name="sonstiges"
-                               placeholder="Sonstiges"><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <label for="privatupdated">Privater Kontakt:</label> <input
-                            type="checkbox" id="privatupdated" checked>
-                    </div>
-
-                    <br>
-
-                    <button name="save" type="button">Save</button>
-
-                    <br>
-                    <p>*Required</p>
-                </form>
-            </div>
-
-        </div>
-
-        <!-- End Update Address -->
-
-
-</div>
-
-<!-- End Logged in -->
-
-<!-- -->
-<script>
-    document.getElementById("loggedIn").style.display = 'none';
-</script>
-
-
-<script src="js/logIn.js">
-</script>
-
-<script>
-    function addNewContact() {
-        document.getElementById("addNewContact").style.display = 'block';
-    }
-    function closeAddAddr(){
-        document.getElementById("addNewContact").style.display = 'none';
-
-    }
-</script>
-
-<script src="js/addAddr.js">
-</script>
-
-<script src="js/logOut.js">
-</script>
+				<br>
+
+				<button type="button" onclick="getInfo()">Login</button>
+				<br> <br>
+			</form>
+			<p id="loginFail"></p>
+		</div>
+	</div>
+
+
+	<!-- End Log In -->
+
+
+	<!-- Logged in -->
+	<div id="loggedIn">
+
+		<!-- HEADER -->
+		<div class="header">
+			<h1>AdViz</h1>
+			<p id="loginData"></p>
+			<button type="button" onclick="window.location.reload();">Log out</button>
+			<br> <br>
+
+		</div>
+
+
+
+
+		<!-- Start Main Frame -->
+
+
+		<div class="grid-container">
+
+			<div class="grid-item-links">
+				<h1>Contacts</h1>
+
+				<!-- fest kodierte Kontaktliste, vier Kontakte -->
+				<!-- ToDo: die Kontakte auf der Map markieren -->
+				<!--ToDo: nur die privaten Kontakte der Rolle anzeigen (jede Rolle hat 1 privaten und 1 öffentlichen Kontakt) -->
+				<div id="adminasContacts">
+					<details>
+						<summary>Agnetha Agnethovic</summary>
+						<div>
+							<form id="adminaprivateform" action=”/survey " method="POST">
+
+								<div>
+									<br> <input type="text" id="adminaprivtitle" name="titel"
+										placeholder="Titel" value="Frau"><br> <br>
+								</div>
+
+								<div>
+									<label for="geschlecht">Geschlecht:</label> <select
+										name="geschlecht" id="adminaprivgeschlecht">
+										<option value="keineAngabe">keine Angabe</option>
+										<option value="weiblich">weiblich</option>
+										<option value="maennlich">männlich</option>
+										<option value="divers">divers</option>
+									</select> <br> <br>
+								</div>
+
+								<div>
+									<input type="text" id="adminaprivvorname" name="vorname"
+										placeholder="Vorname" value="Agnetha" required><br>
+									<br>
+								</div>
+
+								<div>
+									<input type="text" id="adminaprivnachname" name="nachname"
+										placeholder="Nachname" value="Agnethovic" required><br>
+									<br>
+								</div>
+
+								<div>
+									<input type="text" id="adminaprivstrassehnr" name="strassehnr"
+										placeholder="Straße und Hausnummer" value="Firlstraße 2"
+										required><br> <br>
+								</div>
+
+								<div>
+									<input type="number" id="adminaprivplz" name="plz"
+										placeholder="Postleitzahl" value="12459" required><br>
+									<br>
+								</div>
+
+								<div>
+									<input type="text" id="adminaprivstadt" name="stadt"
+										placeholder="Stadt" value="Berlin" required><br>
+									<br>
+								</div>
+
+								<div>
+									<input type="text" id="adminaprivland" name="land"
+										placeholder="Land" value="Deutschland" required><br>
+									<br>
+								</div>
+
+								<div>
+									<input type="text" id="adminaprivemail" name="email"
+										placeholder="Mail-Adresse"><br> <br>
+								</div>
+
+								<div>
+									<input type="text" id="adminaprivsonstiges" name="sonstiges"
+										placeholder="Sonstiges"><br> <br>
+								</div>
+
+								<div>
+									<label for="adminaprivprivat">Privater Kontakt:</label> <input
+										type="checkbox" id="adminaprivprivat" checked>
+								</div>
+
+								<p>*Required Fields</p>
+
+
+								<button name="save" type="button">Save to Admina</button>
+								<button name="saveToNormalo" type="button">Save to
+									Normalo</button>
+								<button name="close" type="button">Close</button>
+								<br> <br>
+							</form>
+						</div>
+					</details>
+					<details>
+						<summary>HTW Berlin</summary>
+						<p>Titel: Institution</p>
+						<p>Geschlecht: keine Angabe</p>
+						<p>Vorname: HTW</p>
+						<p>Nachname: Berlin</p>
+						<p>Straße und Hausnummer: Wilhelminenhofstraße 75A</p>
+						<p>Postleitzahl: 12459</p>
+						<p>Stadt: Berlin</p>
+						<p>Land: Deutschland</p>
+						<p>Mailadresse: htw@berlin.cde</p>
+						<p>Sonstiges: Hochschule für Technik und Wirtschaft</p>
+						<p>Privater Kontakt: nein</p>
+					</details>
+
+				</div>
+				<div id="normalosContacts">
+					<details>
+						<summary>Jacob Jacobson</summary>
+						<p>Titel: Herr</p>
+						<p>Geschlecht: männlich</p>
+						<p>Vorname: Jacob</p>
+						<p>Nachname: Jacobson</p>
+						<p>Straße und Hausnummer: Seelenbinderstraße 12</p>
+						<p>Postleitzahl: 12555</p>
+						<p>Stadt: Berlin</p>
+						<p>Land: Deutschland</p>
+						<p>Mailadresse: jj@gmail.com</p>
+						<p>Sonstiges: Ganz ok</p>
+						<p>Privater Kontakt: ja</p>
+					</details>
+					<details>
+						<summary>Gemüse Kebap</summary>
+						<p>Titel: Imbiss</p>
+						<p>Geschlecht: keine Angabe</p>
+						<p>Vorname: Gemüse</p>
+						<p>Nachname: Kebap</p>
+						<p>Straße und Hausnummer: Rathenaustraße 1</p>
+						<p>Postleitzahl: 12459</p>
+						<p>Stadt: Berlin</p>
+						<p>Land: Deutschland</p>
+						<p>Mailadresse:</p>
+						<p>Sonstiges: Immer für dich da</p>
+						<p>Privater Kontakt: nein</p>
+					</details>
+				</div>
+			</div>
+
+			<div class="grid-item">
+
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.6329504891805!2d13.411117315599794!3d52.52198137981453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e1edb11286f%3A0x30fc01c366e4166e!2sAlexanderplatz!5e0!3m2!1sde!2sde!4v1604077435368!5m2!1sde!2sde"
+					width="600" height="450" frameborder="0" style="border: 0;"
+					allowfullscreen="" aria-hidden="false" tabindex="0"> </iframe>
+
+			</div>
+			<div class="grid-item">
+
+				<button type="button">Show all contacts</button>
+				<br> <br>
+				<button type="button">Show my contacts</button>
+				<br> <br>
+				<button onclick="addNewContact()">Add new contact</button>
+
+
+
+				<div id="addNewContact">
+					<h1>Add New Contact</h1>
+
+					<div>
+						<form action=”/survey " method="POST">
+							<div>
+								<input type="text" id="titel" name="titel" placeholder="Titel"><br>
+								<br>
+							</div>
+
+							<div>
+								<label for="geschlecht">Geschlecht:</label> <select
+									name="geschlecht" id="geschlecht">
+									<option value="keineAngabe">keine Angabe</option>
+									<option value="weiblich">weiblich</option>
+									<option value="maennlich">männlich</option>
+									<option value="divers">divers</option>
+
+								</select> <br> <br>
+							</div>
+
+							<div>
+								<input type="text" id="vorname" name="vorname"
+									placeholder="Vorname*" required><br> <br>
+							</div>
+
+							<div>
+								<input type="text" id="nachname" name="nachname"
+									placeholder="Nachname*" required><br> <br>
+							</div>
+
+							<div>
+								<input type="text" id="strassehnr" name="strassehnr"
+									placeholder="Straße und Hausnummer*" required><br>
+								<br>
+							</div>
+
+							<div>
+								<input type="number" id="plz" name="plz"
+									placeholder="Postleitzahl*" required><br> <br>
+							</div>
+
+							<div>
+								<input type="text" id="stadt" name="stadt" placeholder="Stadt*"
+									required><br> <br>
+							</div>
+
+							<div>
+								<input type="text" id="land" name="land" placeholder="Land*"
+									required><br> <br>
+							</div>
+
+							<div>
+								<input type="text" id="email" name="email"
+									placeholder="Mail-Adresse"><br> <br>
+							</div>
+
+							<div>
+								<input type="text" id="sonstiges" name="sonstiges"
+									placeholder="Sonstiges"><br> <br>
+							</div>
+
+							<div>
+								<label for="privat">Privater Kontakt:</label> <input
+									type="checkbox" id="privat" checked>
+							</div>
+
+							<p>*Required Fields</p>
+
+							<button name="save" type="button" onclick="saveNewAddr()">Save</button>
+							<button name="close" type="button" onclick="closeAddAddr()">Close</button>
+
+
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- End Main Frame -->
+
+
+
+		<hr>
+
+		<!-- Start Update Address -->
+
+
+		<div class="container">
+			<h1>Update Contact</h1>
+
+			<div>
+				<form action=”/survey " method="POST">
+
+					<div>
+						<input type="text" id="titelupdated" name="titel"
+							placeholder="Titel" value="Frau"><br> <br>
+					</div>
+
+					<div>
+						<label for="geschlecht">Geschlecht:</label> <select
+							name="geschlecht" id="geschlechtupdated">
+							<option value="weiblich">weiblich</option>
+							<option value="maennlich">männlich</option>
+							<option value="divers">divers</option>
+						</select> <br> <br>
+					</div>
+
+					<div>
+						<input type="text" id="vornameupdated" name="vorname"
+							placeholder="Vorname" value="Agnetha" required><br>
+						<br>
+					</div>
+
+					<div>
+						<input type="text" id="nachnameupdated" name="nachname"
+							placeholder="Nachname" value="A." required><br> <br>
+					</div>
+
+					<div>
+						<input type="text" id="strassehnrupdated" name="strassehnr"
+							placeholder="Straße und Hausnummer" value="Firlstraße 2" required><br>
+						<br>
+					</div>
+
+					<div>
+						<input type="number" id="plzupdated" name="plz"
+							placeholder="Postleitzahl" value="12459" required><br>
+						<br>
+					</div>
+
+					<div>
+						<input type="text" id="stadtupdated" name="stadt"
+							placeholder="Stadt" value="Berlin" required><br> <br>
+					</div>
+
+					<div>
+						<input type="text" id="landupdated" name="land" placeholder="Land"
+							value="Deutschland" required><br> <br>
+					</div>
+
+					<div>
+						<input type="text" id="emailupdated" name="email"
+							placeholder="Mail-Adresse"><br> <br>
+					</div>
+
+					<div>
+						<input type="text" id="sonstigesupdated" name="sonstiges"
+							placeholder="Sonstiges"><br> <br>
+					</div>
+
+					<div>
+						<label for="privatupdated">Privater Kontakt:</label> <input
+							type="checkbox" id="privatupdated" checked>
+					</div>
+
+					<br>
+
+					<button name="save" type="button">Save</button>
+
+					<br>
+					<p>*Required</p>
+				</form>
+			</div>
+
+		</div>
+
+		<!-- End Update Address -->
+
+
+	</div>
+
+	<!-- End Logged in -->
+
+	<!-- -->
+	<script>
+		document.getElementById("loggedIn").style.display = 'none';
+	</script>
+
+
+	<script src="js/logIn.js">
+		
+	</script>
+
+	<script>
+		function addNewContact() {
+			document.getElementById("addNewContact").style.display = 'block';
+		}
+		function closeAddAddr() {
+			document.getElementById("addNewContact").style.display = 'none';
+
+		}
+	</script>
+
+	<script src="js/addAddr.js">
+		
+	</script>
 </body>
 </html>

@@ -20,7 +20,13 @@ function getInfo() {
             document.getElementById("logIn").style.display = 'none';
             document.getElementById("loggedIn").style.display = 'block';
             document.getElementById("addNewContact").style.display = 'none';
-
+			if (username=="admina"){
+				document.getElementById("normalosContacts").style.display = 'none';
+			}
+			else if (username=="normalo"){
+				document.getElementById("adminasContacts").style.display = 'none';
+			}	
+		
 
             document.getElementById("loginData").innerHTML = "Hello, " + username + "!";
             return
