@@ -37,13 +37,16 @@ p {
     color: white;
 }
 
-div.wrapper {
-    padding: 100px;
-    align-content: center;
-    width: 40em;
-    margin: auto;
-
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
 }
+
+.grid-item {
+    text-align: center;
+}
+
 
 div.container {
     padding: 20px;
