@@ -2,13 +2,12 @@
 var objPeople = [
     { // Object @ 0 index
         username: "admina",
-        password: "mama"
+        password: "admina"
     },
     { // Object @ 1 index
         username: "normalo",
-        password: "mimi"
+        password: "normalo"
     }
-//ToDo: richtige vorgegebene Passwörter einfügen
 ]
 
 function getInfo() {
@@ -20,7 +19,7 @@ function getInfo() {
         if (username == objPeople[i].username && password == objPeople[i].password) {
             document.getElementById("logIn").style.display = 'none';
             document.getElementById("loggedIn").style.display = 'block';
-            document.getElementById("test").innerHTML = username + " is logged in!!!"; //ToDo: schön formatieren
+            document.getElementById("loginData").innerHTML = "You are logged in as " + username;
             return
         }
     }
