@@ -10,14 +10,17 @@
 
 
 <body>
+
+<!-- Start Log In -->
+
 	<p id="test"></p>
-	<!-- Start Log In -->
+
 	<div class="container" id="logIn">
 
 		<h1>Log in</h1>
 
 		<div>
-			<form action=”/survey " method="POST" id="form">
+			<form action=”/survey" method="POST" id="form">
 				<div>
 					<input type="text" id="username" name="username"
 						placeholder="Username"><br>
@@ -41,10 +44,10 @@
 
 	<hr>
 
-	<!-- End Log In -->
+<!-- End Log In -->
 
 
-	<!-- Logged in -->
+<!-- Logged in -->
 	<div id="loggedIn">
 	
 		<!-- HEADER -->
@@ -59,7 +62,7 @@
 	<div class="wrapper">
 
 
-		<!-- Start Map -->
+<!-- Start Map -->
 
 		<div class="container">
 			<h1>Alle Kontakte</h1>
@@ -71,13 +74,15 @@
 
 		<hr>
 
-		<!-- End Map -->
+<!-- End Map -->
 
 
-		<!-- Start Add Address -->
+<!-- Start Add Address -->
+//ToDo: Kontakfeld
+	<p id="test2"></p>
 
 		<div class="container">
-			<h1>Add New Address</h1>
+			<h1>Add New Address</h1> //ToDo: irgendwie sind die Sternchen weg bei required
 
 			<div>
 				<form action=”/survey " method="POST">
@@ -151,7 +156,7 @@
 
 					<br>
 
-					<button name="save" type="submit">Save</button>
+					<button name="save" type="button" onclick="addAddr()">Save</button>
 
 					<br>
 					<p>*Required</p>
@@ -245,7 +250,7 @@
 
 					<br>
 
-					<button name="save" type="submit">Save</button>
+					<button name="save" type="button">Save</button>
 
 					<br>
 					<p>*Required</p>
@@ -263,8 +268,9 @@
 	<script>
 	document.getElementById("loggedIn").style.display='none';
 	</script>
-	<script src="js/spa.js">
-		
+	<script src="js/logIn.js">
+	</script>
+	<script src="js/addAddr.js">
 	</script>
 
 

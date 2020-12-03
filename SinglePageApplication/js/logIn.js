@@ -8,7 +8,7 @@
 				username: "normalo",
 				password: "mimi"
 			}
-
+//ToDo: richtige vorgegebene Passwörter einfügen
 		]
 
 		function getInfo() {
@@ -20,11 +20,9 @@
 				if(username == objPeople[i].username && password == objPeople[i].password) {
 					document.getElementById("logIn").style.display='none';
 					document.getElementById("loggedIn").style.display='block';
-					document.getElementById("test").innerHTML=username + " is logged in!!!";
-					console.log(username + " is logged in!!!")
-					// stop the function if this is found to be true
+					document.getElementById("test").innerHTML=username + " is logged in!!!"; //ToDo: schön formatieren 
 					return
 				}
 			}
-			document.getElementById("test").innerHTML="incorrect username or password";
+			document.getElementById("test").innerHTML="incorrect username or password"; //ToDo: Popup oder unter Login oder so
 		}
