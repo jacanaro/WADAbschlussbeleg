@@ -8,7 +8,7 @@ body {
 .header {
     font-style: italic;
     text-align: center;
-    background: #81a2ac;
+    background: rgba(52, 180, 180, 0.76);
     color: white;
     font-size: 30px;
     padding: 5px;

@@ -19,6 +19,8 @@ function getInfo() {
         if (username == objPeople[i].username && password == objPeople[i].password) {
             document.getElementById("logIn").style.display = 'none';
             document.getElementById("loggedIn").style.display = 'block';
+            document.getElementById("addNewContact").style.display = 'none';
+
             document.getElementById("loginData").innerHTML = "Hello, " + username + "!";
             return
         }
