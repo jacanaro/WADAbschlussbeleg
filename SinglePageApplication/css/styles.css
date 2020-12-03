@@ -11,9 +11,10 @@ body {
     background: #81a2ac;
     color: white;
     font-size: 30px;
-    padding:5px;
+    padding: 5px;
 
 }
+
 .header.p {
     font-style: initial;
 }
@@ -25,14 +26,17 @@ iframe {
 h1 {
     color: white;
 }
+
 label {
     color: white;
     display: inline-block
 
 }
+
 p {
     color: white;
 }
+
 div.wrapper {
     padding: 100px;
     align-content: center;
@@ -46,6 +50,6 @@ div.container {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    width:30em;
+    width: 30em;
 
 }
