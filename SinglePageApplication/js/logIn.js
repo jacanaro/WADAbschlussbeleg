@@ -19,9 +19,9 @@ function getInfo() {
         if (username == objPeople[i].username && password == objPeople[i].password) {
             document.getElementById("logIn").style.display = 'none';
             document.getElementById("loggedIn").style.display = 'block';
-            document.getElementById("loginData").innerHTML = "You are logged in as " + username;
+            document.getElementById("loginData").innerHTML = "Hello, " + username + "!";
             return
         }
+        document.getElementById("loginFail").innerHTML = "Incorrect username or password!"; 
     }
-    document.getElementById("test").innerHTML = "incorrect username or password"; //ToDo: Popup oder unter Login oder so
 }
