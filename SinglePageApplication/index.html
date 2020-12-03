@@ -70,7 +70,69 @@
 
         <div class="grid-container">
 
-            <div class="grid-item">Hierhin kommt die Kontaktliste</div>
+            <div class="grid-item-links">
+                <p>Hierhin kommt die Kontaktliste</p>
+
+                <!-- fest kodierte Kontaktliste, vier Kontakte -->
+                <!-- ToDo: die Kontakte auf der Map markieren -->
+                <details>
+                    <summary>Agnetha Agnethovic</summary>
+                        <p>Titel: Frau</p>
+                        <p>Geschlecht: weiblich</p>
+                        <p>Vorname: Agnetha</p>
+                        <p>Nachname: Agnethovic</p>
+                        <p>Straße und Hausnummer: Firlstraße 12</p>
+                        <p>Postleitzahl: 12459</p>
+                        <p>Stadt: Berlin</p>
+                        <p>Land: Deutschland</p>
+                        <p>Mailadresse: wkjnefwef@gmail.com</p>
+                        <p>Sonstiges: Toll</p>
+                        <p>Privater Kontakt: ja</p>
+                </details>
+                <details>
+                    <summary>Jacob Jacobson</summary>
+                    <p>Titel: Herr</p>
+                    <p>Geschlecht: männlich</p>
+                    <p>Vorname: Jacob</p>
+                    <p>Nachname: Jacobson</p>
+                    <p>Straße und Hausnummer: Seelenbinderstraße 12</p>
+                    <p>Postleitzahl: 12555</p>
+                    <p>Stadt: Berlin</p>
+                    <p>Land: Deutschland</p>
+                    <p>Mailadresse: jj@gmail.com</p>
+                    <p>Sonstiges: Ganz ok</p>
+                    <p>Privater Kontakt: ja</p>
+                </details>
+                <details>
+                    <summary>HTW Berlin</summary>
+                    <p>Titel: Institution</p>
+                    <p>Geschlecht: keine Angabe</p>
+                    <p>Vorname: HTW</p>
+                    <p>Nachname: Berlin</p>
+                    <p>Straße und Hausnummer: Wilhelminenhofstraße 75A</p>
+                    <p>Postleitzahl: 12459</p>
+                    <p>Stadt: Berlin</p>
+                    <p>Land: Deutschland</p>
+                    <p>Mailadresse: htw@berlin.cde</p>
+                    <p>Sonstiges: Hochschule für Technik und Wirtschaft</p>
+                    <p>Privater Kontakt: nein</p>
+                </details>
+                <details>
+                    <summary>Gemüse Kebap</summary>
+                    <p>Titel: Imbiss</p>
+                    <p>Geschlecht: keine Angabe</p>
+                    <p>Vorname: Gemüse</p>
+                    <p>Nachname: Kebap</p>
+                    <p>Straße und Hausnummer: Rathenaustraße 1</p>
+                    <p>Postleitzahl: 12459</p>
+                    <p>Stadt: Berlin</p>
+                    <p>Land: Deutschland</p>
+                    <p>Mailadresse: </p>
+                    <p>Sonstiges: Immer für dich da</p>
+                    <p>Privater Kontakt: nein</p>
+                </details>
+
+            </div>
 
             <div class="grid-item">
 
@@ -80,10 +142,97 @@
                         allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 
             </div>
-            <div class="grid-item">Hierhin kommen diese Buttons</div>
+            <div class="grid-item">
+                <p>Hierhin kommen diese Buttons</p>
+
+                    <h1>Add New Contact</h1>
+
+                    <div>
+                        <form action=”/survey" method="POST">
+                            <div>
+                                <input type="text" id="titel" name="titel" placeholder="Titel"><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <label for="geschlecht">Geschlecht:</label> <select
+                                    name="geschlecht" id="geschlecht">
+                                <option value="keineAngabe">keine Angabe</option>
+                                <option value="weiblich">weiblich</option>
+                                <option value="maennlich">männlich</option>
+                                <option value="divers">divers</option>
+
+                            </select> <br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <input type="text" id="vorname" name="vorname"
+                                       placeholder="Vorname*" required><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <input type="text" id="nachname" name="nachname"
+                                       placeholder="Nachname*" required><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <input type="text" id="strassehnr" name="strassehnr"
+                                       placeholder="Straße und Hausnummer*" required><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <input type="number" id="plz" name="plz"
+                                       placeholder="Postleitzahl*" required><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <input type="text" id="stadt" name="stadt" placeholder="Stadt*"
+                                       required><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <input type="text" id="land" name="land" placeholder="Land*"
+                                       required><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <input type="text" id="email" name="email"
+                                       placeholder="Mail-Adresse"><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <input type="text" id="sonstiges" name="sonstiges"
+                                       placeholder="Sonstiges"><br>
+                                <br>
+                            </div>
+
+                            <div>
+                                <label for="privat">Privater Kontakt:</label> <input
+                                    type="checkbox" id="privat" checked>
+                            </div>
+
+                            <br>
+
+                            <button name="save" type="button" onclick="addAddr()">Save</button>
+
+                            <br>
+                            <p>*Required</p>
+
+                        </form>
+                    </div>
+
+            </div>
         </div>
 
-        <hr>
+
 
         <!-- End Main Frame -->
 
@@ -92,91 +241,6 @@
         <!-- ToDo: Kontakfeld -->
         <p id="test2"></p>
 
-        <div class="container">
-            <h1>Add New Contact</h1>
-
-            <div>
-                <form action=”/survey" method="POST">
-                    <div>
-                        <input type="text" id="titel" name="titel" placeholder="Titel"><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <label for="geschlecht">Geschlecht:</label> <select
-                            name="geschlecht" id="geschlecht">
-                        <option value="weiblich">weiblich</option>
-                        <option value="maennlich">männlich</option>
-                        <option value="divers">divers</option>
-                        <option value="keineAngabe">keine Angabe</option>
-
-                    </select> <br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="text" id="vorname" name="vorname"
-                               placeholder="Vorname*" required><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="text" id="nachname" name="nachname"
-                               placeholder="Nachname*" required><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="text" id="strassehnr" name="strassehnr"
-                               placeholder="Straße und Hausnummer*" required><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="number" id="plz" name="plz"
-                               placeholder="Postleitzahl*" required><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="text" id="stadt" name="stadt" placeholder="Stadt*"
-                               required><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="text" id="land" name="land" placeholder="Land*"
-                               required><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="text" id="email" name="email"
-                               placeholder="Mail-Adresse"><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="text" id="sonstiges" name="sonstiges"
-                               placeholder="Sonstiges"><br>
-                        <br>
-                    </div>
-
-                    <div>
-                        <label for="privat">Privater Kontakt:</label> <input
-                            type="checkbox" id="privat" checked>
-                    </div>
-
-                    <br>
-
-                    <button name="save" type="button" onclick="addAddr()">Save</button>
-
-                    <br>
-                    <p>*Required</p>
-
-                </form>
-            </div>
-        </div>
 
 
         <!-- End Add Address -->
