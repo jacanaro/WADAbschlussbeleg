@@ -11,8 +11,8 @@ var objPeople = [
 ]
 
 function getInfo() {
-    var username = document.getElementById('username').value
-    var password = document.getElementById('password').value
+    username = document.getElementById('username').value
+    password = document.getElementById('password').value
 
     for (var i = 0; i < objPeople.length; i++) {
         // check is user input matches username and password of a current index of the objPeople array
@@ -22,9 +22,12 @@ function getInfo() {
             document.getElementById("addNewContact").style.display = 'none';
 			if (username=="admina"){
 				document.getElementById("normalosContacts").style.display = 'none';
+				document.getElementById("saveToNormalo").style.display = 'block';
 			}
 			else if (username=="normalo"){
-				document.getElementById("adminasContacts").style.display = 'none';
+				document.getElementById("saveToNormalo").style.display = 'none';
+				document.getElementById("adminasPrivateContacts").style.display = 'none';
+				document.getElementById("adminasPublicContacts").style.display = 'none';
 			}	
 		
 

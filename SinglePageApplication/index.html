@@ -50,13 +50,11 @@
 		<div class="header">
 			<h1>AdViz</h1>
 			<p id="loginData"></p>
-			<button type="button" onclick="window.location.reload();">Log out</button>
+			<button type="button" onclick="window.location.reload();">Log
+				out</button>
 			<br> <br>
 
 		</div>
-
-
-
 
 		<!-- Start Main Frame -->
 
@@ -69,7 +67,7 @@
 				<!-- fest kodierte Kontaktliste, vier Kontakte -->
 				<!-- ToDo: die Kontakte auf der Map markieren -->
 				<!--ToDo: nur die privaten Kontakte der Rolle anzeigen (jede Rolle hat 1 privaten und 1 öffentlichen Kontakt) -->
-				<div id="adminasContacts">
+				<div id="adminasPrivateContacts">
 					<details>
 						<summary>Agnetha Agnethovic</summary>
 						<div>
@@ -152,6 +150,8 @@
 							</form>
 						</div>
 					</details>
+				</div>
+				<div id="adminasPublicContacts">
 					<details>
 						<summary>HTW Berlin</summary>
 						<p>Titel: Institution</p>
@@ -166,7 +166,6 @@
 						<p>Sonstiges: Hochschule für Technik und Wirtschaft</p>
 						<p>Privater Kontakt: nein</p>
 					</details>
-
 				</div>
 				<div id="normalosContacts">
 					<details>
@@ -210,9 +209,10 @@
 			</div>
 			<div class="grid-item">
 
-				<button type="button">Show all contacts</button>
+				<button type="button" onclick="showAllContacts()">Show all
+					contacts</button>
 				<br> <br>
-				<button type="button">Show my contacts</button>
+				<button type="button" onclick="showMyContacts()">Show my contacts</button>
 				<br> <br>
 				<button onclick="addNewContact()">Add new contact</button>
 
@@ -288,9 +288,9 @@
 							<p>*Required Fields</p>
 
 							<button name="save" type="button" onclick="saveNewAddr()">Save</button>
+							<button id="saveToNormalo" name="saveToNormalo" type="button"
+								onclick="saveNewAddr()">Save to Normalo</button>
 							<button name="close" type="button" onclick="closeAddAddr()">Close</button>
-
-
 
 						</form>
 					</div>
@@ -404,7 +404,11 @@
 	<script src="js/logIn.js">
 		
 	</script>
-
+	
+	<script src="js/showAllContacts.js">
+	</script>
+	<script src="js/showMyContacts.js">
+	</script>
 	<script>
 		function addNewContact() {
 			document.getElementById("addNewContact").style.display = 'block';
@@ -416,7 +420,6 @@
 	</script>
 
 	<script src="js/addAddr.js">
-		
 	</script>
 </body>
 </html>
