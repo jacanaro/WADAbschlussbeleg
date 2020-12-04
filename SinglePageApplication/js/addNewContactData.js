@@ -1,4 +1,4 @@
-/*function addNewContactData() {
+function addNewContactData() {
     document.getElementById("normalosContacts").innerHTML += `<details>
 	<summary>
 		TESTEST
@@ -16,4 +16,5 @@
     return
 }
 
- */
+
+
