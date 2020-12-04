@@ -22,15 +22,12 @@ function getInfo() {
             document.getElementById("addNewContact").style.display = 'none';
 			if (username=="admina"){
 				document.getElementById("normalosContacts").style.display = 'none';
-				document.getElementById("saveToNormalo").style.display = 'block';
 			}
 			else if (username=="normalo"){
-				document.getElementById("saveToNormalo").style.display = 'none';
 				document.getElementById("adminasPrivateContacts").style.display = 'none';
 				document.getElementById("adminasPublicContacts").style.display = 'none';
 			}	
 		
-
             document.getElementById("loginData").innerHTML = "Hello, " + username + "!";
             return
         }
