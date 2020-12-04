@@ -383,8 +383,8 @@
 						</div>
 					</details>
 				</div>
+				<div id="test"></div>
 			</div>
-
 			<div class="grid-item">
 
 				<iframe
@@ -409,7 +409,7 @@
 					<h1>Add New Contact</h1>
 
 					<div>
-						<form action=”/survey " method="POST">
+						<form action="/survey" method="POST">
 							<div>
 								<input type="text" id="titel" name="titel" placeholder="Titel"><br>
 								<br>
@@ -474,9 +474,9 @@
 
 							<p>*Required Fields</p>
 
-							<button name="save" type="button" onclick="saveNewAddr()">Save</button>
-							<button id="saveToNormalo" name="saveToNormalo" type="button"
-								onclick="saveNewAddr()">Save to Normalo</button>
+							<button name="save" type="button" onclick="addNewContactData()">Save</button>
+							<button id="saveToNormaloID" name="saveToNormalo" type="button"
+								onclick="addNewContactData()">Save to Normalo</button>
 							<button name="close" type="button" onclick="closeAddAddr()">Close</button>
 
 						</form>
@@ -512,8 +512,10 @@
 	<script>
 		function addNewContact() {
 			document.getElementById("addNewContact").style.display = 'block';
-			if(username="normalo"){
-				document.getElementById("saveToNormalo").style.display='none';
+			if(username=="normalo"){
+				document.getElementById("saveToNormaloID").style.display='none';
+			} else if(username=="admina"){
+				document.getElementById("saveToNormaloID").style.display='block';
 			}
 		}
 		function closeAddAddr() {
@@ -525,5 +527,8 @@
 	<script src="js/addAddr.js">
 		
 	</script>
+	<script src="js/addNewContactData.js">
+	</script>
+	
 </body>
 </html>
