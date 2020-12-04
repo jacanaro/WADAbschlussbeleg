@@ -70,7 +70,7 @@
 					<details>
 						<summary>Agnetha Agnethovic</summary>
 						<div>
-							<form id="adminaprivateform" action=”/survey " method="POST">
+							<form id="adminaprivateform" action=”/survey" method="POST">
 
 								<div>
 									<br> <input type="text" id="adminaprivtitle" name="titel"
@@ -152,7 +152,7 @@
 					<details>
 						<summary>HTW Berlin</summary>
 						<div>
-							<form id="adminaPublicForm" action=”/survey " method="POST">
+							<form id="adminaPublicForm" action=”/survey" method="POST">
 
 								<div>
 									<br> <input type="text" id="adminaPublicTitle"
@@ -235,7 +235,7 @@
 						<summary>Jacob Jacobson</summary>
 
 						<div>
-							<form action=”/survey " method="POST">
+							<form action=”/survey" method="POST">
 
 								<div>
 									<br> <input type="text" name="titel" placeholder="Titel"
@@ -310,7 +310,7 @@
 					<details>
 						<summary>Gemüse Kebap</summary>
 						<div>
-							<form action=”/survey " method="POST">
+							<form action=”/survey" method="POST">
 
 								<div>
 									<br> <input type="text" name="titel" placeholder="Titel"
@@ -393,7 +393,7 @@
 					allowfullscreen="" aria-hidden="false" tabindex="0"> </iframe>
 
 			</div>
-			<div class="grid-item">
+			<div class="grid-item-links">
 
 				<button type="button" onclick="showAllContacts()">Show all
 					contacts</button>
@@ -406,8 +406,7 @@
 
 
 				<div id="addNewContact">
-					<h1>Add New Contact</h1>
-
+					<br><br>
 					<div>
 						<form action="/survey" method="POST">
 							<div>
@@ -475,8 +474,12 @@
 							<p>*Required Fields</p>
 
 							<button name="save" type="button" onclick="addNewContactData()">Save</button>
+
+							<br><br>
+
 							<button id="saveToNormaloID" name="saveToNormalo" type="button"
 								onclick="addNewContactData()">Save to Normalo</button>
+							<br>
 							<button name="close" type="button" onclick="closeAddAddr()">Close</button>
 
 						</form>

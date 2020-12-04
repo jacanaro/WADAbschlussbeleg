@@ -23,8 +23,19 @@ iframe {
     width: 100%;
 }
 
+button {
+    border-color: rgba(52, 180, 180, 0.76);
+    background-color: rgba(52, 180, 180, 0.76);
+    color: white;
+    width: 100px;
+}
+button:hover {
+    background-color: lightblue;
+    color: white;
+}
 h1 {
     color: white;
+    margin-top: 0px;
 }
 
 label {
@@ -39,8 +50,9 @@ p {
 
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 10px;
+    grid-template-columns: auto 700px auto;
+    padding: 20px;
+    margin: auto;
 }
 
 .grid-item {
@@ -48,9 +60,8 @@ p {
 }
 
 .grid-item-links {
-    padding: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 .container {
@@ -68,3 +79,8 @@ summary:focus {
     outline: none;
     color: rgba(52, 180, 180, 0.76);
 }
+
+#map {
+    height: 100%;
+}
+
