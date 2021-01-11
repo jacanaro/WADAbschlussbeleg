@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Login-Demo</title>
+    <title>Simple login</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+        $(document).ready(function(){
+            var user,pass;
+            $("#submit").click(function(){
+                user=$("#user").val();
+                pass=$("#password").val();
+                $.post("http://localhost:3000/login",{user: user,password: pass}, function(data){
+                    if(data === 'yes') {
+                        sendReq();
+                    }
+                    else{
+                        alert("login failed");
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
+<h1>Hello people !</h1>
+<input type="TEXT" id="user" size="40"><br>
+<input type="password" id="password" size="40"><br>
+<input type="button" id="submit" value="Submit">
 <div id="test">
-    <form action="http://localhost:3000/loginData" method="POST">
-        <!--action ist “/Webapp-Name/url-pattern” -->
-        <label for="username"><b>Username</b></label> 
-        <input type="text" placeholder="Enter UserId" name="username" required> 
-        <br>
-            <label for="password"><b>Password</b></label> 
-            <input type="password" placeholder="Enter Password" name="password" required>
-        <!-- <button type="submit">Login</button> -->
-        <button type="button" onclick="sendReq()">test</button>
-    </form>
-</div>
 
+</div>
 <script>
     function sendReq() {
         var httpRequest = new XMLHttpRequest();
@@ -35,7 +46,7 @@
             var obj = JSON.parse(data);
 
             if (this.status == 200) {
-                document.getElementById("test").innerHTML += obj.username;
+                document.getElementById("test").innerHTML = obj.username+obj.password;
             } else {     //Handhabung von nicht-200er
                 console.log("HTTP-status code was: " + obj.status);
             }
@@ -45,3 +56,4 @@
     }
 </script>
 </body>
+</html>
