@@ -12,6 +12,7 @@ const advizRouter = require('./routes/adviz');
 
 const app = express();
 
+
 // view engine setup - DAS BRAUCHEN WIR NICHT
 /*
 app.set('views', path.join(__dirname, 'views'));

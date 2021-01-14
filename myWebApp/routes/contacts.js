@@ -12,7 +12,7 @@ contactCollection = [
         "Vorname":"Agnetha",
         "Nachname":"Agnethovic",
         "StrasseUndHausnummer":"Firlstraße 2",
-        "PLZ":"12459",
+        "PLZ": 12459,
         "Stadt":"Berlin",
         "Land":"Deutschland",
         "MailAdr":"keine Angabe",

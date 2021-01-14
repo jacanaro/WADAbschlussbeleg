@@ -1,6 +1,7 @@
 $(document).ready(function () {
     var user, pass;
-    $("#submit").click(function () {
+    $('form').on('submit', function (e) {
+        e.preventDefault();
         user = $("#user").val();
         pass = $("#password").val();
         $.post("http://localhost:3000/adviz/login", {user: user, password: pass}, function (data) {
@@ -53,5 +54,6 @@ $(document).ready(function () {
                 alert("login data could not be sent");
             }
         });
+        this.submit();
     });
 });
