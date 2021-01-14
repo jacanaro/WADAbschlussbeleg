@@ -65,6 +65,7 @@ function createForm(obj1) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "text");
     input.setAttribute('name', "nachname");
+    input.required = true;
     input.value = obj1.Nachname;
     form.appendChild(input);
     var br = document.createElement("br");
@@ -75,6 +76,7 @@ function createForm(obj1) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "text");
     input.setAttribute('name', "StrasseUndHausnummer");
+    input.required = true;
     input.value = obj1.StrasseUndHausnummer;
     form.appendChild(input);
     var br = document.createElement("br");
@@ -85,6 +87,7 @@ function createForm(obj1) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "number");
     input.setAttribute('name', "PLZ");
+    input.required = true;
     input.value = obj1.PLZ;
     form.appendChild(input);
     var br = document.createElement("br");
@@ -95,6 +98,7 @@ function createForm(obj1) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "text");
     input.setAttribute('name', "Stadt");
+    input.required = true;
     input.value = obj1.Stadt;
     form.appendChild(input);
     var br = document.createElement("br");
@@ -105,6 +109,7 @@ function createForm(obj1) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "text");
     input.setAttribute('name', "Land");
+    input.required = true;
     input.value = obj1.Land;
     form.appendChild(input);
     var br = document.createElement("br");
