@@ -95,19 +95,7 @@ function requestContacts(userID) {
                                     </div>
                                 </details>`;
 
-        document.getElementById("sum"+requestContactCounter).innerHTML = obj1[i].Vorname + " " + obj1[i].Nachname;
-        document.getElementById("Titel"+requestContactCounter).value = obj1[i].Titel;
-        document.getElementById("Geschlecht"+requestContactCounter).value = obj1[i].Geschlecht;
-        document.getElementById("Vorname"+requestContactCounter).value = obj1[i].Vorname;
-        document.getElementById("Nachname"+requestContactCounter).value = obj1[i].Nachname;
-        document.getElementById("StrasseUndHausnummer"+requestContactCounter).value = obj1[i].StrasseUndHausnummer;
-        document.getElementById("PLZ"+requestContactCounter).value = obj1[i].PLZ;
-        document.getElementById("Stadt"+requestContactCounter).value = obj1[i].Stadt;
-        document.getElementById("Land"+requestContactCounter).value = obj1[i].Land;
-        document.getElementById("MailAdr"+requestContactCounter).value = obj1[i].MailAdr;
-        document.getElementById("Sonstiges"+requestContactCounter).value = obj1[i].Sonstiges;
-        document.getElementById("PrivaterKontakt"+requestContactCounter).value = obj1[i].PrivaterKontakt;
-        requestContactCounter++;*/
+                        */
 
         } else {
             console.log(obj1.status);
