@@ -71,7 +71,7 @@ function createForm(obj1) {
                 form.appendChild(br);
             }
 
-            var submit = document.createElement("input"); //input element, Submit button
+            var submit = document.createElement("input");
             submit.setAttribute('type', "submit");
             submit.setAttribute('value', "Submit");
             form.appendChild(submit);

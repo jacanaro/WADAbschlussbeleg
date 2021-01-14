@@ -6,12 +6,12 @@ function requestContacts(userID) {
     xhr.open("GET", url1, true);
     xhr.onload = function (e) {// diese Funktion wird ausgefuehrt, wenn die Anfrage erfolgreich war
         var data1 = this.response;
-        var obj1 = JSON.parse(data1);
+        var usersContacts = JSON.parse(data1);
 
         if (this.status == 200) {
-            for (var i = 0; i < obj1.length; i++) {
-                if(obj1[i]!=null)
-                createForm(obj1[i]);
+            for (var i = 0; i < usersContacts.length; i++) {
+                if(usersContacts[i]!=null)
+                createForm(usersContacts[i]);
             }
             /*`<details>
                 <summary id="sum`+requestContactCounter+`"></summary>

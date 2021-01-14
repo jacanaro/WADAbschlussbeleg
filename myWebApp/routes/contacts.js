@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
-const url = require('url');
-const querystring = require('querystring');
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
@@ -64,7 +62,7 @@ contactCollection = [
         "PrivaterKontakt": false
     }
 ];
-var contacts=[];
+contacts=[];
 router.get("/", function (req, res, next) {
     var ID=req.query.userId;
     for (var i in contactCollection){
@@ -73,6 +71,7 @@ router.get("/", function (req, res, next) {
         }
     }
     res.send(contacts);
+    for (var i in contacts) contacts[i] = null;
 });
 
 module.exports = router;
