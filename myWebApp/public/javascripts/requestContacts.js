@@ -14,6 +14,7 @@ function requestContacts(userID) {
                 createForm(usersContacts[i]);
             }
 
+
         } else {
             console.log(obj1.status);
         }
