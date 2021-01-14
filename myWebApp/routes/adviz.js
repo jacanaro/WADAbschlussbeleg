@@ -36,7 +36,7 @@ router.get('/loginData', function (req, res, next) {
     for (var i = 0; i < userCollection.length; i++) {
         // check is user input matches username and password of a current index of the userCollection array
         if (user_name == userCollection[i].username && password == userCollection[i].password) {
-            res.json({username: user_name, password: password});
+            res.json(userCollection[i]);
             break;
         } else if (i == userCollection.length - 1) {
             res.status(401).json({failString: "Unauthorized"});

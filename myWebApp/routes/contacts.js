@@ -24,7 +24,7 @@ contactCollection = [
     { // Object @ 1 index
         "userID": "admina",
         "Titel":"Institution",
-        "Geschlecht":"keineAngabe",
+        "Geschlecht":"keine Angabe",
         "Vorname":"HTW",
         "Nachname":"Berlin",
         "StrasseUndHausnummer":"Wilhelminenhofstraße 75A",
