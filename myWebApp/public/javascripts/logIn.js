@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var user, pass;
-    $('form').on('submit', function (e) {
+    $("#loginForm").on('submit', function (e) {
         e.preventDefault();
         user = $("#user").val();
         pass = $("#password").val();
