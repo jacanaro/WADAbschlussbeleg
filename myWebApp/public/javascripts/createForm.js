@@ -1,5 +1,3 @@
-
-
 function createForm(obj1) {
     var details = document.createElement("details");
 
