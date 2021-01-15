@@ -439,7 +439,7 @@
                 contacts
             </button>
             <br> <br>
-            <button onclick="addNewContact()">Add new contact</button>
+            <button onclick="displayAddNewContact(true)">Add new contact</button>
 
 
             <div id="addNewContact">
@@ -482,7 +482,7 @@
 
                         <div>
                             <input type="number" id="plz" name="plz"
-                                   placeholder="Postleitzahl*" required />
+                                   placeholder="Postleitzahl*" required/>
                             <br>
                             <br>
                         </div>
@@ -514,15 +514,15 @@
 
                         <p>*Required Fields</p>
 
-                        <button name="save" type="button" onclick="addNewContactData()">Save</button>
+                        <button name="save" type="button" onclick="addNewContact()">Save</button>
 
                         <br><br>
 
                         <button id="saveToNormaloID" name="saveToNormalo" type="button"
-                                onclick="addNewContactData()">Save to Normalo
+                                onclick="addNewContact()">Save to Normalo
                         </button>
                         <br>
-                        <button name="close" type="button" onclick="closeAddAddr()">Close</button>
+                        <button name="close" type="button" onclick="displayAddNewContact(false)">Close</button>
 
                     </form>
                 </div>
@@ -541,33 +541,20 @@
 <script>
     document.getElementById("loggedIn").style.display = 'none';
 </script>
-
+<script>function displayAddNewContact(bool) {
+    if (bool == true) {
+        document.getElementById("addNewContact").style.display = 'block';
+    }
+    else{
+        document.getElementById("addNewContact").style.display = 'none';
+    }
+}
+</script>
 <script src="javascripts/showAllContacts.js">
-
 </script>
 <script src="javascripts/showMyContacts.js">
-
 </script>
-<script>
-    function addNewContact() {
-        document.getElementById("addNewContact").style.display = 'block';
-        if (username == "normalo") {
-            document.getElementById("saveToNormaloID").style.display = 'none';
-        } else if (username == "admina") {
-            document.getElementById("saveToNormaloID").style.display = 'block';
-        }
-    }
-
-    function closeAddAddr() {
-        document.getElementById("addNewContact").style.display = 'none';
-
-    }
-</script>
-
-<script src="javascripts/addAddr.js">
-
-</script>
-<script src="javascripts/addNewContactData.js">
+<script src="javascripts/addNewContact.js">
 </script>
 <script src="javascripts/requestContacts.js">
 </script>

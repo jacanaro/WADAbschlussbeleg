@@ -24,7 +24,7 @@ $(document).ready(function () {
                         if (this.status == 200) {
                             document.getElementById("logIn").style.display = 'none';
                             document.getElementById("loggedIn").style.display = 'block';
-                            document.getElementById("addNewContact").style.display = 'none';
+                            displayAddNewContact(false);
 
                             // User specifics
                             requestContacts(obj.username);
