@@ -1,23 +1,18 @@
-function getCurrentUser() {
-    var httpRequest = new XMLHttpRequest();
-    var url = `http://localhost:3000/adviz/loginData`;
+//user obj is in result var of call back function --> how to use: getCurrentUser(function(userObj){
+// 		do something with userObj here
+// 	});
 
-    httpRequest.open("GET", url, true);
-
-    httpRequest.onerror = function () {// diese Funktion wird ausgefuehrt, wenn ein Fehler auftritt
-        console.log("Connecting to server with " + url + " failed!\n");
-    };
-
-    httpRequest.onload = function (e) {// diese Funktion wird ausgefuehrt, wenn die Anfrage erfolgreich war
-        var data = this.response;
-        var obj = JSON.parse(data);
-
-        if (this.status == 200) {
-            requestContacts(obj.username);
-        } else {
-            console.log(obj.status);
+function getCurrentUser(cb) {
+    var req = new XMLHttpRequest();
+    var url = `http://localhost:3000/adviz/loginData`
+    req.open('GET', url, true);
+    req.onreadystatechange = function() {
+        if (this.readyState === 4) {
+            cb(JSON.parse(this.response));
         }
-    };
-
-    httpRequest.send();
+        else{
+            cb(null);
+        }
+    }
+    req.send();
 }

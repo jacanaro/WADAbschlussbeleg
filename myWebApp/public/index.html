@@ -448,13 +448,13 @@
                 <div>
                     <form action="/survey" method="POST">
                         <div>
-                            <input type="text" id="titel" name="titel" placeholder="Titel"><br>
+                            <input type="text" id="addNewTitle" name="addNewTitle" placeholder="Titel"><br>
                             <br>
                         </div>
 
                         <div>
-                            <label for="geschlecht">Geschlecht:</label> <select
-                                name="geschlecht" id="geschlecht">
+                            <label for="addNewGeschlecht">Geschlecht:</label> <select
+                                name="geschlecht" id="addNewGeschlecht">
                             <option value="keineAngabe">keine Angabe</option>
                             <option value="weiblich">weiblich</option>
                             <option value="maennlich">männlich</option>
@@ -464,52 +464,52 @@
                         </div>
 
                         <div>
-                            <input type="text" id="vorname" name="vorname"
+                            <input type="text" id="addNewVorname" name="vorname"
                                    placeholder="Vorname*" required/><br> <br>
                         </div>
 
                         <div>
-                            <input type="text" id="nachname" name="nachname"
+                            <input type="text" id="addNewNachname" name="nachname"
                                    placeholder="Nachname*" required/><br> <br>
                         </div>
 
                         <div>
-                            <input type="text" id="strassehnr" name="strassehnr"
+                            <input type="text" id="addNewStrasseUndHausnummer" name="strassehnr"
                                    placeholder="Straße und Hausnummer*" required/>
                             <br>
                             <br>
                         </div>
 
                         <div>
-                            <input type="number" id="plz" name="plz"
+                            <input type="number" id="addNewPlz" name="plz"
                                    placeholder="Postleitzahl*" required/>
                             <br>
                             <br>
                         </div>
 
                         <div>
-                            <input type="text" id="stadt" name="stadt" placeholder="Stadt*"
+                            <input type="text" id="addNewStadt" name="stadt" placeholder="Stadt*"
                                    required><br> <br>
                         </div>
 
                         <div>
-                            <input type="text" id="land" name="land" placeholder="Land*"
+                            <input type="text" id="addNewLand" name="land" placeholder="Land*"
                                    required><br> <br>
                         </div>
 
                         <div>
-                            <input type="text" id="email" name="email"
+                            <input type="text" id="addNewMailAdr" name="email"
                                    placeholder="Mail-Adresse"><br> <br>
                         </div>
 
                         <div>
-                            <input type="text" id="sonstiges" name="sonstiges"
+                            <input type="text" id="addNewSonstiges" name="sonstiges"
                                    placeholder="Sonstiges"><br> <br>
                         </div>
 
                         <div>
-                            <label for="privat">Privater Kontakt:</label> <input
-                                type="checkbox" id="privat" checked>
+                            <label for="addNewPrivatCheck">Privater Kontakt:</label> <input
+                                type="checkbox" id="addNewPrivatCheck" checked>
                         </div>
 
                         <p>*Required Fields</p>
@@ -568,5 +568,6 @@
 <script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 <script src="javascripts/deleteContactsFromClient.js"></script>
 <script src="javascripts/getCurrentUser.js"></script>
+<script src="javascripts/getUserTest.js"></script>
 </body>
 </html>

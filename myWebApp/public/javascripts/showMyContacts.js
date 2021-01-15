@@ -1,4 +1,8 @@
 function showMyContacts(){
 	deleteContactsFromClient();
-	getCurrentUser(); //führt aktuell auch gleich requestContacts.js aus
+	//user object=callback-functions userObject
+
+	getCurrentUser(function(userObject){
+		requestContacts(userObject.username);
+	});
 }
