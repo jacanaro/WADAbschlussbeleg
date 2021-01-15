@@ -98,7 +98,7 @@ const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017/";
 
 
-router.get("/contacts", function(req, res) {
+router.get("/", function(req, res) {
 
     MongoClient.connect(url, {useUnifiedTopology: true},
         function (err, client) {
