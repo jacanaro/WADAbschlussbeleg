@@ -87,4 +87,35 @@ router.get("/", function (req, res, next) {
     res.send(contacts);
 });
 
+
+
+const MongoClient = require('mongodb').MongoClient;
+const url = "mongodb://localhost:27017/";
+
+
+router.get("/contacts", function(req, res) {
+
+    MongoClient.connect(url, {useUnifiedTopology: true},
+        function (err, client) {
+            if(err) { //better error handling needed
+                throw err;
+            }
+
+            let db = client.db("advizDB");
+            db.collection("contacts").find({}).toArray(
+                function(err, result) {
+                    if (err) { //better error handling needed
+                        throw err;
+                    }
+                    console.log(result);
+                    res.status(200).send(result);
+                    client.close();
+                });
+        });
+});
+
+
+
+
+
 module.exports = router;
