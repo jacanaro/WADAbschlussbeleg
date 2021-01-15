@@ -139,10 +139,20 @@ function createForm(obj1) {
     form.appendChild(br);
 
 
-    var submit = document.createElement("input"); //input element, Submit button
+    var submit = document.createElement("button"); //input element, Submit button
     submit.setAttribute('type', "submit");
-    submit.setAttribute('value', "Submit");
+    submit.setAttribute('value', "submit");
+    submit.textContent= 'Update Contact';
     form.appendChild(submit);
+    var br = document.createElement("br");
+    form.appendChild(br);
+    var br = document.createElement("br");
+    form.appendChild(br);
+    var deleteContact = document.createElement("button"); //input element, Submit button
+    deleteContact.setAttribute('type', "submit");
+    deleteContact .setAttribute('value', "submit");
+    deleteContact.textContent= 'Delete Contact';
+    form.appendChild(deleteContact);
     var br = document.createElement("br");
     form.appendChild(br);
     var br = document.createElement("br");
