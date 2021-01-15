@@ -6,17 +6,17 @@ function requestContacts(userID) {
     xhr.open("GET", url1, true);
     xhr.onload = function (e) {// diese Funktion wird ausgefuehrt, wenn die Anfrage erfolgreich war
         var data1 = this.response;
-        var usersContacts = JSON.parse(data1);
+        var contacts = JSON.parse(data1);
 
         if (this.status == 200) {
-            for (var i = 0; i < usersContacts.length; i++) {
-                if(usersContacts[i]!=null)
-                createForm(usersContacts[i]);
+            for (var i = 0; i < contacts.length; i++) {
+                if(contacts[i]!=null)
+                createForm(contacts[i]);
             }
 
 
         } else {
-            console.log(obj1.status);
+            console.log(contacts.status);
         }
     };
     xhr.send();

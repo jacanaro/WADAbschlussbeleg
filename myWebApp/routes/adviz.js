@@ -18,8 +18,8 @@ userCollection = [
     }
 ];
 
-var user_name;
-var password;
+user_name="";
+password="";
 
 /* GET home page. */
 router.get('/', function (req, res, next) {

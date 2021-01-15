@@ -160,7 +160,7 @@ function createForm(obj1) {
 
     details.appendChild(form);
 
-    document.getElementById('adminasContacts').appendChild(details);
+    document.getElementById('displayedContacts').appendChild(details);
 
 
     const All_Details = document.querySelectorAll('details');
