@@ -86,5 +86,9 @@ router.get("/", function (req, res, next) {
     }
     res.send(contacts);
 });
-
+router.post("/", function (req, res, next) {
+   var newVorname=req.body.addNewVorname;
+   console.log(JSON.stringify(newVorname));
+   res.status(201);
+});
 module.exports = router;
