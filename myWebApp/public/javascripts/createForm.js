@@ -3,6 +3,7 @@
 function createForm(obj1) {
     var details = document.createElement("details");
 
+
     var summary = document.createElement("summary");
     summary.innerHTML = obj1.Vorname + " " + obj1.Nachname;
     details.appendChild(summary);
@@ -150,5 +151,19 @@ function createForm(obj1) {
     details.appendChild(form);
 
     document.getElementById('adminasContacts').appendChild(details);
-}
 
+
+    const All_Details = document.querySelectorAll('details');
+
+    All_Details.forEach(deet=>{
+        deet.addEventListener('toggle', toggleOpenOneOnly)
+    })
+
+    function toggleOpenOneOnly(e) {
+        if (this.open) {
+            All_Details.forEach(deet=>{
+                if (deet!=this && deet.open) deet.open = false
+            });
+        }
+    }
+}
