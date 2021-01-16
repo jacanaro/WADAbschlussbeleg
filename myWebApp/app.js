@@ -139,14 +139,14 @@ Contact.find(function (err, contacts){
     }
 });
 
-//howto: mittels for-loop nur das Attribut Titel auslesen:
+//howto: mittels for-loop nur bestimmte Attribute auslesen:
 
 Contact.find(function (err, contacts){
     if (err) {
         console.log(err);
     } else {
         contacts.forEach(function(contact){
-            console.log(contact.Titel);
+            console.log(contact.Vorname, contact.Name);
         });
     }
 });
