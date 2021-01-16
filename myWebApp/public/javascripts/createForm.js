@@ -30,8 +30,6 @@ function createForm(contactObject) {
     label.setAttribute("for", "Geschlecht");
     label.innerHTML = "Geschlecht: "
     form.appendChild(label);
-    var br = document.createElement("br");
-    form.appendChild(br);
 
     var select = document.createElement("select");
     select.setAttribute("name", "Geschlecht");
@@ -130,6 +128,23 @@ function createForm(contactObject) {
     input.setAttribute('type', "text");
     input.setAttribute('name', "Sonstiges");
     input.value = contactObject.Sonstiges;
+    form.appendChild(input);
+    var br = document.createElement("br");
+    form.appendChild(br);
+    var br = document.createElement("br");
+    form.appendChild(br);
+
+
+
+    var label = document.createElement("label");
+    label.setAttribute("for", "privContakt");
+    label.innerHTML = "Privater Kontakt: "
+    form.appendChild(label);
+
+    var input = document.createElement("input"); //input element, text
+    input.setAttribute('type', "checkbox");
+    input.setAttribute('name', "isPrivContact");
+    input.value = contactObject.PrivaterKontakt;
     form.appendChild(input);
     var br = document.createElement("br");
     form.appendChild(br);

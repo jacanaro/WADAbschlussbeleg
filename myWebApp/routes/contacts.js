@@ -88,39 +88,20 @@ router.get("/", function (req, res, next) {
 });
 router.post("/", function (req, res, next) {
     var newContact = req.body;
+    //datenbank aktualisieren
+
     console.log(newContact);
     res.end("yes");
 });
 
-/*
 
-const MongoClient = require('mongodb').MongoClient;
-const url = "mongodb://localhost:27017/";
-
-
-router.get("/", function(req, res) {
-
-    MongoClient.connect(url, {useUnifiedTopology: true},
-        function (err, client) {
-            if(err) { //better error handling needed
-                throw err;
-            }
-
-            let db = client.db("advizDB");
-            db.collection("contacts").find({}).toArray(
-                function(err, result) {
-                    if (err) { //better error handling needed
-                        throw err;
-                    }
-                    console.log(result);
-                    res.status(200).send(result);
-                    client.close();
-                });
-        });
+/*await db.collection('inventory').insertOne({
+    item: 'canvas',
+    qty: 100,
+    tags: ['cotton'],
+    size: { h: 28, w: 35.5, uom: 'cm' }
 });
 
-
-*/
-
+ */
 
 module.exports = router;
