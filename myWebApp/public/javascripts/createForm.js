@@ -2,6 +2,7 @@ function createForm(contactObject) {
     var details = document.createElement("details");
 
 
+
     var summary = document.createElement("summary");
     summary.innerHTML = contactObject.Vorname + " " + contactObject.Nachname;
     details.appendChild(summary);
@@ -17,6 +18,7 @@ function createForm(contactObject) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "text");
     input.setAttribute('name', "titel");
+    input.setAttribute('placeholder', "Titel");
     input.value = contactObject.Titel;
     form.appendChild(input);
     var br = document.createElement("br");
@@ -51,6 +53,7 @@ function createForm(contactObject) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "text");
     input.setAttribute('name', "vorname");
+    input.setAttribute('placeholder', "Vorname");
     input.required = true;
     input.value = contactObject.Vorname;
     form.appendChild(input);
@@ -62,6 +65,7 @@ function createForm(contactObject) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "text");
     input.setAttribute('name', "nachname");
+    input.setAttribute('placeholder', "Nachname");
     input.required = true;
     input.value = contactObject.Nachname;
     form.appendChild(input);
@@ -73,6 +77,7 @@ function createForm(contactObject) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "text");
     input.setAttribute('name', "StrasseUndHausnummer");
+    input.setAttribute('placeholder', "Straße und Hausnummer");
     input.required = true;
     input.value = contactObject.StrasseUndHausnummer;
     form.appendChild(input);
@@ -84,6 +89,7 @@ function createForm(contactObject) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "number");
     input.setAttribute('name', "PLZ");
+    input.setAttribute('placeholder', "Postleitzahl");
     input.required = true;
     input.value = contactObject.PLZ;
     form.appendChild(input);
@@ -95,6 +101,7 @@ function createForm(contactObject) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "text");
     input.setAttribute('name', "Stadt");
+    input.setAttribute('placeholder', "Stadt");
     input.required = true;
     input.value = contactObject.Stadt;
     form.appendChild(input);
@@ -106,6 +113,7 @@ function createForm(contactObject) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "text");
     input.setAttribute('name', "Land");
+    input.setAttribute('placeholder', "Land");
     input.required = true;
     input.value = contactObject.Land;
     form.appendChild(input);
@@ -117,6 +125,7 @@ function createForm(contactObject) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "text");
     input.setAttribute('name', "MailAdr");
+    input.setAttribute('placeholder', "Mail-Adresse");
     input.value = contactObject.MailAdr;
     form.appendChild(input);
     var br = document.createElement("br");
@@ -127,6 +136,7 @@ function createForm(contactObject) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "text");
     input.setAttribute('name', "Sonstiges");
+    input.setAttribute('placeholder', "Sonstiges");
     input.value = contactObject.Sonstiges;
     form.appendChild(input);
     var br = document.createElement("br");
