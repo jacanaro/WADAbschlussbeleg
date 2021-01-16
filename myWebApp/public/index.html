@@ -446,7 +446,7 @@
                 <br><br>
 
                 <div>
-                    <form action="/survey" method="POST">
+                    <form action="/survey" method="POST" id="addNewContactForm">
                         <div>
                             <input type="text" id="addNewTitle" name="addNewTitle" placeholder="Titel"><br>
                             <br>
@@ -514,14 +514,14 @@
 
                         <p>*Required Fields</p>
 
-                        <button name="save" type="submit" onsubmit="addNewContact()">Save</button>
+                        <button type="submit" id="submit2" value="submit">Save</button>
 
                         <br><br>
 
-                        <button id="saveToNormaloID" name="saveToNormalo" type="submit"
+                        <!--<button id="saveToNormaloID" name="saveToNormalo" type="submit"
                                 onsubmit="addNewContact()">Save to Normalo
                         </button>
-                        <br>
+                        <br>-->
                         <button name="close" type="button" onclick="displayAddNewContact(false)">Close</button>
 
                     </form>
