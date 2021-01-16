@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var user, pass;
-    $("#loginForm").on('submit', function (e) {
+    $("#loginForm").submit(function (e) {
         e.preventDefault();
         user = $("#user").val();
         pass = $("#password").val();
@@ -28,16 +28,7 @@ $(document).ready(function () {
 
                             // User specifics
                             requestContacts(obj.username);
-/*
-                            if (obj.isAdminFlag==true) {
-                                document.getElementById("normalosContacts").style.display = 'none';
-                            } else {
-                                document.getElementById("adminasPrivateContacts").style.display = 'none';
-                                document.getElementById("adminasPublicContacts").style.display = 'none';
-                            }
 
-
- */
                             document.getElementById("loginData").innerHTML = "Hello, " + obj.username + "!";
                         } else if (this.status == 401) {
                             document.getElementById("loginFail").innerHTML = "401 " + obj.failString;

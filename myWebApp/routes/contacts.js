@@ -70,16 +70,16 @@ router.get("/", function (req, res, next) {
         if (ID === contactCollection[i].userID) {
             contacts[i] = contactCollection[i];
         } else if (ID == "all") {
-            if (user_name =="admina")
+            if (user_name == "admina")
                 contacts[i] = contactCollection[i];
             else {
-                    if(contactCollection[i].userID!=user_name){
-                        if(contactCollection[i].PrivaterKontakt==false){
-                            contacts[i] = contactCollection[i];
-                        }
-                    }else{
+                if (contactCollection[i].userID != user_name) {
+                    if (contactCollection[i].PrivaterKontakt == false) {
                         contacts[i] = contactCollection[i];
                     }
+                } else {
+                    contacts[i] = contactCollection[i];
+                }
 
             }
         }
@@ -87,12 +87,12 @@ router.get("/", function (req, res, next) {
     res.send(contacts);
 });
 router.post("/", function (req, res, next) {
-   var newVorname=req.body.addNewVorname;
-   console.log(JSON.stringify(newVorname));
-   res.status(201);
+    var newContact = req.body;
+    console.log(newContact);
+    res.end("yes");
 });
 
-
+/*
 
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017/";
@@ -120,7 +120,7 @@ router.get("/", function(req, res) {
 });
 
 
-
+*/
 
 
 module.exports = router;
