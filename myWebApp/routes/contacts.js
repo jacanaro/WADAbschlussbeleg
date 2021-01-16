@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
 
+
 contactCollection = [
     { // Object @ 0 index
         "userID": "admina",
@@ -63,6 +64,8 @@ contactCollection = [
     }
 ];
 
+
+
 router.get("/", function (req, res, next) {
     let contacts = [];
     let ID = req.query.userId;
@@ -94,16 +97,28 @@ router.post("/", function (req, res, next) {
     res.end("yes");
 });
 
-
-/*await db.collection('inventory').insertOne({
-    item: 'canvas',
-    qty: 100,
-    tags: ['cotton'],
-    size: { h: 28, w: 35.5, uom: 'cm' }
+/*ES FUNKTIONIERT NICHT
+//Titel: xmlrequest.Titel
+app.Contact.insertOne({
+    Titel: "String",
+    m_w_d: "String",
+    Vorname: "String",
+    Name: "String",
+    StrHsnr: "String",
+    PLZ: 0,
+    Stadt: "String",
+    Land: "String",
+    Email: "String",
+    Sonstiges: "String",
+    isPrivate: false
 });
 
 
 */
+
+
+
+
 
 
 module.exports = router;
