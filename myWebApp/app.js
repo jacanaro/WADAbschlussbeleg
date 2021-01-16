@@ -79,7 +79,7 @@ Contact.find(function (err, contacts){
     }
 });
 
-//Challenge: mittels for-loop nur dasAttribut beschreibung auslesen:
+//howto: mittels for-loop nur das Attribut beschreibung auslesen:
 
 Contact.find(function (err, contacts){
     if (err) {
