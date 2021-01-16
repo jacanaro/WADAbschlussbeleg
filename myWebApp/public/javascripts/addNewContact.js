@@ -26,7 +26,7 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
         newContactObject.Land = document.getElementById("addNewLand").value;
         newContactObject.MailAdr = document.getElementById("addNewMailAdr").value;
         newContactObject.Sonstiges = document.getElementById("addNewSonstiges").value;
-        newContactObject.PrivaterKontakt = document.getElementById("addNewPrivatCheck").value;
+        newContactObject.PrivaterKontakt = document.getElementById("addNewPrivatCheck").checked;
 
         return newContactObject
 
@@ -38,7 +38,7 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
     createForm(newContactObject);
     $.post("http://localhost:3000/adviz/contacts",newContactObject, function (data) {
         if (data === 'yes') {
-            alert("success");
+            console.log(201);
         } else {
             alert("login data could not be sent");
         }

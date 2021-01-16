@@ -1,4 +1,8 @@
 function createForm(contactObject) {
+    //create marker on map
+    createMarker(contactObject);
+
+
     var details = document.createElement("details");
 
 
@@ -144,7 +148,7 @@ function createForm(contactObject) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "checkbox");
     input.setAttribute('name', "isPrivContact");
-    input.value = contactObject.PrivaterKontakt;
+    input.checked = contactObject.PrivaterKontakt;
     form.appendChild(input);
     var br = document.createElement("br");
     form.appendChild(br);
