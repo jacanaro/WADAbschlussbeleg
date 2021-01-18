@@ -1,4 +1,3 @@
-
 body {
     background-color: lightblue;
     align-content: center;
@@ -81,6 +80,6 @@ summary:focus {
 }
 
 #map {
-    height: 100%;
+    height: 40em;
 }
 

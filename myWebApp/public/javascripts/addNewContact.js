@@ -3,33 +3,41 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
 
     function getAddNewContactFormData() {
         var newContactObject = {
-            "userID": "",
+            "_id": "",
             "Titel": "",
-            "Geschlecht": "",
+            "m_w_d": "",
             "Vorname": "",
-            "Nachname": "",
-            "StrasseUndHausnummer": "",
-            "PLZ": "",
+            "Name": "",
+            "StrHsnr": "",
+            "PLZ": 0,
             "Stadt": "",
             "Land": "",
-            "MailAdr": "",
+            "Email": "",
             "Sonstiges": "",
-            "PrivaterKontakt": false
+            "isPrivate": false,
+            "lat": 0.0,
+            "lng": 0.0,
+            "ownerID": "",
+            "__v": ""
         };
 
         newContactObject.Titel = document.getElementById("addNewTitle").value;
-        newContactObject.Geschlecht = document.getElementById("addNewGeschlecht").value;
+        newContactObject.m_w_d = document.getElementById("addNewGeschlecht").value;
         newContactObject.Vorname = document.getElementById("addNewVorname").value;
-        newContactObject.Nachname = document.getElementById("addNewNachname").value;
-        newContactObject.StrasseUndHausnummer = document.getElementById("addNewStrasseUndHausnummer").value;
+        newContactObject.Name = document.getElementById("addNewNachname").value;
+        newContactObject.StrHsnr = document.getElementById("addNewStrasseUndHausnummer").value;
         newContactObject.PLZ = document.getElementById("addNewPlz").value;
         newContactObject.Stadt = document.getElementById("addNewStadt").value;
         newContactObject.Land = document.getElementById("addNewLand").value;
-        newContactObject.MailAdr = document.getElementById("addNewMailAdr").value;
+        newContactObject.Email = document.getElementById("addNewMailAdr").value;
         newContactObject.Sonstiges = document.getElementById("addNewSonstiges").value;
-        newContactObject.PrivaterKontakt = document.getElementById("addNewPrivatCheck").checked;
+        newContactObject.isPrivate = document.getElementById("addNewPrivatCheck").checked;
+        newContactObject.lat = newContactObject.results[0].geometry.location.lat;
+        newContactObject.lng = newContactObject.results[0].geometry.location.lng;
+        //todo
+        newContactObject.ownerID = -1;
 
-        return newContactObject
+        return newContactObject;
 
     }
 
