@@ -10,20 +10,20 @@ function createContactFormAndMapMarker(contactObject) {
     details.appendChild(summary);
 
     var form = document.createElement("form");
-    form.setAttribute('method', "post");
-    form.setAttribute('action', "/contacts");
+    form.setAttribute('onsubmit', "return false;");
+    //form.setAttribute('action', "/contacts");
 
 
     var br = document.createElement("br");
     form.appendChild(br);
 
-    var input = document.createElement("input"); //input element, text
-    input.setAttribute('type', "text");
-    input.setAttribute('name', "titel");
-    input.setAttribute('placeholder', "Titel");
-    input.id = "titel" + contactObject._id;
-    input.value = contactObject.Titel;
-    form.appendChild(input);
+    var inputTitel = document.createElement("input"); //input element, text
+    inputTitel.setAttribute('type', "text");
+    inputTitel.setAttribute('name', "titel");
+    inputTitel.setAttribute('placeholder', "Titel");
+    inputTitel.id = "titel" + contactObject._id;
+    inputTitel.value = contactObject.Titel;
+    form.appendChild(inputTitel);
     var br = document.createElement("br");
     form.appendChild(br);
     var br = document.createElement("br");
@@ -53,103 +53,103 @@ function createContactFormAndMapMarker(contactObject) {
     form.appendChild(br);
 
 
-    var input = document.createElement("input"); //input element, text
-    input.setAttribute('type', "text");
-    input.setAttribute('name', "vorname");
-    input.setAttribute('placeholder', "Vorname");
-    input.required = true;
-    input.id = "vorname" + contactObject._id;
-    input.value = contactObject.Vorname;
-    form.appendChild(input);
+    var inputVorname = document.createElement("input"); //input element, text
+    inputVorname.setAttribute('type', "text");
+    inputVorname.setAttribute('name', "vorname");
+    inputVorname.setAttribute('placeholder', "Vorname");
+    inputVorname.required = true;
+    inputVorname.id = "vorname" + contactObject._id;
+    inputVorname.value = contactObject.Vorname;
+    form.appendChild(inputVorname);
     var br = document.createElement("br");
     form.appendChild(br);
     var br = document.createElement("br");
     form.appendChild(br);
 
-    var input = document.createElement("input"); //input element, text
-    input.setAttribute('type', "text");
-    input.setAttribute('name', "nachname");
-    input.setAttribute('placeholder', "Nachname");
-    input.required = true;
-    input.id = "name" + contactObject._id;
-    input.value = contactObject.Name;
-    form.appendChild(input);
+    var inputNachname = document.createElement("input"); //input element, text
+    inputNachname.setAttribute('type', "text");
+    inputNachname.setAttribute('name', "nachname");
+    inputNachname.setAttribute('placeholder', "Nachname");
+    inputNachname.required = true;
+    inputNachname.id = "name" + contactObject._id;
+    inputNachname.value = contactObject.Name;
+    form.appendChild(inputNachname);
     var br = document.createElement("br");
     form.appendChild(br);
     var br = document.createElement("br");
     form.appendChild(br);
 
-    var input = document.createElement("input"); //input element, text
-    input.setAttribute('type', "text");
-    input.setAttribute('name', "StrasseUndHausnummer");
-    input.setAttribute('placeholder', "Straße und Hausnummer");
-    input.required = true;
-    input.id = "strHsnr" + contactObject._id;
-    input.value = contactObject.StrHsnr;
-    form.appendChild(input);
+    var inputStrasseUndHausnummer = document.createElement("input"); //input element, text
+    inputStrasseUndHausnummer.setAttribute('type', "text");
+    inputStrasseUndHausnummer.setAttribute('name', "StrasseUndHausnummer");
+    inputStrasseUndHausnummer.setAttribute('placeholder', "Straße und Hausnummer");
+    inputStrasseUndHausnummer.required = true;
+    inputStrasseUndHausnummer.id = "strHsnr" + contactObject._id;
+    inputStrasseUndHausnummer.value = contactObject.StrHsnr;
+    form.appendChild(inputStrasseUndHausnummer);
     var br = document.createElement("br");
     form.appendChild(br);
     var br = document.createElement("br");
     form.appendChild(br);
 
-    var input = document.createElement("input"); //input element, text
-    input.setAttribute('type', "number");
-    input.setAttribute('name', "PLZ");
-    input.setAttribute('placeholder', "Postleitzahl");
-    input.required = true;
-    input.id = "plz" + contactObject._id;
-    input.value = contactObject.PLZ;
-    form.appendChild(input);
+    var inputPLZ = document.createElement("input"); //input element, text
+    inputPLZ.setAttribute('type', "number");
+    inputPLZ.setAttribute('name', "PLZ");
+    inputPLZ.setAttribute('placeholder', "Postleitzahl");
+    inputPLZ.required = true;
+    inputPLZ.id = "plz" + contactObject._id;
+    inputPLZ.value = contactObject.PLZ;
+    form.appendChild(inputPLZ);
     var br = document.createElement("br");
     form.appendChild(br);
     var br = document.createElement("br");
     form.appendChild(br);
 
-    var input = document.createElement("input"); //input element, text
-    input.setAttribute('type', "text");
-    input.setAttribute('name', "Stadt");
-    input.setAttribute('placeholder', "Stadt");
-    input.required = true;
-    input.id = "stadt" + contactObject._id;
-    input.value = contactObject.Stadt;
-    form.appendChild(input);
+    var inputStadt = document.createElement("input"); //input element, text
+    inputStadt.setAttribute('type', "text");
+    inputStadt.setAttribute('name', "Stadt");
+    inputStadt.setAttribute('placeholder', "Stadt");
+    inputStadt.required = true;
+    inputStadt.id = "stadt" + contactObject._id;
+    inputStadt.value = contactObject.Stadt;
+    form.appendChild(inputStadt);
     var br = document.createElement("br");
     form.appendChild(br);
     var br = document.createElement("br");
     form.appendChild(br);
 
-    var input = document.createElement("input"); //input element, text
-    input.setAttribute('type', "text");
-    input.setAttribute('name', "Land");
-    input.setAttribute('placeholder', "Land");
-    input.required = true;
-    input.id = "land" + contactObject._id;
-    input.value = contactObject.Land;
-    form.appendChild(input);
+    var inputLand = document.createElement("input"); //input element, text
+    inputLand.setAttribute('type', "text");
+    inputLand.setAttribute('name', "Land");
+    inputLand.setAttribute('placeholder', "Land");
+    inputLand.required = true;
+    inputLand.id = "land" + contactObject._id;
+    inputLand.value = contactObject.Land;
+    form.appendChild(inputLand);
     var br = document.createElement("br");
     form.appendChild(br);
     var br = document.createElement("br");
     form.appendChild(br);
 
-    var input = document.createElement("input"); //input element, text
-    input.setAttribute('type', "text");
-    input.setAttribute('name', "MailAdr");
-    input.setAttribute('placeholder', "Mail-Adresse");
-    input.id = "email" + contactObject._id;
-    input.value = contactObject.Email;
-    form.appendChild(input);
+    var inputMailAdr = document.createElement("input"); //input element, text
+    inputMailAdr.setAttribute('type', "text");
+    inputMailAdr.setAttribute('name', "MailAdr");
+    inputMailAdr.setAttribute('placeholder', "Mail-Adresse");
+    inputMailAdr.id = "email" + contactObject._id;
+    inputMailAdr.value = contactObject.Email;
+    form.appendChild(inputMailAdr);
     var br = document.createElement("br");
     form.appendChild(br);
     var br = document.createElement("br");
     form.appendChild(br);
 
-    var input = document.createElement("input"); //input element, text
-    input.setAttribute('type', "text");
-    input.setAttribute('name', "Sonstiges");
-    input.setAttribute('placeholder', "Sonstiges");
-    input.id = "sonstiges" + contactObject._id;
-    input.value = contactObject.Sonstiges;
-    form.appendChild(input);
+    var inputSonstiges = document.createElement("input"); //input element, text
+    inputSonstiges.setAttribute('type', "text");
+    inputSonstiges.setAttribute('name', "Sonstiges");
+    inputSonstiges.setAttribute('placeholder', "Sonstiges");
+    inputSonstiges.id = "sonstiges" + contactObject._id;
+    inputSonstiges.value = contactObject.Sonstiges;
+    form.appendChild(inputSonstiges);
     var br = document.createElement("br");
     form.appendChild(br);
     var br = document.createElement("br");
@@ -161,104 +161,65 @@ function createContactFormAndMapMarker(contactObject) {
     label.innerHTML = "Privater Kontakt: "
     form.appendChild(label);
 
-    var input = document.createElement("input"); //input element, text
-    input.setAttribute('type', "checkbox");
-    input.setAttribute('name', "isPrivContact");
-    input.id = "isPrivat" + contactObject._id;
-    input.checked = contactObject.isPrivate;
-    form.appendChild(input);
+    var inputIsPrivat = document.createElement("input"); //input element, text
+    inputIsPrivat.setAttribute('type', "checkbox");
+    inputIsPrivat.setAttribute('name', "isPrivContact");
+    inputIsPrivat.id = "isPrivat" + contactObject._id;
+    inputIsPrivat.checked = contactObject.isPrivate;
+    form.appendChild(inputIsPrivat);
     var br = document.createElement("br");
     form.appendChild(br);
     var br = document.createElement("br");
     form.appendChild(br);
 
 
-    var submit = document.createElement("button"); //input element, Submit button
-    submit.setAttribute('type', "submit");
-    submit.setAttribute('value', "submit");
-    submit.textContent = 'Update Contact';
-    //submit.onclick = updateContact();
+    var updateButton = document.createElement("button"); //input element, Submit button
+    //submit.setAttribute('type', "submit");
+    //submit.setAttribute('value', "submit");
+    updateButton.textContent = 'Update Contact';
 
+    updateButton.onclick = function updateContact(){
+        document.getElementById("test").innerHTML=inputVorname.value;
 
-    //var updateID = "update" + contactObject._id;
-    submit.id = "update" + String(contactObject._id);
-
-    submit.addEventListener('submit', function (e) {
-        e.preventDefault();
-        /*var xhr = new XMLHttpRequest();
-        var url1 = `http://localhost:3000/adviz/contacts/id`;
-
-        xhr.open("PUT", url1, true);*/
         var newContactObject = {
             _id: contactObject._id,
-            Titel: 'Frau',
-            m_w_d: 'weiblich',
-            Vorname: 'Caro',
-            Name: 'A.',
-            StrHsnr: 'Firlstraße 2',
-            PLZ: 12459,
-            Stadt: 'Berlin',
-            Land: 'Deutschland',
-            Email: 'mail@mail.de',
-            Sonstiges: 'probiert was mit DB',
-            isPrivate: true,
+            Titel: inputTitel.value,
+            m_w_d: select.value,
+            Vorname: inputVorname.value,
+            Name: inputNachname.value,
+            StrHsnr: inputStrasseUndHausnummer.value,
+            PLZ: inputPLZ.value,
+            Stadt: inputStadt.value,
+            Land: inputLand.value,
+            Email: inputMailAdr.value,
+            Sonstiges: inputSonstiges.value,
+            isPrivate: inputIsPrivat.value,
             lat: 52.4626,
             lng: 13.52322,
-            ownerID: 'admina',
+            ownerID: contactObject.ownerID,
             __v: 0
         };
-        //newContactObject._id= contactObject._id;
-        //newContactObject.Titel = document.getElementById("titel"+contactObject._id).value;
-        /*newContactObject.m_w_d = document.getElementById("addNewGeschlecht").value;
-        newContactObject.Vorname = document.getElementById("addNewVorname").value;
-        newContactObject.Name = document.getElementById("addNewNachname").value;
-        newContactObject.StrHsnr = document.getElementById("addNewStrasseUndHausnummer").value;
-        newContactObject.PLZ = document.getElementById("addNewPlz").value;
-        newContactObject.Stadt = document.getElementById("addNewStadt").value;
-        newContactObject.Land = document.getElementById("addNewLand").value;
-        newContactObject.Email = document.getElementById("addNewMailAdr").value;
-        newContactObject.Sonstiges = document.getElementById("addNewSonstiges").value;
-        newContactObject.isPrivate = document.getElementById("addNewPrivatCheck").checked;*/
 
-        var xhr = new XMLHttpRequest();
+        var putRequest = new XMLHttpRequest();
         var url = "http://localhost:3000/adviz/contacts/id";
-        xhr.open("PUT", url, true);
-        //xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
-        xhr.onload = function () {
-            if (xhr.readyState == 4 && xhr.status == "200") {
-                alert("it worked");
-            } else {
-                alert("server didnt get put");
-            }
-        }
-        xhr.JSON(newContactObject);/*
-        $.put("http://localhost:3000/adviz/contacts/id",newContactObject, function (data) {
-            if (data === 'yes') {
-                console.log(201);
-            } else {
-                alert("updated contact could not be sent");
-            }
-        });*/
-        /*xhr.onload = function (e) { //diese Funktion wird ausgefuehrt, wenn die Anfrage erfolgreich war
-            var updatedData = this.response;
-            var updatedContact = JSON.parse(updatedData);
+
+        putRequest.open("PUT", url, true);
+
+        putRequest.onload = function (e) { // diese Funktion wird ausgefuehrt, wenn die Anfrage erfolgreich war
+            var data1 = this.response;
+            var msg = JSON.parse(data1);
 
             if (this.status == 200) {
-                for (var i = 0; i < updatedContact.length; i++) {
-                    if(updatedContact[i]!=null)
-                        createContactFormAndMapMarker(updatedContact[i]);
-                }
-
-
+                   alert(msg);
             } else {
-                console.log(updatedContact.status);
+                console.log(msg.status);
             }
         };
-        xhr.send();*/
-    });
+        putRequest.JSON(newContactObject);
 
+    };
 
-    form.appendChild(submit);
+    form.appendChild(updateButton);
     var br = document.createElement("br");
     form.appendChild(br);
     var br = document.createElement("br");
