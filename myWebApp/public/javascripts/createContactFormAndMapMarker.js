@@ -8,7 +8,7 @@ function createContactFormAndMapMarker(contactObject) {
 
 
     var summary = document.createElement("summary");
-    summary.innerHTML = contactObject.Vorname + " " + contactObject.Nachname;
+    summary.innerHTML = contactObject.Vorname + " " + contactObject.Name;
     details.appendChild(summary);
 
     var form = document.createElement("form");
@@ -46,7 +46,7 @@ function createContactFormAndMapMarker(contactObject) {
         option.text = options[i];
         select.appendChild(option);
     }
-    select.value = contactObject.Geschlecht;
+    select.value = contactObject.m_w_d;
     form.appendChild(select);
     var br = document.createElement("br");
     form.appendChild(br);
@@ -71,7 +71,7 @@ function createContactFormAndMapMarker(contactObject) {
     input.setAttribute('name', "nachname");
     input.setAttribute('placeholder', "Nachname");
     input.required = true;
-    input.value = contactObject.Nachname;
+    input.value = contactObject.Name;
     form.appendChild(input);
     var br = document.createElement("br");
     form.appendChild(br);
@@ -83,7 +83,7 @@ function createContactFormAndMapMarker(contactObject) {
     input.setAttribute('name', "StrasseUndHausnummer");
     input.setAttribute('placeholder', "Straße und Hausnummer");
     input.required = true;
-    input.value = contactObject.StrasseUndHausnummer;
+    input.value = contactObject.StrHsnr;
     form.appendChild(input);
     var br = document.createElement("br");
     form.appendChild(br);
@@ -130,7 +130,7 @@ function createContactFormAndMapMarker(contactObject) {
     input.setAttribute('type', "text");
     input.setAttribute('name', "MailAdr");
     input.setAttribute('placeholder', "Mail-Adresse");
-    input.value = contactObject.MailAdr;
+    input.value = contactObject.Email;
     form.appendChild(input);
     var br = document.createElement("br");
     form.appendChild(br);
@@ -158,7 +158,7 @@ function createContactFormAndMapMarker(contactObject) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "checkbox");
     input.setAttribute('name', "isPrivContact");
-    input.checked = contactObject.PrivaterKontakt;
+    input.checked = contactObject.isPrivate;
     form.appendChild(input);
     var br = document.createElement("br");
     form.appendChild(br);

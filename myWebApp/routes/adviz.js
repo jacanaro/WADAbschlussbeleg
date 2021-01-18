@@ -42,5 +42,8 @@ router.get('/loginData', function (req, res, next) {
         });
     });
 });
+router.get('/user', function (req, res, next) {
+                    res.json({userID: user_name});
+});
 
 module.exports = router;

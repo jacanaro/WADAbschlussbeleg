@@ -4,7 +4,7 @@
 
 function getCurrentUser(cb) {
     var req = new XMLHttpRequest();
-    var url = `http://localhost:3000/adviz/loginData`
+    var url = `http://localhost:3000/adviz/user`
     req.open('GET', url, true);
     req.onreadystatechange = function() {
         if (this.readyState === 4) {
