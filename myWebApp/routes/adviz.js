@@ -1,3 +1,6 @@
+var MongoClient = require('mongodb').MongoClient;
+const url = "mongodb://localhost:27017/adviz";
+
 var express = require('express');
 var router = express.Router();
 var path = require('path');
@@ -5,21 +8,8 @@ const bodyParser = require("body-parser");
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
 
-userCollection = [
-    { // Object @ 0 index
-        username: "admina",
-        password: "admina",
-        isAdminFlag: true
-    },
-    { // Object @ 1 index
-        username: "normalo",
-        password: "normalo",
-        isAdminFlag: false
-    }
-];
-
-user_name="";
-password="";
+user_name = "";
+password = "";
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -33,15 +23,24 @@ router.post('/login', (req, res) => {
     res.end("yes");
 });
 router.get('/loginData', function (req, res, next) {
-    for (var i = 0; i < userCollection.length; i++) {
-        // check is user input matches username and password of a current index of the userCollection array
-        if (user_name == userCollection[i].username && password == userCollection[i].password) {
-            res.json(userCollection[i]);
-            break;
-        } else if (i == userCollection.length - 1) {
-            res.status(401).json({failString: "Unauthorized"});
-        }
-    }
+    MongoClient.connect(url, {useUnifiedTopology: true}, function (err, client) {
+        if (err) throw err;
+        var db = client.db("adviz");
+        db.collection("users").find({}).toArray(function (err, result) {
+            if (err) throw err;
+            for (var i = 0; i < result.length; i++) {
+                // check is user input matches username and password of a current index of the userCollection array
+                if (user_name == result[i].userID && password == result[i].password) {
+                    console.log(result[i]);
+                    res.json(result[i]);
+                    break;
+                } else if (i == result.length - 1) {
+                    res.status(401).json({failString: "Unauthorized"});
+                }
+            }
+            client.close();
+        });
+    });
 });
 
 module.exports = router;

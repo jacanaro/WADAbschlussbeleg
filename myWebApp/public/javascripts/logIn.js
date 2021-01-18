@@ -27,9 +27,9 @@ $(document).ready(function () {
                             displayAddNewContact(false);
 
                             // User specifics
-                            requestAndCreateContactsAndMarker(obj.username);
+                            requestAndCreateContactsAndMarker(obj.userID);
 
-                            document.getElementById("loginData").innerHTML = "Hello, " + obj.username + "!";
+                            document.getElementById("loginData").innerHTML = "Hello, " + obj.userID + "!";
                         } else if (this.status == 401) {
                             document.getElementById("loginFail").innerHTML = "401 " + obj.failString;
                         } else {
