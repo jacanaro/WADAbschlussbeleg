@@ -33,9 +33,8 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
     }
 
     var newContactObject = getAddNewContactFormData();
-
     //send to Client
-    createForm(newContactObject);
+    createContactFormAndMapMarker(newContactObject);
     $.post("http://localhost:3000/adviz/contacts",newContactObject, function (data) {
         if (data === 'yes') {
             console.log(201);

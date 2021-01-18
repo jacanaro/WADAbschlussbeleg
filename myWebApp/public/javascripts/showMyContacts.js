@@ -1,7 +1,8 @@
 function showMyContacts(){
 	deleteContactsFromClient();
+	initMap();
 	//user object=callback-functions userObject
 	getCurrentUser(function(userObject){
-		requestContacts(userObject.username);
+		requestAndCreateContactsAndMarker(userObject.username);
 	});
 }

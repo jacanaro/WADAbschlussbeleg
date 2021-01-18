@@ -1,6 +1,6 @@
-function createForm(contactObject) {
+function createContactFormAndMapMarker(contactObject) {
     //create marker on map
-    createMarker(contactObject);
+    createMapMarker(contactObject);
 
 
     var details = document.createElement("details");

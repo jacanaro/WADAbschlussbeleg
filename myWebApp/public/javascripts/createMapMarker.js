@@ -1,4 +1,4 @@
-function createMarker(contactObject) {
+function createMapMarker(contactObject) {
     var markerReq = new XMLHttpRequest();
     var url = "https://maps.googleapis.com/maps/api/geocode/json?";
     url = url + "address="+contactObject.StrasseUndHausnummer+", "+contactObject.Stadt;
@@ -17,6 +17,10 @@ function createMarker(contactObject) {
             if (obj.status != "ZERO_RESULTS") {
                 var lat = obj.results[0].geometry.location.lat;
                 var lng = obj.results[0].geometry.location.lng;
+                var marker = new google.maps.Marker({
+                    position: {lat:lat,lng:lng},
+                    map: map
+                });
             } else {
                 alert("Die Adresse konnte nicht aufgelöst werden!");
             }

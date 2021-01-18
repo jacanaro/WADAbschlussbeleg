@@ -1,4 +1,4 @@
-function requestContacts(userID) {
+function requestAndCreateContactsAndMarker(userID) {
     var xhr = new XMLHttpRequest();
     var url1 = `http://localhost:3000/adviz/contacts?userId=`;
     url1 += userID;
@@ -11,7 +11,7 @@ function requestContacts(userID) {
         if (this.status == 200) {
             for (var i = 0; i < contacts.length; i++) {
                 if(contacts[i]!=null)
-                createForm(contacts[i]);
+                createContactFormAndMapMarker(contacts[i]);
             }
 
 

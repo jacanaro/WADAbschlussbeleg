@@ -1,4 +1,5 @@
 function showAllContacts(){
 	deleteContactsFromClient();
-	requestContacts("all");
+	initMap();
+	requestAndCreateContactsAndMarker("all");
 }

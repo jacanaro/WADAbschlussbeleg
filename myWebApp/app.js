@@ -38,7 +38,11 @@ const contactSchema = new mongoose.Schema ({
     Land: String,
     Email: String,
     Sonstiges: String,
-    isPrivate: Boolean
+    isPrivate: Boolean,
+    lat: Number,
+    lng: Number,
+    ownerID: String
+
 });
 
 const Contact = mongoose.model("Contact", contactSchema);
@@ -66,41 +70,70 @@ const caro = new Contact({
     Land: "Deutschland",
     Email: "mail@mail.de",
     Sonstiges: "probiert was mit DB",
-    isPrivate: true
+    isPrivate: true,
+    lat: 52.462600,
+    lng: 13.523220,
+    ownerID:"admina"
 });
 const schmaron = new Contact({
     Titel: "Herr",
     m_w_d: "männlich",
     Vorname: "Aaron",
     Name: "B.",
-    StrHsnr: "Seelstr. 32",
-    PLZ: 1255,
+    StrHsnr: "Seelenbinderstr. 32",
+    PLZ: 12555,
     Stadt: "Berlin",
     Land: "Deutschland",
     Email: "andereMail@mail.de",
-    isPrivate: false
+    isPrivate: false,
+    lat: 52.455430,
+    lng: 13.586020,
+    ownerID:"admina"
 });
 const muster = new Contact({
+    Titel:"",
     m_w_d: "divers",
     Vorname: "Muster",
     Name: "Mustermensch",
-    StrHsnr: "Adressenstr. 0",
+    StrHsnr: "Wilhelminenhofstraße 50",
     PLZ: 12459,
     Stadt: "Berlin",
     Land: "Deutschland",
     Sonstiges: "schaut nur",
-    isPrivate: true
+    isPrivate: true,
+    lat: 52.539430,
+    lng: 13.388550,
+    ownerID:"normalo"
+});
+const musterino = new Contact({
+    Titel:"",
+    m_w_d: "divers",
+    Vorname: "Musterino",
+    Name: "Jackson",
+    StrHsnr: "Großstraße 22",
+    PLZ: 12459,
+    Stadt: "Berlin",
+    Land: "Deutschland",
+    Sonstiges: "schaut weg",
+    isPrivate: false,
+    lat: 52.462230,
+    lng: 13.521870,
+    ownerID:"normalo"
 });
 
 const admina = new User({
-    userID: 1,
+    userID: "admina",
     password: "admina",
+    firstname:"admina",
+    lastname:"admina",
     isAdminUser: true
 });
 
 const normalo = new User({
-    userID: 2,
+    userID: "normalo",
     password: "normalo",
+    firstname:"normalo",
+    lastname:"normalo",
     isAdminUser: false
 });
 
@@ -111,7 +144,7 @@ const normalo = new User({
 SONST WIRD ES BEI JEDEM START NEU UND DOPPELT UND DREIFACH HINZUGEFÜGT*/
 
 /*
-Contact.insertMany([schmaron, caro, muster], function (err){
+Contact.insertMany([schmaron, caro, muster, musterino], function (err){
     if (err){
         console.log(err);
     } else {
@@ -126,7 +159,7 @@ User.insertMany([admina, normalo], function (err){
         console.log("Erfolgreich die beiden User dazu gemacht");
     }
 });
- */
+*/
 /*------------------END OF AUSKOMMENTIEREN------------------*/
 
 
