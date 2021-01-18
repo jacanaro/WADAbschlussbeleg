@@ -60,14 +60,14 @@ router.post("/", function (req, res, next) {
 
 router.put("/id", function (req, res, next){
     var updatedContact = req.body;
-
+/*
     db.collection('contacts').updateOne(
         {
             $set: { 'Titel': req.body.Titel },
             $currentDate: { lastModified: true }
         }
-    );
-    console.log(newContact);
+    );*/
+    console.log(updatedContact);
     res.end("yes");
 });
 

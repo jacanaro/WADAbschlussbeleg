@@ -1,7 +1,6 @@
-function updateContact() {
+/*function updateContact() {
     var xhr = new XMLHttpRequest();
-    var url1 = `http://localhost:3000/adviz/contacts?userId=`;
-    url1 += userID;
+    var url1 = `http://localhost:3000/adviz/contacts/id`;
 
     xhr.open("PUT", url1, true);
     xhr.onload = function (e) { //diese Funktion wird ausgefuehrt, wenn die Anfrage erfolgreich war
@@ -21,3 +20,5 @@ function updateContact() {
     };
     xhr.send();
 }
+
+ */

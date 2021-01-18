@@ -11,7 +11,9 @@ function requestAndCreateContactsAndMarker(userID) {
         if (this.status == 200) {
             for (var i = 0; i < contacts.length; i++) {
                 if(contacts[i]!=null)
+                    //hier contact id_ abfangen und
                 createContactFormAndMapMarker(contacts[i]);
+                //hier and update und delete übergeben
             }
 
 
