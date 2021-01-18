@@ -58,4 +58,17 @@ router.post("/", function (req, res, next) {
     res.end("yes");
 });
 
+router.put("/id", function (req, res, next){
+    var updatedContact = req.body;
+
+    db.collection('contacts').updateOne(
+        {
+            $set: { 'Titel': req.body.Titel },
+            $currentDate: { lastModified: true }
+        }
+    );
+    console.log(newContact);
+    res.end("yes");
+});
+
 module.exports = router;

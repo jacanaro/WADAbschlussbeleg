@@ -16,6 +16,7 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
             "Sonstiges": "",
             "PrivaterKontakt": false
         };
+
         newContactObject.Titel = document.getElementById("addNewTitle").value;
         newContactObject.Geschlecht = document.getElementById("addNewGeschlecht").value;
         newContactObject.Vorname = document.getElementById("addNewVorname").value;

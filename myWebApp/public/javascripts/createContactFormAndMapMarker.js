@@ -22,6 +22,7 @@ function createContactFormAndMapMarker(contactObject) {
     var input = document.createElement("input"); //input element, text
     input.setAttribute('type', "text");
     input.setAttribute('name', "titel");
+    input.setAttribute('id', "titelId")
     input.setAttribute('placeholder', "Titel");
     input.value = contactObject.Titel;
     form.appendChild(input);
@@ -170,6 +171,7 @@ function createContactFormAndMapMarker(contactObject) {
     submit.setAttribute('type', "submit");
     submit.setAttribute('value', "submit");
     submit.textContent= 'Update Contact';
+    submit.onclick = updateContact();
     form.appendChild(submit);
     var br = document.createElement("br");
     form.appendChild(br);
