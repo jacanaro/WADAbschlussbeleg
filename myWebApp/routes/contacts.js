@@ -71,5 +71,11 @@ db.collection('contacts').updateOne(
 );*/
     res.end("yes");
 });
+router.delete("/id", function (req, res, next){
+
+    var contactToDelete = req.body;
+    console.log(contactToDelete);
+    res.end("yes");
+});
 
 module.exports = router;

@@ -174,8 +174,6 @@ function createContactFormAndMapMarker(contactObject) {
 
 
     var updateButton = document.createElement("button"); //input element, Submit button
-    //submit.setAttribute('type', "submit");
-    //submit.setAttribute('value', "submit");
     updateButton.textContent = 'Update Contact';
 
     updateButton.onclick = function updateContact() {
@@ -198,26 +196,54 @@ function createContactFormAndMapMarker(contactObject) {
             __v: 0
         };
 
-        $.ajax({
-            url: 'http://localhost:3000/adviz/contacts/id',
-            type: 'PUT',
-            data: newContactObject,
-            success: function(data) {
-                if(data=="yes") {console.log('Load was performed.')};
-            }
-        });
+        if (inputVorname.value != "" && inputNachname.value != "" && inputStrasseUndHausnummer.value != "" && inputPLZ.value != "" && inputStadt.value != "" && inputLand.value != "") {
+            $.ajax({
+                url: 'http://localhost:3000/adviz/contacts/id',
+                type: 'PUT',
+                data: newContactObject,
+                success: function (data) {
+                    if (data == "yes") {
+                        alert("contact updated");
+                    } else {
+                        alert("contact didnt reach server");
+                    }
+                    ;
+                }
+            });
+        }
     };
+
 
     form.appendChild(updateButton);
     var br = document.createElement("br");
     form.appendChild(br);
     var br = document.createElement("br");
     form.appendChild(br);
-    var deleteContact = document.createElement("button"); //input element, Submit button
-    deleteContact.setAttribute('type', "submit");
-    deleteContact.setAttribute('value', "submit");
-    deleteContact.id = "delete";
+
+    var deleteContact = document.createElement("button");
     deleteContact.textContent = 'Delete Contact';
+    deleteContact.onclick = function deleteContact() {
+        var contactID = {_id: contactObject._id};
+
+        $.ajax({
+            url: 'http://localhost:3000/adviz/contacts/id',
+            type: 'DELETE',
+            data: contactID,
+            success: function (data) {
+                if (data == "yes") {
+                    while (details.firstChild) {
+                        details.removeChild(details.lastChild);
+                    }
+                    details.remove();
+                } else {
+                    alert("didnt reach server");
+                }
+                ;
+            }
+        });
+
+    };
+
     form.appendChild(deleteContact);
     var br = document.createElement("br");
     form.appendChild(br);
