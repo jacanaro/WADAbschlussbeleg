@@ -32,16 +32,48 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
         newContactObject.Email = document.getElementById("addNewMailAdr").value;
         newContactObject.Sonstiges = document.getElementById("addNewSonstiges").value;
         newContactObject.isPrivate = document.getElementById("addNewPrivatCheck").checked;
-        newContactObject.lat = newContactObject.results[0].geometry.location.lat;
-        newContactObject.lng = newContactObject.results[0].geometry.location.lng;
-        //todo
-        newContactObject.ownerID = -1;
+
+        var markerReq = new XMLHttpRequest();
+        var url = "https://maps.googleapis.com/maps/api/geocode/json?";
+        url = url + "address=" + newContactObject.StrHsnr + ", " + newContactObject.Stadt;
+        url = url + "&key=AIzaSyB6r6VNSQh_pXayQ1yY3-NOp_0rKzaukZ4";
+
+        markerReq.open("GET", url, false);
+
+        markerReq.onerror = function () {   // Aufruf, wenn ein Fehler auftritt
+            alert("Connecting to server with " + url + " failed!\n");
+        };
+        markerReq.onload = function (e) {   // Aufruf,wenn die Anfrage erfolgreich war
+            var data = this.response;
+            var obj = JSON.parse(data);
+            console.log(obj);
+            if (this.status == 200) {
+                if (obj.status != "ZERO_RESULTS") {
+                    var lat = obj.results[0].geometry.location.lat;
+                    var lng = obj.results[0].geometry.location.lng;
+                    newContactObject.lat=lat;
+                    newContactObject.lng=lng;
+                    document.getElementById("test").innerHTML+=lat+" "+lng;
+                } else {
+                    alert("Die Adresse konnte nicht aufgelöst werden!");
+                }
+            } else {
+                alert("HTTP-status code was: " + obj.status);
+            }
+        };
+        markerReq.send();
+
+        var currentUser=getCurrentUser(function(userObject){
+            return userObject.userID;
+        });
+
+        newContactObject.ownerID=currentUser;
 
         return newContactObject;
-
     }
 
     var newContactObject = getAddNewContactFormData();
+
     //send to Client
     createContactFormAndMapMarker(newContactObject);
     $.post("http://localhost:3000/adviz/contacts",newContactObject, function (data) {

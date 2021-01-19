@@ -3,16 +3,18 @@
 // 	});
 
 function getCurrentUser(cb) {
+    var user;
     var req = new XMLHttpRequest();
     var url = `http://localhost:3000/adviz/user`
-    req.open('GET', url, true);
+    req.open('GET', url, false);
     req.onreadystatechange = function() {
         if (this.readyState === 4) {
-            cb(JSON.parse(this.response));
+            user=cb(JSON.parse(this.response));
         }
         else{
             cb(null);
         }
     }
     req.send();
+    return user;
 }
