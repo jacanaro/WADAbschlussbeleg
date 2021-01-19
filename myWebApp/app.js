@@ -187,3 +187,26 @@ Contact.find(function (err, contacts){
     }
 });
 
+//todo: update in Datenbank
+/*
+Contact.updateOne(
+    {_id: Kontaktobjekt._id}, {"$set": {"Titel": //tobeupdated.Titel, "m_w_d": bla.m_w_d, "Vorname": bla.Vorname, "Name": bla.Name, "StrHsnr": bla.StrHsnr, "PLZ": bla.PLZ, "Stadt": bla.Stadt, "Land": bla.Land, "Email": bla.Email, "Sonstiges": bla.Sonstiges, "isPrivate": bla.isPrivate, "lat": bla.lat, "lng": bla.lng, "ownerID": ownerID}}.exec(function (err) {
+    if (err) {
+    console.log(err);
+    } else {
+    console.log("Kontakt" + bla.Vorname + " " + bla.Nachname + " aktualisiert");
+    }
+});
+
+//todo: delete in Datenbank
+Contact.deleteOne({_id: willichlöschen._id}, function(err){
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("Kontakt " + bla.vorname + " " + bla.nachname + " gelöscht");
+
+    )
+
+*/
+
+
