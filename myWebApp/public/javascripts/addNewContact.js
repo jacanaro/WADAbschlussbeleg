@@ -33,6 +33,7 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
         newContactObject.Sonstiges = document.getElementById("addNewSonstiges").value;
         newContactObject.isPrivate = document.getElementById("addNewPrivatCheck").checked;
 
+        //get lat and long of addr
         var markerReq = new XMLHttpRequest();
         var url = "https://maps.googleapis.com/maps/api/geocode/json?";
         url = url + "address=" + newContactObject.StrHsnr + ", " + newContactObject.Stadt;
