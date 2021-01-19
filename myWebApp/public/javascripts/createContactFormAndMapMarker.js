@@ -178,9 +178,7 @@ function createContactFormAndMapMarker(contactObject) {
     //submit.setAttribute('value', "submit");
     updateButton.textContent = 'Update Contact';
 
-    updateButton.onclick = function updateContact(){
-        document.getElementById("test").innerHTML=inputVorname.value;
-
+    updateButton.onclick = function updateContact() {
         var newContactObject = {
             _id: contactObject._id,
             Titel: inputTitel.value,
@@ -200,23 +198,14 @@ function createContactFormAndMapMarker(contactObject) {
             __v: 0
         };
 
-        var putRequest = new XMLHttpRequest();
-        var url = "http://localhost:3000/adviz/contacts/id";
-
-        putRequest.open("PUT", url, true);
-
-        putRequest.onload = function (e) { // diese Funktion wird ausgefuehrt, wenn die Anfrage erfolgreich war
-            var data1 = this.response;
-            var msg = JSON.parse(data1);
-
-            if (this.status == 200) {
-                   alert(msg);
-            } else {
-                console.log(msg.status);
+        $.ajax({
+            url: 'http://localhost:3000/adviz/contacts/id',
+            type: 'PUT',
+            data: newContactObject,
+            success: function(data) {
+                if(data=="yes") {console.log('Load was performed.')};
             }
-        };
-        putRequest.JSON(newContactObject);
-
+        });
     };
 
     form.appendChild(updateButton);

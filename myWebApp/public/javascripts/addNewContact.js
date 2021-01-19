@@ -54,7 +54,6 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
                     var lng = obj.results[0].geometry.location.lng;
                     newContactObject.lat=lat;
                     newContactObject.lng=lng;
-                    document.getElementById("test").innerHTML+=lat+" "+lng;
                 } else {
                     alert("Die Adresse konnte nicht aufgelöst werden!");
                 }
