@@ -39,7 +39,7 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
         url = url + "address=" + newContactObject.StrHsnr + ", " + newContactObject.Stadt;
         url = url + "&key=AIzaSyB6r6VNSQh_pXayQ1yY3-NOp_0rKzaukZ4";
 
-        markerReq.open("GET", url, false);
+        markerReq.open("GET", url, true);
 
         markerReq.onerror = function () {   // Aufruf, wenn ein Fehler auftritt
             alert("Connecting to server with " + url + " failed!\n");
@@ -54,6 +54,19 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
                     var lng = obj.results[0].geometry.location.lng;
                     newContactObject.lat=lat;
                     newContactObject.lng=lng;
+
+                    newContactObject.ownerID=username;
+
+                    //createContactFormAndMapMarker(newContactObject);
+                    $.post("http://localhost:3000/adviz/contacts",newContactObject, function (data) {
+                        if (data ==="success") {
+                            alert("Kontakt wurde hinzugefügt!");
+                            showMyContacts();
+                        } else {
+                            alert("Kontakt Konnte nicht an Server gesendet werden!");
+                        }
+                    });
+
                 } else {
                     alert("Die Adresse konnte nicht aufgelöst werden!");
                 }
@@ -63,24 +76,6 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
         };
         markerReq.send();
 
-        var currentUser=getCurrentUser(function(userObject){
-            return userObject.userID;
-        });
-
-        newContactObject.ownerID=currentUser;
-
-        return newContactObject;
     }
-
-    var newContactObject = getAddNewContactFormData();
-
-    //send to Client
-    createContactFormAndMapMarker(newContactObject);
-    $.post("http://localhost:3000/adviz/contacts",newContactObject, function (data) {
-        if (data != null) {
-            console.log(201);
-        } else {
-            alert("Kontakt Konnte nicht an Server gesendet werden!");
-        }
-    });
+    getAddNewContactFormData();
 });

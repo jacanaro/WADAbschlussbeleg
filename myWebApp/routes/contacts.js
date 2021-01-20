@@ -91,7 +91,7 @@ router.post("/", async (req, res) => {
         ownerID: req.body.ownerID
     });
     await newContact.save();
-    res.send(newContact)
+    res.end("success")
 });
 
 
@@ -128,7 +128,7 @@ router.delete("/id", async (req, res) => {
         res.status(404)
         res.send({ error: "Kein Kontakt vorhanden!" })
     }
-})
+});
 
 
 module.exports = router;

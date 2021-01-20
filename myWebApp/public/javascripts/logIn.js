@@ -1,3 +1,4 @@
+username="";
 $(document).ready(function () {
     var user, pass;
     $("#loginForm").submit(function (e) {
@@ -25,6 +26,9 @@ $(document).ready(function () {
                             document.getElementById("logIn").style.display = 'none';
                             document.getElementById("loggedIn").style.display = 'block';
                             displayAddNewContact(false);
+
+                            //safe current username
+                            username=obj.userID;
 
                             // User specifics
                             requestAndCreateContactsAndMarker(obj.userID);

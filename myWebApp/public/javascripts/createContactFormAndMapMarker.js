@@ -1,36 +1,9 @@
 function createContactFormAndMapMarker(contactObject) {
-    //create marker on map
-    var mapMarker=[];
-    var markerReq = new XMLHttpRequest();
-    var url = "https://maps.googleapis.com/maps/api/geocode/json?";
-    url = url + "address=" + contactObject.StrHsnr + ", " + contactObject.Stadt;
-    url = url + "&key=AIzaSyB6r6VNSQh_pXayQ1yY3-NOp_0rKzaukZ4";
+    var mapMarker = new google.maps.Marker({
+        position: {lat: contactObject.lat, lng: contactObject.lng},
+        map: map
+    });
 
-    markerReq.open("GET", url, true);
-
-    markerReq.onerror = function () {   // Aufruf, wenn ein Fehler auftritt
-        alert("Connecting to server with " + url + " failed!\n");
-    };
-    markerReq.onload = function (e) {   // Aufruf,wenn die Anfrage erfolgreich war
-        var data = this.response;
-        var obj = JSON.parse(data);
-        console.log(obj);
-        if (this.status == 200) {
-            if (obj.status != "ZERO_RESULTS") {
-                var lat = obj.results[0].geometry.location.lat;
-                var lng = obj.results[0].geometry.location.lng;
-                mapMarker[0] = new google.maps.Marker({
-                    position: {lat:lat,lng:lng},
-                    map: map
-                });
-            } else {
-                alert("Die Adresse konnte nicht aufgelöst werden!");
-            }
-        } else {
-            alert("HTTP-status code was: " + obj.status);
-        }
-    };
-    markerReq.send();
 
     var details = document.createElement("details");
 
@@ -226,13 +199,13 @@ function createContactFormAndMapMarker(contactObject) {
             __v: 0
         };
         //get lat and long of addr
-        mapMarker=[];
+        mapMarker =null;
         var markerReq = new XMLHttpRequest();
         var url = "https://maps.googleapis.com/maps/api/geocode/json?";
         url = url + "address=" + inputStrasseUndHausnummer.value + ", " + inputStadt.value;
         url = url + "&key=AIzaSyB6r6VNSQh_pXayQ1yY3-NOp_0rKzaukZ4";
 
-        markerReq.open("GET", url, false);
+        markerReq.open("GET", url, true);
 
         markerReq.onerror = function () {   // Aufruf, wenn ein Fehler auftritt
             alert("Connecting to server with " + url + " failed!\n");
@@ -246,11 +219,26 @@ function createContactFormAndMapMarker(contactObject) {
                     var lat = obj.results[0].geometry.location.lat;
                     var lng = obj.results[0].geometry.location.lng;
                     marker = new google.maps.Marker({
-                        position: {lat:lat,lng:lng},
+                        position: {lat: lat, lng: lng},
                         map: map
                     });
-                    newContactObject.lat=lat;
-                    newContactObject.lng=lng;
+                    newContactObject.lat = lat;
+                    newContactObject.lng = lng;
+                    if (inputVorname.value != "" && inputNachname.value != "" && inputStrasseUndHausnummer.value != "" && inputPLZ.value != "" && inputStadt.value != "" && inputLand.value != "") {
+                        $.ajax({
+                            url: 'http://localhost:3000/adviz/contacts/id',
+                            type: 'PUT',
+                            data: newContactObject,
+                            success: function (data) {
+                                if (data == "yes") {
+                                    alert("Kontakt aktualisiert!");
+                                } else {
+                                    alert("didnt reach server");
+                                }
+                                ;
+                            }
+                        });
+                    }
                 } else {
                     alert("Die Adresse konnte nicht aufgelöst werden!");
                 }
@@ -260,21 +248,6 @@ function createContactFormAndMapMarker(contactObject) {
         };
         markerReq.send();
 
-        if (inputVorname.value != "" && inputNachname.value != "" && inputStrasseUndHausnummer.value != "" && inputPLZ.value != "" && inputStadt.value != "" && inputLand.value != "") {
-            $.ajax({
-                url: 'http://localhost:3000/adviz/contacts/id',
-                type: 'PUT',
-                data: newContactObject,
-                success: function (data) {
-                    if (data == "yes") {
-                        alert("Kontakt aktualisiert!");
-                    } else {
-                        alert("didnt reach server");
-                    }
-                    ;
-                }
-            });
-        }
     };
 
 
@@ -300,7 +273,7 @@ function createContactFormAndMapMarker(contactObject) {
                     }
                     details.remove();
                 } else {
-                    alert("didnt reach server");
+                    alert("didnt get anything from server");
                 }
                 ;
             }
