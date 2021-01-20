@@ -24,6 +24,7 @@ app.use('/adviz/contacts', contactsRouter);
 module.exports = app;
 
 //DATABASE
+/*
 const mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/adviz", {useNewUrlParser: true });
 
@@ -45,8 +46,11 @@ const contactSchema = new mongoose.Schema ({
 
 });
 
-const Contact = mongoose.model("Contact", contactSchema);
+ */
 
+//const Contact = mongoose.model("Contact", contactSchema);
+
+/*
 const userSchema = new mongoose.Schema ({
     userID: String,
     password: String,
@@ -57,8 +61,11 @@ const userSchema = new mongoose.Schema ({
 
 const User = mongoose.model("User", userSchema);
 
+
+ */
 /*hier werden die vordefinierten Kontakte für die Datenbank erstellt
 (noch nicht in die DB eingefügt)*/
+/*
 const caro = new Contact({
     Titel: "Frau",
     m_w_d: "weiblich",
@@ -140,6 +147,8 @@ const normalo = new User({
 });
 
 
+ */
+
 
 /*--------HIER WIRD EINGEFÜGT---------*/
 /*NACH EINMALIGEM NUTZEN AUSKOMMENTIEREN!!!!!,
@@ -166,7 +175,7 @@ User.insertMany([admina, normalo], function (err){
 
 /*------------------END OF AUSKOMMENTIEREN------------------*/
 
-
+/*
 Contact.find(function (err, contacts){
     if (err) {
         console.log(err);
@@ -185,6 +194,19 @@ Contact.find(function (err, contacts){
             console.log(contact.Vorname, contact.Name);
         });
     }
+});
+
+
+ */
+/*
+
+Contact.createOne(
+    {_id: Kontaktobjekt._id}, {"$set": {"Titel": //tobeupdated.Titel, "m_w_d": bla.m_w_d, "Vorname": bla.Vorname, "Name": bla.Name, "StrHsnr": bla.StrHsnr, "PLZ": bla.PLZ, "Stadt": bla.Stadt, "Land": bla.Land, "Email": bla.Email, "Sonstiges": bla.Sonstiges, "isPrivate": bla.isPrivate, "lat": bla.lat, "lng": bla.lng, "ownerID": ownerID}}.exec(function (err) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Kontakt" + bla.Vorname + " " + bla.Nachname + " aktualisiert");
+}
 });
 
 //todo: update in Datenbank

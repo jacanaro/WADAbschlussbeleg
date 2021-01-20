@@ -1,5 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017/adviz";
+const mongoose = require('mongoose');
 
 var express = require('express');
 var router = express.Router();
@@ -50,9 +51,56 @@ router.get("/", function (req, res, next) {
     });
 });
 
+const contactSchema = new mongoose.Schema ({
+    Titel: String,
+    m_w_d: String,
+    Vorname: String,
+    Name: String,
+    StrHsnr: String,
+    PLZ: Number,
+    Stadt: String,
+    Land: String,
+    Email: String,
+    Sonstiges: String,
+    isPrivate: Boolean,
+    lat: Number,
+    lng: Number,
+    ownerID: String
+
+});
+
+
+
+const Contact = mongoose.model("Contact", contactSchema);
+
+
+router.post("/", async (req, res) => {
+    await mongoose.connect("mongodb://localhost:27017/adviz", {useNewUrlParser: true});
+    const newContact = new Contact({
+        Titel: req.body.Titel,
+        m_w_d: req.body.m_w_d,
+        Vorname: req.body.Vorname,
+        Name: req.body.Name,
+        StrHsnr: req.body.StrHsnr,
+        PLZ: req.body.PLZ,
+        Stadt: req.body.Stadt,
+        Land: req.body.Land,
+        Email: req.body.Email,
+        Sonstiges: req.body.Sonstiges,
+        isPrivate: req.body.isPrivate,
+        lat: req.body.lat,
+        lng: req.body.lng,
+        ownerID: req.body.ownerID
+    });
+    await newContact.save();
+    res.send(newContact)
+});
+
+
+
 router.post("/", function (req, res, next) {
     var newContact = req.body;
-    //datenbank aktualisieren
+    //neuer Kontakt in DB:
 
     console.log(newContact);
     res.end("yes");
