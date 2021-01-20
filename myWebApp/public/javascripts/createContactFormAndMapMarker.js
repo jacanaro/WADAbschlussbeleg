@@ -294,7 +294,7 @@ function createContactFormAndMapMarker(contactObject) {
             type: 'DELETE',
             data: contactID,
             success: function (data) {
-                if (data == "yes") {
+                if (data != null) {
                     while (details.firstChild) {
                         details.removeChild(details.lastChild);
                     }
