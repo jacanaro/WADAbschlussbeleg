@@ -77,10 +77,10 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
     //send to Client
     createContactFormAndMapMarker(newContactObject);
     $.post("http://localhost:3000/adviz/contacts",newContactObject, function (data) {
-        if (data === 'yes') {
+        if (data != null) {
             console.log(201);
         } else {
-            alert("login data could not be sent");
+            alert("Kontakt Konnte nicht an Server gesendet werden!");
         }
     });
 });

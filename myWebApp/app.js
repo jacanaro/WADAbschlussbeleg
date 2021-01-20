@@ -19,8 +19,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/adviz', advizRouter);
 app.use('/adviz/contacts', contactsRouter);
 
-
-
 module.exports = app;
 
 //DATABASE
