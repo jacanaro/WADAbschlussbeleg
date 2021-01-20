@@ -128,7 +128,6 @@ router.delete("/id", async (req, res) => {
     try {
         await mongoose.connect("mongodb://localhost:27017/adviz", {useNewUrlParser: true});
         await Contact.deleteOne({ _id: req.body._id });
-        res.status(204);
         res.send("success");
     } catch {
         res.status(404);
