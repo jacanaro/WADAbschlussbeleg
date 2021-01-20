@@ -42,7 +42,7 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
         markerReq.open("GET", url, false);
 
         markerReq.onerror = function () {   // Aufruf, wenn ein Fehler auftritt
-            alert("Connecting to server with " + url + " failed!\n");
+            alert("Verbindung mit " + url + " fehlgeschlagen!\n");
         };
         markerReq.onload = function (e) {   // Aufruf,wenn die Anfrage erfolgreich war
             var data = this.response;
@@ -58,7 +58,7 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
                     alert("Die Adresse konnte nicht aufgelöst werden!");
                 }
             } else {
-                alert("HTTP-status code was: " + obj.status);
+                alert("HTTP-status: " + obj.status);
             }
         };
         markerReq.send();
@@ -67,7 +67,7 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
             return userObject.userID;
         });
 
-        newContactObject.ownerID=currentUser;
+        newContactObject.ownerID = currentUser;
 
         return newContactObject;
     }
@@ -80,7 +80,7 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
         if (data != null) {
             console.log(201);
         } else {
-            alert("Kontakt Konnte nicht an Server gesendet werden!");
+            alert("Kontakt konnte nicht an Server gesendet werden!");
         }
     });
 });

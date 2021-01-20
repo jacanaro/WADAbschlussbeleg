@@ -19,11 +19,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/adviz', advizRouter);
 app.use('/adviz/contacts', contactsRouter);
 
-
-
 module.exports = app;
 
-//DATABASE
+
+
+
+
+/*BACKUPS!!*/
+//DATABASE für BACKUP
 /*
 const mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/adviz", {useNewUrlParser: true });
@@ -46,10 +49,7 @@ const contactSchema = new mongoose.Schema ({
 
 });
 
-
-
 const Contact = mongoose.model("Contact", contactSchema);
-
 
 const userSchema = new mongoose.Schema ({
     userID: String,
@@ -60,16 +60,12 @@ const userSchema = new mongoose.Schema ({
 });
 
 const User = mongoose.model("User", userSchema);
-
-
-
  */
 
-/*hier werden die vordefinierten Kontakte für die Datenbank erstellt
-(noch nicht in die DB eingefügt)*/
+/*hier werden die BACKUP-Kontakte erstellt, falls was mies läuft
+(werden noch nicht in DB eingefügt)*/
 
 /*
-
 const caro = new Contact({
     Titel: "Frau",
     m_w_d: "weiblich",
@@ -141,7 +137,6 @@ const admina = new User({
     lastname: "admina",
     isAdminUser: true
 });
-
 const normalo = new User({
     "userID": "normalo",
     "password": "normalo",
@@ -149,12 +144,7 @@ const normalo = new User({
     "lastname": "normalo",
     "isAdminUser": false
 });
-
-
-
- */
-
-
+*/
 
 /*--------HIER WIRD EINGEFÜGT---------*/
 /*NACH EINMALIGEM NUTZEN AUSKOMMENTIEREN!!!!!,
@@ -176,9 +166,5 @@ User.insertMany([admina, normalo], function (err){
         console.log("Erfolgreich die beiden User dazu gemacht");
     }
 });
-
-
- */
-
-
+*/
 /*------------------END OF AUSKOMMENTIEREN------------------*/

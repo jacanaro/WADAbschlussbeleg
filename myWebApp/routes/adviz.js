@@ -11,17 +11,19 @@ router.use(bodyParser.json());
 user_name = "";
 password = "";
 
-/* GET home page. */
+
 router.get('/', function (req, res, next) {
     //res.render('index', { title: 'Login' });
     res.sendFile('index.html', {root: '../myWebApp/public'});
 });
+
 router.post('/login', (req, res) => {
     user_name = req.body.user;
     password = req.body.password;
     console.log("User name = " + user_name + ", password is " + password);
     res.end("yes");
 });
+
 router.get('/loginData', function (req, res, next) {
     MongoClient.connect(url, {useUnifiedTopology: true}, function (err, client) {
         if (err) throw err;
@@ -42,6 +44,7 @@ router.get('/loginData', function (req, res, next) {
         });
     });
 });
+
 router.get('/user', function (req, res, next) {
                     res.json({userID: user_name});
 });

@@ -9,7 +9,7 @@ function createContactFormAndMapMarker(contactObject) {
     markerReq.open("GET", url, true);
 
     markerReq.onerror = function () {   // Aufruf, wenn ein Fehler auftritt
-        alert("Connecting to server with " + url + " failed!\n");
+        alert("Verbindung zu " + url + " fehlgeschlagen!\n");
     };
     markerReq.onload = function (e) {   // Aufruf,wenn die Anfrage erfolgreich war
         var data = this.response;
@@ -27,7 +27,7 @@ function createContactFormAndMapMarker(contactObject) {
                 alert("Die Adresse konnte nicht aufgelöst werden!");
             }
         } else {
-            alert("HTTP-status code was: " + obj.status);
+            alert("HTTP-status: " + obj.status);
         }
     };
     markerReq.send();
@@ -202,7 +202,6 @@ function createContactFormAndMapMarker(contactObject) {
     var br = document.createElement("br");
     form.appendChild(br);
 
-
     var updateButton = document.createElement("button"); //input element, Submit button
     updateButton.textContent = 'Update Contact';
 
@@ -225,6 +224,7 @@ function createContactFormAndMapMarker(contactObject) {
             ownerID: contactObject.ownerID,
             __v: 0
         };
+
         //get lat and long of addr
         mapMarker=[];
         var markerReq = new XMLHttpRequest();
@@ -255,7 +255,7 @@ function createContactFormAndMapMarker(contactObject) {
                     alert("Die Adresse konnte nicht aufgelöst werden!");
                 }
             } else {
-                alert("HTTP-status code was: " + obj.status);
+                alert("HTTP-status: " + obj.status);
             }
         };
         markerReq.send();
@@ -269,7 +269,7 @@ function createContactFormAndMapMarker(contactObject) {
                     if (data == "success") {
                         alert("Kontakt aktualisiert!");
                     } else {
-                        alert("didnt reach server");
+                        alert("Verbindungsfehler");
                     }
                     ;
                 }
