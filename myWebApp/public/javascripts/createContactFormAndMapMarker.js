@@ -67,7 +67,7 @@ function createContactFormAndMapMarker(contactObject) {
 
     var select = document.createElement("select");
     select.setAttribute("name", "Geschlecht");
-    var options = ["keine Angabe", "männlich", "weiblich"];
+    var options = ["keine Angabe", "männlich", "weiblich", "divers"];
     for (var i = 0; i < options.length; i++) {
         var option = document.createElement("option");
         option.value = options[i];
@@ -266,7 +266,7 @@ function createContactFormAndMapMarker(contactObject) {
                 type: 'PUT',
                 data: newContactObject,
                 success: function (data) {
-                    if (data == "success") {
+                    if (data == "yes") {
                         alert("Kontakt aktualisiert!");
                     } else {
                         alert("didnt reach server");
