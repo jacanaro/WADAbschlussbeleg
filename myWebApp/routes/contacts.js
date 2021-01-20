@@ -94,38 +94,43 @@ router.post("/", async (req, res) => {
     res.end("success")
 });
 
-
-router.put("/id", function (req, res, next){
-
-    var updatedContact = req.body;
-    console.log(updatedContact);
-    /*
-db.collection('contacts').updateOne(
-    {
-        $set: { 'Titel': req.body.Titel },
-        $currentDate: { lastModified: true }
-    }
-);*/
-    res.end("yes");
+router.put('/id',async(req, res) => {
+    await mongoose.connect("mongodb://localhost:27017/adviz", {useNewUrlParser: true});
+    await Contact.updateOne({_id: req.body._id}, {
+        $set: {
+            Titel: req.body.Titel,
+            m_w_d: req.body.m_w_d,
+            Vorname: req.body.Vorname,
+            Name: req.body.Name,
+            StrHsnr: req.body.StrHsnr,
+            PLZ: req.body.PLZ,
+            Stadt: req.body.Stadt,
+            Land: req.body.Land,
+            Email: req.body.Email,
+            Sonstiges: req.body.Sonstiges,
+            isPrivate: req.body.isPrivate,
+            lat: req.body.lat,
+            lng: req.body.lng,
+            ownerID: req.body.ownerID
+        }
+    }, function (err, res) {
+        if (err) {
+            console.log("err");
+        } else {
+            console.log("Kontakt aktualisiert: " + req.body.Vorname + " " + req.body.Name);
+        }
+    });
+    res.end("success");
 });
 
-/*
-router.delete("/id", function (req, res, next){
-
-    var contactToDelete = req.body;
-    console.log(contactToDelete);
-    res.end("yes");
-});
-
- */
 
 router.delete("/id", async (req, res) => {
     try {
         await mongoose.connect("mongodb://localhost:27017/adviz", {useNewUrlParser: true});
-        await Contact.deleteOne({ _id: req.body._id })
-        res.end("deleted")
+        await Contact.deleteOne({ _id: req.body._id });
+        res.send("success");
     } catch {
-        res.status(404)
+        res.status(404);
         res.send({ error: "Kein Kontakt vorhanden!" })
     }
 });
