@@ -46,11 +46,11 @@ const contactSchema = new mongoose.Schema ({
 
 });
 
- */
 
-//const Contact = mongoose.model("Contact", contactSchema);
 
-/*
+const Contact = mongoose.model("Contact", contactSchema);
+
+
 const userSchema = new mongoose.Schema ({
     userID: String,
     password: String,
@@ -62,10 +62,14 @@ const userSchema = new mongoose.Schema ({
 const User = mongoose.model("User", userSchema);
 
 
+
  */
+
 /*hier werden die vordefinierten Kontakte für die Datenbank erstellt
 (noch nicht in die DB eingefügt)*/
+
 /*
+
 const caro = new Contact({
     Titel: "Frau",
     m_w_d: "weiblich",
@@ -133,21 +137,23 @@ const musterino = new Contact({
 const admina = new User({
     userID: "admina",
     password: "admina",
-    firstname:"admina",
-    lastname:"admina",
+    firstname: "admina",
+    lastname: "admina",
     isAdminUser: true
 });
 
 const normalo = new User({
-    userID: "normalo",
-    password: "normalo",
-    firstname:"normalo",
-    lastname:"normalo",
-    isAdminUser: false
+    "userID": "normalo",
+    "password": "normalo",
+    "firstname": "normalo",
+    "lastname": "normalo",
+    "isAdminUser": false
 });
 
 
+
  */
+
 
 
 /*--------HIER WIRD EINGEFÜGT---------*/
@@ -171,7 +177,9 @@ User.insertMany([admina, normalo], function (err){
     }
 });
 
+
  */
+
 
 /*------------------END OF AUSKOMMENTIEREN------------------*/
 
@@ -198,6 +206,8 @@ Contact.find(function (err, contacts){
 
 
  */
+
+
 /*
 
 Contact.createOne(

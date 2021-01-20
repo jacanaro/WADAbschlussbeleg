@@ -69,8 +69,6 @@ const contactSchema = new mongoose.Schema ({
 
 });
 
-
-
 const Contact = mongoose.model("Contact", contactSchema);
 
 
@@ -97,15 +95,6 @@ router.post("/", async (req, res) => {
 });
 
 
-
-router.post("/", function (req, res, next) {
-    var newContact = req.body;
-    //neuer Kontakt in DB:
-
-    console.log(newContact);
-    res.end("yes");
-});
-
 router.put("/id", function (req, res, next){
 
     var updatedContact = req.body;
@@ -119,11 +108,27 @@ db.collection('contacts').updateOne(
 );*/
     res.end("yes");
 });
+
+/*
 router.delete("/id", function (req, res, next){
 
     var contactToDelete = req.body;
     console.log(contactToDelete);
     res.end("yes");
 });
+
+ */
+
+router.delete("/id", async (req, res) => {
+    try {
+        await mongoose.connect("mongodb://localhost:27017/adviz", {useNewUrlParser: true});
+        await Contact.deleteOne({ _id: req.body._id })
+        res.status(204).send()
+    } catch {
+        res.status(404)
+        res.send({ error: "Kein Kontakt vorhanden!" })
+    }
+})
+
 
 module.exports = router;
