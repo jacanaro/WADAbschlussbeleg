@@ -266,7 +266,7 @@ function createContactFormAndMapMarker(contactObject) {
                 type: 'PUT',
                 data: newContactObject,
                 success: function (data) {
-                    if (data == "yes") {
+                    if (data == "success") {
                         alert("Kontakt aktualisiert!");
                     } else {
                         alert("didnt reach server");
@@ -294,7 +294,7 @@ function createContactFormAndMapMarker(contactObject) {
             type: 'DELETE',
             data: contactID,
             success: function (data) {
-                if (data == "yes") {
+                if (data == "success") {
                     while (details.firstChild) {
                         details.removeChild(details.lastChild);
                     }
