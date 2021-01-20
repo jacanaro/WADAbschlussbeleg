@@ -126,24 +126,37 @@ router.put("/id", async (req, res) => {
 
  */
 
-router.put('/',(req, res) => {
-
-    Contact.updateOne({_id: req.body._id}, {    // ggf. müsste man alle Felder abfragen, da der body keine id hat... aber der Filter funnzt auch so nicht, habs mit einem Attribut als Filter ausprobiert
+router.put('/id',async(req, res) => {
+    await mongoose.connect("mongodb://localhost:27017/adviz", {useNewUrlParser: true});
+    await Contact.updateOne({_id: req.body._id}, {    // ggf. müsste man alle Felder abfragen, da der body keine id hat... aber der Filter funnzt auch so nicht, habs mit einem Attribut als Filter ausprobiert
         $set: {
             Titel: req.body.Titel,
-            Name: req.body.Name
+            m_w_d: req.body.m_w_d,
+            Vorname: req.body.Vorname,
+            Name: req.body.Name,
+            StrHsnr: req.body.StrHsnr,
+            PLZ: req.body.PLZ,
+            Stadt: req.body.Stadt,
+            Land: req.body.Land,
+            Email: req.body.Email,
+            Sonstiges: req.body.Sonstiges,
+            isPrivate: req.body.isPrivate,
+            lat: req.body.lat,
+            lng: req.body.lng,
+            ownerID: req.body.ownerID
         }
-    }, function (err, result) {
+    }, function (err, res) {
         if (err) {
-            console.log(err);
+            console.log("err");
         } else {
-            console.log("contact Updated successfully");
+            console.log("Kontakt aktualisiert: " + req.body.Vorname + " " + req.body.Name);
         }
     });
+    res.end("success");
 });
 
 
-    router.delete("/id", async (req, res) => {
+router.delete("/id", async (req, res) => {
     try {
         await mongoose.connect("mongodb://localhost:27017/adviz", {useNewUrlParser: true});
         await Contact.deleteOne({ _id: req.body._id });

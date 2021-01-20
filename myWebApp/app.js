@@ -182,30 +182,3 @@ User.insertMany([admina, normalo], function (err){
 
 
 /*------------------END OF AUSKOMMENTIEREN------------------*/
-
-/*
-Contact.find(function (err, contacts){
-    if (err) {
-        console.log(err);
-    } else {
-        console.log(contacts);
-    }
-});
-
-//howto: mittels for-loop nur bestimmte Attribute auslesen:
-
-Contact.find(function (err, contacts){
-    if (err) {
-        console.log(err);
-    } else {
-        contacts.forEach(function(contact){
-            console.log(contact.Vorname, contact.Name);
-        });
-    }
-});
-
-
- */
-
-
-

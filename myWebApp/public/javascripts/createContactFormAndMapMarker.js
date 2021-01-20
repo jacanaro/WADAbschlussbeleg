@@ -266,7 +266,7 @@ function createContactFormAndMapMarker(contactObject) {
                 type: 'PUT',
                 data: newContactObject,
                 success: function (data) {
-                    if (data == "yes") {
+                    if (data == "success") {
                         alert("Kontakt aktualisiert!");
                     } else {
                         alert("didnt reach server");
