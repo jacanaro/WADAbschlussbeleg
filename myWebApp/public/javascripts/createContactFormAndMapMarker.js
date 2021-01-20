@@ -192,7 +192,7 @@ function createContactFormAndMapMarker(contactObject) {
             Land: inputLand.value,
             Email: inputMailAdr.value,
             Sonstiges: inputSonstiges.value,
-            isPrivate: inputIsPrivat.value,
+            isPrivate: inputIsPrivat.checked,
             lat: 52.4626,
             lng: 13.52322,
             ownerID: contactObject.ownerID,
@@ -230,7 +230,7 @@ function createContactFormAndMapMarker(contactObject) {
                             type: 'PUT',
                             data: newContactObject,
                             success: function (data) {
-                                if (data == "yes") {
+                                if (data == "success") {
                                     alert("Kontakt aktualisiert!");
                                 } else {
                                     alert("didnt reach server");
@@ -267,7 +267,7 @@ function createContactFormAndMapMarker(contactObject) {
             type: 'DELETE',
             data: contactID,
             success: function (data) {
-                if (data === "deleted") {
+                if (data === "success") {
                     while (details.firstChild) {
                         details.removeChild(details.lastChild);
                     }

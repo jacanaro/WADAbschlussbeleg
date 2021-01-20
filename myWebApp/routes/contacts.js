@@ -1,6 +1,7 @@
 var MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017/adviz";
 const mongoose = require('mongoose');
+var ObjectId = require('mongoose').Types.ObjectId;
 
 var express = require('express');
 var router = express.Router();
@@ -95,8 +96,8 @@ router.post("/", async (req, res) => {
 });
 
 router.put('/id',async(req, res) => {
-    await mongoose.connect("mongodb://localhost:27017/adviz", {useNewUrlParser: true});
-    await Contact.updateOne({_id: req.body._id}, {
+    await mongoose.connect("mongodb://localhost:27017/adviz", {useNewUrlParser: true, useUnifiedTopology: true});
+    await Contact.updateOne({_id:ObjectId(req.body._id)}, {
         $set: {
             Titel: req.body.Titel,
             m_w_d: req.body.m_w_d,
@@ -115,7 +116,7 @@ router.put('/id',async(req, res) => {
         }
     }, function (err, res) {
         if (err) {
-            console.log("err");
+            console.log(err);
         } else {
             console.log("Kontakt aktualisiert: " + req.body.Vorname + " " + req.body.Name);
         }
@@ -128,7 +129,7 @@ router.delete("/id", async (req, res) => {
     try {
         await mongoose.connect("mongodb://localhost:27017/adviz", {useNewUrlParser: true});
         await Contact.deleteOne({ _id: req.body._id });
-        res.send("success");
+        res.end("success");
     } catch {
         res.status(404);
         res.send({ error: "Kein Kontakt vorhanden!" })
