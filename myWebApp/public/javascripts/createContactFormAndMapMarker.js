@@ -1,13 +1,13 @@
 function createContactFormAndMapMarker(contactObject) {
-    var contentString=contactObject.Vorname+" "+contactObject.Name+": "+contactObject.StrHsnr+", "+contactObject.Stadt;
-    var infoWindow= new google.maps.InfoWindow({
+    var contentString = contactObject.Vorname + " " + contactObject.Name + ": " + contactObject.StrHsnr + ", " + contactObject.Stadt;
+    var infoWindow = new google.maps.InfoWindow({
         content: contentString
     });
     var mapMarker = new google.maps.Marker({
         position: {lat: contactObject.lat, lng: contactObject.lng},
         map: map
     });
-    mapMarker.addListener("click", () =>{
+    mapMarker.addListener("click", () => {
         infoWindow.open(map, mapMarker);
     });
 
@@ -186,143 +186,169 @@ function createContactFormAndMapMarker(contactObject) {
     label.setAttribute("for", "requiredLable");
     label.innerHTML = "*Required Fields"
     form.appendChild(label);
-    var br = document.createElement("br");
-    form.appendChild(br);
-    var br = document.createElement("br");
-    form.appendChild(br);
 
-    var updateButton = document.createElement("button"); //input element, Submit button
-    updateButton.textContent = 'Update Contact';
+    if (username == "normalo" && contactObject.ownerID == "admina") {
+        var br = document.createElement("br");
+        form.appendChild(br);
+        var br = document.createElement("br");
+        form.appendChild(br);
 
-    updateButton.onclick = function updateContact() {
-        var newContactObject = {
-            _id: contactObject._id,
-            Titel: inputTitel.value,
-            m_w_d: select.value,
-            Vorname: inputVorname.value,
-            Name: inputNachname.value,
-            StrHsnr: inputStrasseUndHausnummer.value,
-            PLZ: inputPLZ.value,
-            Stadt: inputStadt.value,
-            Land: inputLand.value,
-            Email: inputMailAdr.value,
-            Sonstiges: inputSonstiges.value,
-            isPrivate: inputIsPrivat.checked,
-            lat: 52.4626,
-            lng: 13.52322,
-            ownerID: contactObject.ownerID,
-            __v: 0
-        };
-        //get lat and long of addr
-        mapMarker =null;
-        var markerReq = new XMLHttpRequest();
-        var url = "https://maps.googleapis.com/maps/api/geocode/json?";
-        url = url + "address=" + inputStrasseUndHausnummer.value + ", " + inputStadt.value;
-        url = url + "&key=AIzaSyB6r6VNSQh_pXayQ1yY3-NOp_0rKzaukZ4";
+        details.appendChild(form);
 
-        markerReq.open("GET", url, true);
+        document.getElementById('displayedContacts').appendChild(details);
 
-        markerReq.onerror = function () {   // Aufruf, wenn ein Fehler auftritt
-            alert("Server couldn't connect to " + url + " !\n");
-        };
-        markerReq.onload = function (e) {   // Aufruf,wenn die Anfrage erfolgreich war
-            var data = this.response;
-            var obj = JSON.parse(data);
-            //console.log(obj);
-            if (this.status == 200) {
-                if (obj.status != "ZERO_RESULTS") {
-                    var lat = obj.results[0].geometry.location.lat;
-                    var lng = obj.results[0].geometry.location.lng;
-                    marker = new google.maps.Marker({
-                        position: {lat: lat, lng: lng},
-                        map: map
-                    });
-                    newContactObject.lat = lat;
-                    newContactObject.lng = lng;
-                    if (inputVorname.value != "" && inputNachname.value != "" && inputStrasseUndHausnummer.value != "" && inputPLZ.value != "" && inputStadt.value != "" && inputLand.value != "") {
-                        $.ajax({
-                            url: 'http://localhost:3000/adviz/contacts/id',
-                            type: 'PUT',
-                            data: newContactObject,
-                            success: function (data) {
-                                if (data == "success") {
-                                    alert("Contact updated!");
-                                    if(allContactsAredisplayed==true){
-                                        showAllContacts();
-                                    }
-                                    else{
-                                        showMyContacts();
-                                    }
-                                } else {
-                                    alert("Couldn't reach server");
-                                }
-                                ;
-                            }
+
+        const All_Details = document.querySelectorAll('details');
+
+        All_Details.forEach(deet => {
+            deet.addEventListener('toggle', toggleOpenOneOnly)
+        })
+
+        function toggleOpenOneOnly(e) {
+            if (this.open) {
+                All_Details.forEach(deet => {
+                    if (deet != this && deet.open) deet.open = false
+                });
+            }
+        }
+    } else {
+        var br = document.createElement("br");
+        form.appendChild(br);
+        var br = document.createElement("br");
+        form.appendChild(br);
+
+        var updateButton = document.createElement("button"); //input element, Submit button
+        updateButton.textContent = 'Update Contact';
+
+        updateButton.onclick = function updateContact() {
+            var newContactObject = {
+                _id: contactObject._id,
+                Titel: inputTitel.value,
+                m_w_d: select.value,
+                Vorname: inputVorname.value,
+                Name: inputNachname.value,
+                StrHsnr: inputStrasseUndHausnummer.value,
+                PLZ: inputPLZ.value,
+                Stadt: inputStadt.value,
+                Land: inputLand.value,
+                Email: inputMailAdr.value,
+                Sonstiges: inputSonstiges.value,
+                isPrivate: inputIsPrivat.checked,
+                lat: 52.4626,
+                lng: 13.52322,
+                ownerID: contactObject.ownerID,
+                __v: 0
+            };
+            //get lat and long of addr
+            mapMarker = null;
+            var markerReq = new XMLHttpRequest();
+            var url = "https://maps.googleapis.com/maps/api/geocode/json?";
+            url = url + "address=" + inputStrasseUndHausnummer.value + ", " + inputStadt.value;
+            url = url + "&key=AIzaSyB6r6VNSQh_pXayQ1yY3-NOp_0rKzaukZ4";
+
+            markerReq.open("GET", url, true);
+
+            markerReq.onerror = function () {   // Aufruf, wenn ein Fehler auftritt
+                alert("Server couldn't connect to " + url + " !\n");
+            };
+            markerReq.onload = function (e) {   // Aufruf,wenn die Anfrage erfolgreich war
+                var data = this.response;
+                var obj = JSON.parse(data);
+                console.log(obj);
+                if (this.status == 200) {
+                    if (obj.status != "ZERO_RESULTS") {
+                        var lat = obj.results[0].geometry.location.lat;
+                        var lng = obj.results[0].geometry.location.lng;
+                        marker = new google.maps.Marker({
+                            position: {lat: lat, lng: lng},
+                            map: map
                         });
+                        newContactObject.lat = lat;
+                        newContactObject.lng = lng;
+                        if (inputVorname.value != "" && inputNachname.value != "" && inputStrasseUndHausnummer.value != "" && inputPLZ.value != "" && inputStadt.value != "" && inputLand.value != "") {
+                            $.ajax({
+                                url: 'http://localhost:3000/adviz/contacts/id',
+                                type: 'PUT',
+                                data: newContactObject,
+                                success: function (data) {
+                                    if (data == "success") {
+                                        alert("Contact updated!");
+                                        if (allContactsAredisplayed == true) {
+                                            showAllContacts();
+                                        } else {
+                                            showMyContacts();
+                                        }
+                                    } else {
+                                        alert("Couldn't reach server");
+                                    }
+                                    ;
+                                }
+                            });
+                        }
+                    } else {
+                        alert("Address could not be resolved!");
                     }
                 } else {
-                    alert("Address could not be resolved!");
+                    alert("HTTP-status code was: " + obj.status);
                 }
-            } else {
-                alert("HTTP-status code was: " + obj.status);
-            }
+            };
+            markerReq.send();
+
         };
-        markerReq.send();
+        form.appendChild(updateButton);
+        var br = document.createElement("br");
+        form.appendChild(br);
+        var br = document.createElement("br");
+        form.appendChild(br);
 
-    };
+        var deleteContact = document.createElement("button");
+        deleteContact.textContent = 'Delete Contact';
+        deleteContact.onclick = function deleteContact() {
+            var contactID = {_id: contactObject._id};
 
-
-    form.appendChild(updateButton);
-    var br = document.createElement("br");
-    form.appendChild(br);
-    var br = document.createElement("br");
-    form.appendChild(br);
-
-    var deleteContact = document.createElement("button");
-    deleteContact.textContent = 'Delete Contact';
-    deleteContact.onclick = function deleteContact() {
-        var contactID = {_id: contactObject._id};
-
-        $.ajax({
-            url: 'http://localhost:3000/adviz/contacts/id',
-            type: 'DELETE',
-            data: contactID,
-            success: function (data) {
-                if (data === "success") {
-                    while (details.firstChild) {
-                        details.removeChild(details.lastChild);
+            $.ajax({
+                url: 'http://localhost:3000/adviz/contacts/id',
+                type: 'DELETE',
+                data: contactID,
+                success: function (data) {
+                    if (data === "success") {
+                        alert("Contact deleted!");
+                        if (allContactsAredisplayed == true) {
+                            showAllContacts();
+                        } else {
+                            showMyContacts();
+                        }
+                    } else {
+                        alert("Received no data from server");
                     }
-                    details.remove();
-                } else {
-                    alert("Received no data from server");
+                    ;
                 }
-                ;
-            }
-        });
-    };
-
-    form.appendChild(deleteContact);
-    var br = document.createElement("br");
-    form.appendChild(br);
-    var br = document.createElement("br");
-    form.appendChild(br);
-
-    details.appendChild(form);
-
-    document.getElementById('displayedContacts').appendChild(details);
-
-
-    const All_Details = document.querySelectorAll('details');
-
-    All_Details.forEach(deet => {
-        deet.addEventListener('toggle', toggleOpenOneOnly)
-    })
-
-    function toggleOpenOneOnly(e) {
-        if (this.open) {
-            All_Details.forEach(deet => {
-                if (deet != this && deet.open) deet.open = false
             });
+        };
+
+        form.appendChild(deleteContact);
+        var br = document.createElement("br");
+        form.appendChild(br);
+        var br = document.createElement("br");
+        form.appendChild(br);
+
+        details.appendChild(form);
+
+        document.getElementById('displayedContacts').appendChild(details);
+
+
+        const All_Details = document.querySelectorAll('details');
+
+        All_Details.forEach(deet => {
+            deet.addEventListener('toggle', toggleOpenOneOnly)
+        })
+
+        function toggleOpenOneOnly(e) {
+            if (this.open) {
+                All_Details.forEach(deet => {
+                    if (deet != this && deet.open) deet.open = false
+                });
+            }
         }
     }
 }
