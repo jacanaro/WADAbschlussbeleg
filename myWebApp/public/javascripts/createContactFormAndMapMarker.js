@@ -199,7 +199,6 @@ function createContactFormAndMapMarker(contactObject) {
             __v: 0
         };
         //get lat and long of addr
-        mapMarker =null;
         var markerReq = new XMLHttpRequest();
         var url = "https://maps.googleapis.com/maps/api/geocode/json?";
         url = url + "address=" + inputStrasseUndHausnummer.value + ", " + inputStadt.value;
@@ -232,6 +231,12 @@ function createContactFormAndMapMarker(contactObject) {
                             success: function (data) {
                                 if (data == "success") {
                                     alert("Kontakt aktualisiert!");
+                                    if(allContactsAredisplayed==true){
+                                        showAllContacts();
+                                    }
+                                    else{
+                                        showMyContacts();
+                                    }
                                 } else {
                                     alert("didnt reach server");
                                 }

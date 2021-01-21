@@ -1,4 +1,5 @@
 username="";
+allContactsAredisplayed=false;
 $(document).ready(function () {
     var user, pass;
     $("#loginForm").submit(function (e) {
