@@ -20,7 +20,7 @@ router.get("/", function (req, res, next) {
             if (user_name == "admina") {
                 db.collection("contacts").find({}).toArray(function (err, result) {
                     if (err) throw err;
-                    console.log(result);
+                    //console.log(result);
                     res.json(result);
                     client.close();
 
@@ -44,7 +44,7 @@ router.get("/", function (req, res, next) {
         } else {
             db.collection("contacts").find({ownerID: ID}).toArray(function (err, result) {
                 if (err) throw err;
-                console.log(result);
+                //console.log(result);
                 res.json(result);
                 client.close();
             });
@@ -91,9 +91,19 @@ router.post("/", async (req, res) => {
         lng: req.body.lng,
         ownerID: req.body.ownerID
     });
-    await newContact.save();
-    res.end("success")
+
+    const query = {"Vorname": req.body.Vorname, "Name": req.body.Name, "StrHsnr": req.body.StrHsnr, "PLZ": req.body.PLZ, "Stadt": req.body.Stadt, "Land": req.body.Land};
+    const countDoubles = await Contact.countDocuments(query);
+    if (countDoubles > 0) {
+        res.end("contactExists");
+    } else {
+        await newContact.save();
+        res.end("success");
+    }
+
 });
+
+
 
 router.put('/id',async(req, res) => {
     await mongoose.connect("mongodb://localhost:27017/adviz", {useNewUrlParser: true, useUnifiedTopology: true});
