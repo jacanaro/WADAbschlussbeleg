@@ -42,7 +42,7 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
         markerReq.open("GET", url, true);
 
         markerReq.onerror = function () {   // Aufruf, wenn ein Fehler auftritt
-            alert("Server konnte sich nicht mit " + url + " verbinden!\n");
+            alert("Server couldn't connect to " + url + " !\n");
         };
         markerReq.onload = function (e) {   // Aufruf,wenn die Anfrage erfolgreich war
             var data = this.response;
@@ -67,12 +67,12 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
                                 showMyContacts();
                             }
                         } else {
-                            alert("Kontakt konnte nicht an Server gesendet werden!");
+                            alert("Contact could not be sent to Server!");
                         }
                     });
 
                 } else {
-                    alert("Die Adresse konnte nicht aufgelöst werden!");
+                    alert("Error: Address could not be resolved!");
                 }
             } else {
                 alert("HTTP-status: " + obj.status);

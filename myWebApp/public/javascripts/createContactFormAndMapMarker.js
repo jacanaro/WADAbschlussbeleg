@@ -30,7 +30,7 @@ function createContactFormAndMapMarker(contactObject) {
     var inputTitel = document.createElement("input"); //input element, text
     inputTitel.setAttribute('type', "text");
     inputTitel.setAttribute('name', "titel");
-    inputTitel.setAttribute('placeholder', "Titel");
+    inputTitel.setAttribute('placeholder', "Title");
     inputTitel.id = "titel" + contactObject._id;
     inputTitel.value = contactObject.Titel;
     form.appendChild(inputTitel);
@@ -42,12 +42,12 @@ function createContactFormAndMapMarker(contactObject) {
 
     var label = document.createElement("label");
     label.setAttribute("for", "Geschlecht");
-    label.innerHTML = "Geschlecht: "
+    label.innerHTML = "Gender: "
     form.appendChild(label);
 
     var select = document.createElement("select");
     select.setAttribute("name", "Geschlecht");
-    var options = ["keine Angabe", "männlich", "weiblich", "divers"];
+    var options = ["not specified", "male", "female", "diverse"];
     for (var i = 0; i < options.length; i++) {
         var option = document.createElement("option");
         option.value = options[i];
@@ -66,7 +66,7 @@ function createContactFormAndMapMarker(contactObject) {
     var inputVorname = document.createElement("input"); //input element, text
     inputVorname.setAttribute('type', "text");
     inputVorname.setAttribute('name', "vorname");
-    inputVorname.setAttribute('placeholder', "Vorname");
+    inputVorname.setAttribute('placeholder', "Name*");
     inputVorname.required = true;
     inputVorname.id = "vorname" + contactObject._id;
     inputVorname.value = contactObject.Vorname;
@@ -79,7 +79,7 @@ function createContactFormAndMapMarker(contactObject) {
     var inputNachname = document.createElement("input"); //input element, text
     inputNachname.setAttribute('type', "text");
     inputNachname.setAttribute('name', "nachname");
-    inputNachname.setAttribute('placeholder', "Nachname");
+    inputNachname.setAttribute('placeholder', "Surname*");
     inputNachname.required = true;
     inputNachname.id = "name" + contactObject._id;
     inputNachname.value = contactObject.Name;
@@ -92,7 +92,7 @@ function createContactFormAndMapMarker(contactObject) {
     var inputStrasseUndHausnummer = document.createElement("input"); //input element, text
     inputStrasseUndHausnummer.setAttribute('type', "text");
     inputStrasseUndHausnummer.setAttribute('name', "StrasseUndHausnummer");
-    inputStrasseUndHausnummer.setAttribute('placeholder', "Straße und Hausnummer");
+    inputStrasseUndHausnummer.setAttribute('placeholder', "Street and no.*");
     inputStrasseUndHausnummer.required = true;
     inputStrasseUndHausnummer.id = "strHsnr" + contactObject._id;
     inputStrasseUndHausnummer.value = contactObject.StrHsnr;
@@ -105,7 +105,7 @@ function createContactFormAndMapMarker(contactObject) {
     var inputPLZ = document.createElement("input"); //input element, text
     inputPLZ.setAttribute('type', "number");
     inputPLZ.setAttribute('name', "PLZ");
-    inputPLZ.setAttribute('placeholder', "Postleitzahl");
+    inputPLZ.setAttribute('placeholder', "Zip Code*");
     inputPLZ.required = true;
     inputPLZ.id = "plz" + contactObject._id;
     inputPLZ.value = contactObject.PLZ;
@@ -118,7 +118,7 @@ function createContactFormAndMapMarker(contactObject) {
     var inputStadt = document.createElement("input"); //input element, text
     inputStadt.setAttribute('type', "text");
     inputStadt.setAttribute('name', "Stadt");
-    inputStadt.setAttribute('placeholder', "Stadt");
+    inputStadt.setAttribute('placeholder', "City*");
     inputStadt.required = true;
     inputStadt.id = "stadt" + contactObject._id;
     inputStadt.value = contactObject.Stadt;
@@ -131,7 +131,7 @@ function createContactFormAndMapMarker(contactObject) {
     var inputLand = document.createElement("input"); //input element, text
     inputLand.setAttribute('type', "text");
     inputLand.setAttribute('name', "Land");
-    inputLand.setAttribute('placeholder', "Land");
+    inputLand.setAttribute('placeholder', "Country*");
     inputLand.required = true;
     inputLand.id = "land" + contactObject._id;
     inputLand.value = contactObject.Land;
@@ -144,7 +144,7 @@ function createContactFormAndMapMarker(contactObject) {
     var inputMailAdr = document.createElement("input"); //input element, text
     inputMailAdr.setAttribute('type', "text");
     inputMailAdr.setAttribute('name', "MailAdr");
-    inputMailAdr.setAttribute('placeholder', "Mail-Adresse");
+    inputMailAdr.setAttribute('placeholder', "Mail Address");
     inputMailAdr.id = "email" + contactObject._id;
     inputMailAdr.value = contactObject.Email;
     form.appendChild(inputMailAdr);
@@ -156,7 +156,7 @@ function createContactFormAndMapMarker(contactObject) {
     var inputSonstiges = document.createElement("input"); //input element, text
     inputSonstiges.setAttribute('type', "text");
     inputSonstiges.setAttribute('name', "Sonstiges");
-    inputSonstiges.setAttribute('placeholder', "Sonstiges");
+    inputSonstiges.setAttribute('placeholder', "Other");
     inputSonstiges.id = "sonstiges" + contactObject._id;
     inputSonstiges.value = contactObject.Sonstiges;
     form.appendChild(inputSonstiges);
@@ -168,7 +168,7 @@ function createContactFormAndMapMarker(contactObject) {
 
     var label = document.createElement("label");
     label.setAttribute("for", "privContakt");
-    label.innerHTML = "Privater Kontakt: "
+    label.innerHTML = "Private Contact: "
     form.appendChild(label);
 
     var inputIsPrivat = document.createElement("input"); //input element, text
@@ -182,6 +182,14 @@ function createContactFormAndMapMarker(contactObject) {
     var br = document.createElement("br");
     form.appendChild(br);
 
+    var label = document.createElement("label");
+    label.setAttribute("for", "requiredLable");
+    label.innerHTML = "*Required Fields"
+    form.appendChild(label);
+    var br = document.createElement("br");
+    form.appendChild(br);
+    var br = document.createElement("br");
+    form.appendChild(br);
 
     var updateButton = document.createElement("button"); //input element, Submit button
     updateButton.textContent = 'Update Contact';
@@ -206,6 +214,7 @@ function createContactFormAndMapMarker(contactObject) {
             __v: 0
         };
         //get lat and long of addr
+        mapMarker =null;
         var markerReq = new XMLHttpRequest();
         var url = "https://maps.googleapis.com/maps/api/geocode/json?";
         url = url + "address=" + inputStrasseUndHausnummer.value + ", " + inputStadt.value;
@@ -214,7 +223,7 @@ function createContactFormAndMapMarker(contactObject) {
         markerReq.open("GET", url, true);
 
         markerReq.onerror = function () {   // Aufruf, wenn ein Fehler auftritt
-            alert("Server konnte sich nicht mit " + url + " verbinden!\n");
+            alert("Server couldn't connect to " + url + " !\n");
         };
         markerReq.onload = function (e) {   // Aufruf,wenn die Anfrage erfolgreich war
             var data = this.response;
@@ -237,7 +246,7 @@ function createContactFormAndMapMarker(contactObject) {
                             data: newContactObject,
                             success: function (data) {
                                 if (data == "success") {
-                                    alert("Kontakt aktualisiert!");
+                                    alert("Contact updated!");
                                     if(allContactsAredisplayed==true){
                                         showAllContacts();
                                     }
@@ -245,14 +254,14 @@ function createContactFormAndMapMarker(contactObject) {
                                         showMyContacts();
                                     }
                                 } else {
-                                    alert("Server nicht erreicht");
+                                    alert("Couldn't reach server");
                                 }
                                 ;
                             }
                         });
                     }
                 } else {
-                    alert("Die Adresse konnte nicht aufgelöst werden!");
+                    alert("Address could not be resolved!");
                 }
             } else {
                 alert("HTTP-status code was: " + obj.status);
@@ -285,12 +294,11 @@ function createContactFormAndMapMarker(contactObject) {
                     }
                     details.remove();
                 } else {
-                    alert("Keine Daten vom Server erhalten");
+                    alert("Received no data from server");
                 }
                 ;
             }
         });
-//todo: hier form auch schließen bei delete
     };
 
     form.appendChild(deleteContact);
