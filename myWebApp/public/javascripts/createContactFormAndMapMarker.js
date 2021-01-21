@@ -21,8 +21,6 @@ function createContactFormAndMapMarker(contactObject) {
 
     var form = document.createElement("form");
     form.setAttribute('onsubmit', "return false;");
-    //form.setAttribute('action', "/contacts");
-
 
     var br = document.createElement("br");
     form.appendChild(br);

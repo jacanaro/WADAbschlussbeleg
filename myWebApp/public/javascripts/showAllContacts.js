@@ -1,5 +1,5 @@
 function showAllContacts(){
-	allContactsAredisplayed=true;
+	allContactsAredisplayed = true;
 	deleteContactsFromClient();
 	initMap();
 	requestAndCreateContactsAndMarker("all");

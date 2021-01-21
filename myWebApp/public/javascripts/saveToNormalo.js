@@ -1,4 +1,4 @@
-function addNewContact() {
+function saveToNormalo(){
 
     function getAddNewContactFormData() {
         var newContactObject = {
@@ -40,28 +40,28 @@ function addNewContact() {
 
         markerReq.open("GET", url, true);
 
-        markerReq.onerror = function () {   // Aufruf, wenn ein Fehler auftritt
+        markerReq.onerror = function() {   // Aufruf, wenn ein Fehler auftritt
             alert("Server couldn't connect to " + url + " !\n");
         };
 
         markerReq.onload = function (e) {   // Aufruf,wenn die Anfrage erfolgreich war
             var data = this.response;
             var obj = JSON.parse(data);
-           // console.log(obj);
+            // console.log(obj);
             if (this.status == 200) {
                 if (obj.status != "ZERO_RESULTS") {
                     var lat = obj.results[0].geometry.location.lat;
                     var lng = obj.results[0].geometry.location.lng;
-                    newContactObject.lat=lat;
-                    newContactObject.lng=lng;
+                    newContactObject.lat = lat;
+                    newContactObject.lng = lng;
 
-                    newContactObject.ownerID=username;
+                    newContactObject.ownerID = "normalo";
 
                     $.post("http://localhost:3000/adviz/contacts",newContactObject, function (data) {
                         if (data ==="success") {
                             alert("Contact added!");
 
-                            if(allContactsAredisplayed==true){
+                            if(allContactsAredisplayed == true){
                                 showAllContacts();
                             }
                             else{

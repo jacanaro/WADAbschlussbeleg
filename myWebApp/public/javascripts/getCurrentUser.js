@@ -9,7 +9,7 @@ function getCurrentUser(cb) {
     req.open('GET', url, false);
     req.onreadystatechange = function() {
         if (this.readyState === 4) {
-            user=cb(JSON.parse(this.response));
+            user = cb(JSON.parse(this.response));
         }
         else{
             cb(null);
