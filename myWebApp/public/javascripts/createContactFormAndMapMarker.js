@@ -208,7 +208,7 @@ function createContactFormAndMapMarker(contactObject) {
         markerReq.open("GET", url, true);
 
         markerReq.onerror = function () {   // Aufruf, wenn ein Fehler auftritt
-            alert("Connecting to server with " + url + " failed!\n");
+            alert("Server konnte sich nicht mit " + url + " verbinden!\n");
         };
         markerReq.onload = function (e) {   // Aufruf,wenn die Anfrage erfolgreich war
             var data = this.response;
@@ -233,7 +233,7 @@ function createContactFormAndMapMarker(contactObject) {
                                 if (data == "success") {
                                     alert("Kontakt aktualisiert!");
                                 } else {
-                                    alert("didnt reach server");
+                                    alert("Server nicht erreicht");
                                 }
                                 ;
                             }
@@ -273,12 +273,12 @@ function createContactFormAndMapMarker(contactObject) {
                     }
                     details.remove();
                 } else {
-                    alert("didnt get anything from server");
+                    alert("Keine Daten vom Server erhalten");
                 }
                 ;
             }
         });
-
+//todo: hier form auch schließen bei delete
     };
 
     form.appendChild(deleteContact);
