@@ -289,7 +289,7 @@ function createContactFormAndMapMarker(contactObject) {
             data: contactID,
             success: function (data) {
                 if (data==="success") {
-                    alert("Kontakt gelöscht!");
+                    alert("Contact deleted!");
                     if(allContactsAredisplayed==true){
                         showAllContacts();
                     }
