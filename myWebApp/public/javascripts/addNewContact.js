@@ -57,11 +57,15 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
 
                     newContactObject.ownerID=username;
 
-                    //createContactFormAndMapMarker(newContactObject);
                     $.post("http://localhost:3000/adviz/contacts",newContactObject, function (data) {
                         if (data ==="success") {
                             alert("Kontakt wurde hinzugefügt!");
-                            showMyContacts();
+                            if(allContactsAredisplayed==true){
+                                showAllContacts();
+                            }
+                            else{
+                                showMyContacts();
+                            }
                         } else {
                             alert("Contact could not be sent to Server!");
                         }

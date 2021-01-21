@@ -240,6 +240,12 @@ function createContactFormAndMapMarker(contactObject) {
                             success: function (data) {
                                 if (data == "success") {
                                     alert("Contact updated!");
+                                    if(allContactsAredisplayed==true){
+                                        showAllContacts();
+                                    }
+                                    else{
+                                        showMyContacts();
+                                    }
                                 } else {
                                     alert("Couldn't reach server");
                                 }
@@ -248,7 +254,7 @@ function createContactFormAndMapMarker(contactObject) {
                         });
                     }
                 } else {
-                    alert("Die Adresse konnte nicht aufgelöst werden!");
+                    alert("Address could not be resolved!");
                 }
             } else {
                 alert("HTTP-status code was: " + obj.status);
