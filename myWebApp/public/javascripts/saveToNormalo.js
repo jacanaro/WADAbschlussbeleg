@@ -47,7 +47,6 @@ function saveToNormalo(){
         markerReq.onload = function (e) {   // Aufruf,wenn die Anfrage erfolgreich war
             var data = this.response;
             var obj = JSON.parse(data);
-            // console.log(obj);
             if (this.status == 200) {
                 if (obj.status != "ZERO_RESULTS") {
                     var lat = obj.results[0].geometry.location.lat;

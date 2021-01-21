@@ -8,32 +8,7 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6r6VNSQh_pXayQ1yY3-NOp_0rKzaukZ4&callback=initMap&libraries=&v=weekly"
             defer ></script>
-
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <!--<script language=javascript src='http://maps.google.com/maps/api/js?sensor=false'></script>-->
-    <!--<script>
-        let map;
-
-        function initMap() {
-            const mapOptions = {
-                zoom: 9,
-                center: {lat: 52.520008, lng: 13.404954},
-            };
-            map = new google.maps.Map(document.getElementById("map"), mapOptions);
-            const marker = new google.maps.Marker({
-                position: {lat: 52.462600, lng: 13.523220},
-                map: map,
-            });
-            /* outdated listener code
-            const infowindow = new google.maps.InfoWindow({
-                content: "<p>Marker Location:" + marker.getPosition() + "</p>",
-            });
-            google.maps.event.addListener(marker, "click", () => {
-                infowindow.open(map, marker);
-            });*/
-        }
-    </script>-->
-
 </head>
 
 
@@ -192,17 +167,17 @@
 
                         <p>*Required Fields</p>
 
-                        <button id="saveToCurrentUser" onclick="addNewContact()">Save</button>
+                        <button id="saveToCurrentUser" onclick="addNewContact(),this.form.reset();">Save</button>
 
                         <br>
 
                         <div id="displaySaveToNormalButton">
                             <br>
-                            <button id="saveToNormaloID" onclick="saveToNormalo()">Save to Normalo
+                            <button id="saveToNormaloID" onclick="saveToNormalo(),this.form.reset();">Save to Normalo
                             </button>
                         </div>
                         <br>
-                        <button name="close" type="button" onclick="displayAddNewContact(false), this.form.reset();">Close</button>
+                        <button name="close" type="button" onclick="displayAddNewContact(false),this.form.reset();">Close</button>
 
                     </form>
                 </div>
@@ -234,6 +209,7 @@
     else {
         document.getElementById("addNewContact").style.display = 'none';
         document.getElementById("displaySaveToNormalButton").style.display = 'none';
+
 
     }
 }
