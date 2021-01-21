@@ -98,32 +98,29 @@ router.post("/", async (req, res) => {
         res.end("contactExists");
     } else {
         await newContact.save();
-        res.end("success");
+        Contact.find({
+            Titel: req.body.Titel,
+            m_w_d: req.body.m_w_d,
+            Vorname: req.body.Vorname,
+            Name: req.body.Name,
+            StrHsnr: req.body.StrHsnr,
+            PLZ: req.body.PLZ,
+            Stadt: req.body.Stadt,
+            Land: req.body.Land,
+            Email: req.body.Email,
+            Sonstiges: req.body.Sonstiges,
+            isPrivate: req.body.isPrivate,
+            lat: req.body.lat,
+            lng: req.body.lng,
+            ownerID: req.body.ownerID}).lean().exec(function(error, records) {
+                records.forEach(function(record) {
+                    console.log("New _id for added contact is: " + record._id);
+                });
+            });
+            console.log(201);
+            res.end("success");
     }
 
-    await newContact.save();
-    Contact.find({
-        Titel: req.body.Titel,
-        m_w_d: req.body.m_w_d,
-        Vorname: req.body.Vorname,
-        Name: req.body.Name,
-        StrHsnr: req.body.StrHsnr,
-        PLZ: req.body.PLZ,
-        Stadt: req.body.Stadt,
-        Land: req.body.Land,
-        Email: req.body.Email,
-        Sonstiges: req.body.Sonstiges,
-        isPrivate: req.body.isPrivate,
-        lat: req.body.lat,
-        lng: req.body.lng,
-        ownerID: req.body.ownerID}).lean().exec(function(error, records) {
-        records.forEach(function(record) {
-            console.log("New _id for added contact is: "+record._id);
-        });
-    });
-
-    console.log(201);
-    res.end("success");
 });
 
 router.put('/id',async(req, res) => {
