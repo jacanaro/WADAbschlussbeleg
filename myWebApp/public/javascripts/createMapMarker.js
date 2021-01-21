@@ -22,10 +22,10 @@ function createMapMarker(contactObject) {
                     map: map
                 });
             } else {
-                alert("Die Adresse konnte nicht aufgelöst werden!");
+                alert("Error: Address could not be resolved!");
             }
         } else {
-            alert("HTTP-status code was: " + obj.status);
+            alert("HTTP-status: " + obj.status);
         }
     };
     markerReq.send();

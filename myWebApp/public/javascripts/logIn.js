@@ -46,7 +46,7 @@ $(document).ready(function () {
 
                 sendReq();
             } else {
-                alert("login data could not be sent");
+                alert("Login data could not be sent");
             }
         });
         this.submit();
