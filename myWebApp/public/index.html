@@ -194,12 +194,15 @@
 
                         <button type="submit" id="submit2" value="submit">Save</button>
 
-                        <br><br>
+                        <br>
 
-                        <!--<button id="saveToNormaloID" name="saveToNormalo" type="submit"
-                                onsubmit="addNewContact()">Save to Normalo
-                        </button>
-                        <br>-->
+                        <div id="displaySaveToNormalButton">
+                            <br>
+                            <button id="saveToNormaloID" name="saveToNormalo" type="submit"
+                                    onsubmit="addNewContact()">Save to Normalo
+                            </button>
+                        </div>
+                        <br>
                         <button name="close" type="button" onclick="displayAddNewContact(false), this.form.reset();">Close</button>
 
                     </form>
@@ -215,16 +218,24 @@
 
 <!-- End Logged in -->
 
-<!-- -->
+<!--Scripts-->
 <script>
     document.getElementById("loggedIn").style.display = 'none';
 </script>
+
 <script>function displayAddNewContact(bool) {
-    if (bool == true) {
+    if (bool === true) {
         document.getElementById("addNewContact").style.display = 'block';
+        if (username === "admina") {
+            document.getElementById("displaySaveToNormalButton").style.display = 'block';
+        } else {
+            document.getElementById("displaySaveToNormalButton").style.display = 'none';
+        }
     }
-    else{
+    else {
         document.getElementById("addNewContact").style.display = 'none';
+        document.getElementById("displaySaveToNormalButton").style.display = 'none';
+
     }
 }
 </script>
