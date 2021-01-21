@@ -79,6 +79,7 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
             }
         };
         markerReq.send();
+        displayAddNewContact(false), this.form.reset();
 
     }
     getAddNewContactFormData();
