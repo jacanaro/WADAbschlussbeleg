@@ -288,11 +288,14 @@ function createContactFormAndMapMarker(contactObject) {
             type: 'DELETE',
             data: contactID,
             success: function (data) {
-                if (data === "success") {
-                    while (details.firstChild) {
-                        details.removeChild(details.lastChild);
+                if (data==="success") {
+                    alert("Kontakt gelöscht!");
+                    if(allContactsAredisplayed==true){
+                        showAllContacts();
                     }
-                    details.remove();
+                    else{
+                        showMyContacts();
+                    }
                 } else {
                     alert("Received no data from server");
                 }

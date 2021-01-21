@@ -9,6 +9,27 @@ const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
 
+const contactSchema = new mongoose.Schema ({
+    Titel: String,
+    m_w_d: String,
+    Vorname: String,
+    Name: String,
+    StrHsnr: String,
+    PLZ: Number,
+    Stadt: String,
+    Land: String,
+    Email: String,
+    Sonstiges: String,
+    isPrivate: Boolean,
+    lat: Number,
+    lng: Number,
+    ownerID: String
+
+});
+
+const Contact = mongoose.model("Contact", contactSchema);
+
+
 router.get("/", function (req, res, next) {
     let contacts = [];
     let ID = req.query.userId;
@@ -20,7 +41,6 @@ router.get("/", function (req, res, next) {
             if (user_name == "admina") {
                 db.collection("contacts").find({}).toArray(function (err, result) {
                     if (err) throw err;
-                    console.log(result);
                     res.json(result);
                     client.close();
 
@@ -44,33 +64,12 @@ router.get("/", function (req, res, next) {
         } else {
             db.collection("contacts").find({ownerID: ID}).toArray(function (err, result) {
                 if (err) throw err;
-                console.log(result);
                 res.json(result);
                 client.close();
             });
         }
     });
 });
-
-const contactSchema = new mongoose.Schema ({
-    Titel: String,
-    m_w_d: String,
-    Vorname: String,
-    Name: String,
-    StrHsnr: String,
-    PLZ: Number,
-    Stadt: String,
-    Land: String,
-    Email: String,
-    Sonstiges: String,
-    isPrivate: Boolean,
-    lat: Number,
-    lng: Number,
-    ownerID: String
-
-});
-
-const Contact = mongoose.model("Contact", contactSchema);
 
 
 router.post("/", async (req, res) => {
@@ -92,7 +91,7 @@ router.post("/", async (req, res) => {
         ownerID: req.body.ownerID
     });
     await newContact.save();
-    res.end("success")
+    res.end("success");
 });
 
 router.put('/id',async(req, res) => {
@@ -118,9 +117,10 @@ router.put('/id',async(req, res) => {
         if (err) {
             console.log(err);
         } else {
-            console.log("Kontakt aktualisiert: " + req.body.Vorname + " " + req.body.Name);
+            console.log(res);
         }
     });
+    console.log(204);
     res.end("success");
 });
 
@@ -129,10 +129,10 @@ router.delete("/id", async (req, res) => {
     try {
         await mongoose.connect("mongodb://localhost:27017/adviz", {useNewUrlParser: true});
         await Contact.deleteOne({ _id: req.body._id });
+        console.log(204);
         res.end("success");
     } catch {
-        res.status(404);
-        res.send({ error: "Kein Kontakt vorhanden!" })
+        res.send({ error: "Kein Kontakt vorhanden!" });
     }
 });
 

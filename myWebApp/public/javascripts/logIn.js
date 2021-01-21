@@ -26,6 +26,7 @@ $(document).ready(function () {
                         if (this.status == 200) {
                             document.getElementById("logIn").style.display = 'none';
                             document.getElementById("loggedIn").style.display = 'block';
+                            allContactsAredisplayed=false;
                             displayAddNewContact(false);
 
                             //safe current username

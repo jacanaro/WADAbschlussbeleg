@@ -58,7 +58,7 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
                     newContactObject.ownerID=username;
 
                     $.post("http://localhost:3000/adviz/contacts",newContactObject, function (data) {
-                        if (data ==="success") {
+                        if (data==="success") {
                             alert("Kontakt wurde hinzugefügt!");
                             if(allContactsAredisplayed==true){
                                 showAllContacts();
