@@ -1,7 +1,14 @@
 function createContactFormAndMapMarker(contactObject) {
+    var contentString=contactObject.Vorname+" "+contactObject.Name+": "+contactObject.StrHsnr+", "+contactObject.Stadt;
+    var infoWindow= new google.maps.InfoWindow({
+        content: contentString
+    });
     var mapMarker = new google.maps.Marker({
         position: {lat: contactObject.lat, lng: contactObject.lng},
         map: map
+    });
+    mapMarker.addListener("click", () =>{
+        infoWindow.open(map, mapMarker);
     });
 
 
