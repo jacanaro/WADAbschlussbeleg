@@ -59,7 +59,7 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
 
                     $.post("http://localhost:3000/adviz/contacts",newContactObject, function (data) {
                         if (data ==="success") {
-                            alert("Kontakt wurde hinzugefügt!");
+                            alert("Contact added!");
                             if(allContactsAredisplayed==true){
                                 showAllContacts();
                             }
@@ -79,6 +79,7 @@ document.getElementById('addNewContactForm').addEventListener('submit', function
             }
         };
         markerReq.send();
+        displayAddNewContact(false), this.form.reset();
 
     }
     getAddNewContactFormData();
