@@ -68,7 +68,7 @@ function addNewContact() {
                                 showMyContacts();
                             }
                         } else if (data === "contactExists") {
-                            alert("Contact already exists");
+                            alert("Contact already exists! Update contact instead.");
                         }
                         else {
                             alert("Contact could not be sent to Server!");
