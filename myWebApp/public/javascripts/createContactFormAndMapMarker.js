@@ -180,6 +180,36 @@ function createContactFormAndMapMarker(contactObject) {
     var br = document.createElement("br");
     form.appendChild(br);
 
+    var ownerSelect = document.createElement("select");
+    ownerSelect.setAttribute("name", "Owner");
+    var options2 = ["self", "normalo"];
+    for (var i = 0; i < options2.length; i++) {
+        var option2 = document.createElement("option");
+        option2.value = options2[i];
+        option2.text = options2[i];
+        ownerSelect.appendChild(option2);
+    }
+    ownerSelect.id = "Owner" + contactObject._id;
+    if(username=="admina"){
+        if(contactObject.ownerID=="admina"){
+            ownerSelect.value = "self";
+            form.appendChild(ownerSelect);
+        }else {
+            ownerSelect.value = "normalo";
+            form.appendChild(ownerSelect);
+        }
+    } else {
+        if(contactObject.ownerID=="normalo"){
+            ownerSelect.value = "self";
+            form.appendChild(ownerSelect);
+        }
+    }
+
+    var br = document.createElement("br");
+    form.appendChild(br);
+    var br = document.createElement("br");
+    form.appendChild(br);
+
     var label = document.createElement("label");
     label.setAttribute("for", "requiredLable");
     label.innerHTML = "*Required Fields"
