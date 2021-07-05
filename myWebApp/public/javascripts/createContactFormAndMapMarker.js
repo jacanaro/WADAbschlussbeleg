@@ -266,11 +266,16 @@ function createContactFormAndMapMarker(contactObject) {
                 ownerID: contactObject.ownerID,
                 __v: 0
             };
-            if (ownerSelect.value == "self") {
-                newContactObject.ownerID = username;
-            } else {
-                newContactObject.ownerID = "normalo";
+            if (username == "admina") {
+                if (ownerSelect.value == "self") {
+                    newContactObject.ownerID = username;
+                } else {
+                    newContactObject.ownerID = "normalo";
+                }
+            }else {
+                newContactObject.ownerID="normalo";
             }
+
             //get lat and long of addr
             mapMarker = null;
             var markerReq = new XMLHttpRequest();
