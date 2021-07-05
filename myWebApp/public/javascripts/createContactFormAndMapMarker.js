@@ -151,6 +151,7 @@ function createContactFormAndMapMarker(contactObject) {
     var br = document.createElement("br");
     form.appendChild(br);
 
+
     var inputSonstiges = document.createElement("input"); //input element, text
     inputSonstiges.setAttribute('type', "text");
     inputSonstiges.setAttribute('name', "Sonstiges");
