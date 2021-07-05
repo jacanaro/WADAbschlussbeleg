@@ -19,6 +19,16 @@ function addNewContact() {
             "ownerID": "",
             "__v": ""
         };
+        if (username=="normalo") {
+            saveToNormalo();
+            return;
+        }
+
+        if(document.getElementById("owner").value=="self"){
+            newContactObject.ownerID = username;
+        }else {
+            newContactObject.ownerID = document.getElementById("owner").value;
+        }
 
         newContactObject.Titel = document.getElementById("addNewTitle").value;
         newContactObject.m_w_d = document.getElementById("addNewGeschlecht").value;
@@ -47,30 +57,26 @@ function addNewContact() {
         markerReq.onload = function (e) {   // Aufruf,wenn die Anfrage erfolgreich war
             var data = this.response;
             var obj = JSON.parse(data);
-           // console.log(obj);
+            // console.log(obj);
             if (this.status == 200) {
                 if (obj.status != "ZERO_RESULTS") {
                     var lat = obj.results[0].geometry.location.lat;
                     var lng = obj.results[0].geometry.location.lng;
-                    newContactObject.lat=lat;
-                    newContactObject.lng=lng;
+                    newContactObject.lat = lat;
+                    newContactObject.lng = lng;
 
-                    newContactObject.ownerID=username;
-
-                    $.post("http://localhost:3000/adviz/contacts",newContactObject, function (data) {
-                        if (data ==="success") {
+                    $.post("http://localhost:3000/adviz/contacts", newContactObject, function (data) {
+                        if (data === "success") {
                             alert("Contact added!");
 
-                            if(allContactsAredisplayed==true){
+                            if (allContactsAredisplayed == true) {
                                 showAllContacts();
-                            }
-                            else{
+                            } else {
                                 showMyContacts();
                             }
                         } else if (data === "contactExists") {
                             alert("Contact already exists! Update contact instead.");
-                        }
-                        else {
+                        } else {
                             alert("Contact could not be sent to Server!");
                         }
                     });
@@ -87,5 +93,6 @@ function addNewContact() {
 
 
     }
+
     getAddNewContactFormData();
 }

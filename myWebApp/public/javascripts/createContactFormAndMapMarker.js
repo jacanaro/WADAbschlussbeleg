@@ -175,34 +175,33 @@ function createContactFormAndMapMarker(contactObject) {
     inputIsPrivat.id = "isPrivat" + contactObject._id;
     inputIsPrivat.checked = contactObject.isPrivate;
     form.appendChild(inputIsPrivat);
-    var br = document.createElement("br");
-    form.appendChild(br);
-    var br = document.createElement("br");
-    form.appendChild(br);
 
-    var ownerSelect = document.createElement("select");
-    ownerSelect.setAttribute("name", "Owner");
-    var options2 = ["self", "normalo"];
-    for (var i = 0; i < options2.length; i++) {
-        var option2 = document.createElement("option");
-        option2.value = options2[i];
-        option2.text = options2[i];
-        ownerSelect.appendChild(option2);
-    }
-    ownerSelect.id = "Owner" + contactObject._id;
-    if(username=="admina"){
-        if(contactObject.ownerID=="admina"){
+    if (username == "admina") {
+        var br = document.createElement("br");
+        form.appendChild(br);
+        var br = document.createElement("br");
+        form.appendChild(br);
+
+        var ownerSelect = document.createElement("select");
+        ownerSelect.setAttribute("name", "Owner");
+        var options2 = ["self", "normalo"];
+        for (var i = 0; i < options2.length; i++) {
+            var option2 = document.createElement("option");
+            option2.value = options2[i];
+            option2.text = options2[i];
+            ownerSelect.appendChild(option2);
+        }
+
+        ownerSelect.id = "Owner" + contactObject._id;
+
+        if (contactObject.ownerID == "admina") {
             ownerSelect.value = "self";
             form.appendChild(ownerSelect);
-        }else {
+        } else {
             ownerSelect.value = "normalo";
             form.appendChild(ownerSelect);
         }
-    } else {
-        if(contactObject.ownerID=="normalo"){
-            ownerSelect.value = "self";
-            form.appendChild(ownerSelect);
-        }
+
     }
 
     var br = document.createElement("br");
@@ -267,6 +266,11 @@ function createContactFormAndMapMarker(contactObject) {
                 ownerID: contactObject.ownerID,
                 __v: 0
             };
+            if (ownerSelect.value == "self") {
+                newContactObject.ownerID = username;
+            } else {
+                newContactObject.ownerID = "normalo";
+            }
             //get lat and long of addr
             mapMarker = null;
             var markerReq = new XMLHttpRequest();

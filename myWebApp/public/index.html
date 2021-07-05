@@ -168,18 +168,20 @@
                                 type="checkbox" id="addNewPrivatCheck" checked>
                         </div>
 
+                        <div id="selectOwner">
+                            <label for="owner">Owner of Contact:</label> <select
+                                name="ownerContact" id="owner">
+                            <option value="self">self</option>
+                            <option value="normalo">normalo</option>
+                        </select> <br> <br>
+                        </div>
+
                         <p>*Required Fields</p>
 
                         <button id="saveToCurrentUser" onclick="addNewContact(), this.form.reset();">Save</button>
 
                         <br>
 
-                        <div id="displaySaveToNormalButton">
-                            <br>
-                            <button id="saveToNormaloID" onclick="saveToNormalo(), this.form.reset();">Save to Normalo
-                            </button>
-                        </div>
-                        <br>
                         <button name="close" type="button" onclick="displayAddNewContact(false), this.form.reset();">Close</button>
 
                     </form>
@@ -201,16 +203,13 @@
     if (bool === true) {
         document.getElementById("addNewContact").style.display = 'block';
         if (username === "admina") {
-            document.getElementById("displaySaveToNormalButton").style.display = 'block';
+            document.getElementById("selectOwner").style.display = 'block';
         } else {
-            document.getElementById("displaySaveToNormalButton").style.display = 'none';
+            document.getElementById("selectOwner").style.display = 'none';
         }
     }
     else {
         document.getElementById("addNewContact").style.display = 'none';
-        document.getElementById("displaySaveToNormalButton").style.display = 'none';
-
-
     }
 }
 </script>
@@ -224,7 +223,7 @@
 </script>
 <script src="javascripts/createContactFormAndMapMarker.js">
 </script>
-<script src="javascripts/login.js">
+<script src="javascripts/logIn.js">
 </script>
 <script src="javascripts/logOut.js">
 </script>
